@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRAPE — Modern Essentials</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #060C18;
+      --surface:  #0C1424;
+      --surface2: #121C2E;
+      --border:   rgba(255,255,255,0.08);
+      --text:     #E8EDF5;
+      --muted:    #6A7A90;
+      --gold:     #C49A0C;
+      --gold-l:   #DFB520;
+      --gold-d:   #8A6A06;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* grain */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(6,12,24,0.88);
+      backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 32px;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold-l); }
+    .nav-cart {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.15s cubic-bezier(0.34,1.56,0.64,1), border-color 0.15s ease;
+    }
+    .nav-cart:hover { transform: translateY(-1px); border-color: rgba(196,154,12,0.4); }
+    .cart-count {
+      background: var(--gold);
+      color: #060C18;
+      font-size: 0.72rem; font-weight: 700;
+      width: 20px; height: 20px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 1280px; margin: 0 auto;
+      padding: 80px 32px 64px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.05; letter-spacing: -0.02em;
+      color: var(--text); margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-l); }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 440px; line-height: 1.75; }
+    .hero-img {
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--surface2), #0E0E12);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+    .hero-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(196,154,12,0.08) 0%, transparent 60%);
+    }
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 40px;
+    }
+    .hero-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem; color: var(--gold-l); letter-spacing: -0.03em;
+    }
+    .hero-stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── FILTERS ── */
+    .filter-bar {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 32px 48px;
+      display: flex; gap: 10px; flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+    }
+    .filter-btn {
+      padding: 9px 20px;
+      border-radius: 100px;
+      font-size: 0.875rem; font-weight: 500;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: transform 0.15s cubic-bezier(0.34,1.56,0.64,1), color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+    .filter-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.18); transform: translateY(-1px); }
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #060C18;
+      font-weight: 600;
+    }
+    .filter-btn:focus-visible { outline: 2px solid var(--gold-l); outline-offset: 3px; }
+
+    /* ── PRODUCT GRID ── */
+    .shop-section {
+      max-width: 1280px; margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+    .shop-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    .shop-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem; color: var(--text); letter-spacing: -0.02em;
+    }
+    .shop-count { font-size: 0.875rem; color: var(--muted); }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── PRODUCT CARD ── */
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease, border-color 0.22s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(196,154,12,0.25);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(196,154,12,0.12);
+    }
+    .product-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+      background: var(--surface2);
+    }
+    .product-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .product-card:hover .product-img img { transform: scale(1.04); opacity: 0.9; }
+    .product-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(11,11,13,0.5) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .product-category-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(11,11,13,0.72);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted);
+      padding: 4px 10px;
+    }
+    .product-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .product-name {
+      font-size: 0.9375rem; font-weight: 600;
+      color: var(--text); line-height: 1.3;
+    }
+    .product-color {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; color: var(--muted);
+    }
+    .color-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      display: inline-block; flex-shrink: 0;
+    }
+
+    /* sizes */
+    .sizes-label { font-size: 0.75rem; color: var(--muted); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+    .sizes-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .size-btn {
+      min-width: 36px; padding: 5px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem; font-weight: 600;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--muted);
+      cursor: pointer; text-align: center;
+      transition: transform 0.12s ease, border-color 0.12s ease, color 0.12s ease, background 0.12s ease;
+    }
+    .size-btn:hover { border-color: rgba(255,255,255,0.25); color: var(--text); transform: scale(1.08); }
+    .size-btn.selected { background: var(--gold); border-color: var(--gold); color: #0B0B0D; }
+    .size-btn:focus-visible { outline: 2px solid var(--gold-l); outline-offset: 2px; }
+
+    /* price + cta */
+    .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 4px; }
+    .product-price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; color: var(--text); letter-spacing: -0.02em;
+    }
+    .add-to-cart {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 16px;
+      background: var(--gold);
+      color: #060C18;
+      font-size: 0.8rem; font-weight: 700;
+      border-radius: 8px; border: none; cursor: pointer;
+      transition: transform 0.15s cubic-bezier(0.34,1.56,0.64,1), background 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 2px 8px rgba(196,154,12,0.25);
+    }
+    .add-to-cart:hover {
+      background: var(--gold-l);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(196,154,12,0.35);
+    }
+    .add-to-cart:active { transform: translateY(0); }
+    .add-to-cart:focus-visible { outline: 2px solid var(--gold-l); outline-offset: 3px; }
+    .add-to-cart.added { background: #2a6b3a; box-shadow: 0 2px 8px rgba(42,107,58,0.3); }
+
+    /* no results */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center; padding: 80px 0;
+      color: var(--muted); font-size: 1.05rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      text-align: center;
+      color: var(--muted); font-size: 0.875rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { color: var(--gold-l); }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed; bottom: 32px; right: 32px;
+      background: var(--surface2);
+      border: 1px solid rgba(196,154,12,0.3);
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 0.875rem; color: var(--text);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      z-index: 9000;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+    }
+    #toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 20px 40px; }
+      .hero-img { display: none; }
+      .filter-bar, .shop-section { padding-left: 20px; padding-right: 20px; }
+      .nav-inner { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-inner">
+      <div style="display:flex;align-items:center;gap:20px;">
+        <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:rgba(255,255,255,0.55);font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:500;text-decoration:none;flex-shrink:0" onmouseover="this.style.background='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.55)'"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg> Portfolio</a>
+        <a href="#" class="nav-logo">DR<span>A</span>PE</a>
+      </div>
+      <button class="nav-cart" onclick="scrollToCart()" aria-label="View cart">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Cart
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">New Collection</div>
+      <h1>Dressed for every <em>occasion.</em></h1>
+      <p class="hero-sub">Premium shirts, ties, trousers, sweaters, jackets and more. Each piece built for quality, cut for fit.</p>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">6</div>
+          <div class="hero-stat-label">Categories</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">31</div>
+          <div class="hero-stat-label">Products</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">6+</div>
+          <div class="hero-stat-label">Sizes</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="../images/black.png" alt="DRAPE Collection" />
+      <div class="hero-img-overlay"></div>
+    </div>
+  </div>
+
+  <!-- ── FILTER BAR ── -->
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="shirts">Shirts</button>
+    <button class="filter-btn" data-filter="ties">Ties</button>
+    <button class="filter-btn" data-filter="socks">Socks</button>
+    <button class="filter-btn" data-filter="trousers">Trousers</button>
+    <button class="filter-btn" data-filter="sweaters">Sweaters</button>
+    <button class="filter-btn" data-filter="jackets">Jackets</button>
+  </div>
+
+  <!-- ── PRODUCTS ── -->
+  <section class="shop-section">
+    <div class="shop-header">
+      <h2 class="shop-title" id="shop-title">All Products</h2>
+      <span class="shop-count" id="shop-count"></span>
+    </div>
+    <div class="products-grid" id="products-grid"></div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>&copy; 2026 DRAPE. All rights reserved. &nbsp;·&nbsp; <a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Returns</a></p>
+  </footer>
+
+  <!-- ── TOAST ── -->
+  <div id="toast"></div>
+
+  <script>
+    // ── Products Data ──
+    const products = [
+      // SHIRTS
+      { id: 1,  name: "Classic White Shirt",    category: "shirts",   color: "#F5F5F0", colorLabel: "White",    sizes: ["XS","S","M","L","XL","XXL"], price: 45,  img: "../images/white shirt.jpg" },
+      { id: 2,  name: "Oxford Blue Shirt",      category: "shirts",   color: "#2B4C8C", colorLabel: "Blue",     sizes: ["XS","S","M","L","XL","XXL"], price: 48,  img: "../images/blue shirt.jpg" },
+      { id: 3,  name: "Midnight Black Shirt",   category: "shirts",   color: "#1C1C1C", colorLabel: "Black",    sizes: ["XS","S","M","L","XL","XXL"], price: 48,  img: "../images/black shirt.jpg" },
+      { id: 4,  name: "Cream Essential Shirt",  category: "shirts",   color: "#F5E6C8", colorLabel: "Cream",    sizes: ["S","M","L","XL","XXL"],       price: 52,  img: "../images/creamshirt.jpg" },
+      { id: 5,  name: "Olive Linen Shirt",      category: "shirts",   color: "#5B6B3A", colorLabel: "Olive",    sizes: ["XS","S","M","L","XL"],        price: 55,  img: "https://placehold.co/400x530/5B6B3A/FFFFFF?text=Olive+Shirt" },
+      { id: 6,  name: "Burgundy Flannel Shirt", category: "shirts",   color: "#7A1E2E", colorLabel: "Burgundy", sizes: ["S","M","L","XL","XXL"],       price: 58,  img: "https://placehold.co/400x530/7A1E2E/FFFFFF?text=Burgundy+Shirt" },
+
+      // TIES
+      { id: 7,  name: "Classic Navy Tie",       category: "ties",     color: "#1E2D6B", colorLabel: "Navy",     sizes: ["One Size"],                   price: 35,  img: "https://placehold.co/400x530/1E2D6B/FFFFFF?text=Navy+Tie" },
+      { id: 8,  name: "Forest Green Tie",       category: "ties",     color: "#2D6B3A", colorLabel: "Green",    sizes: ["One Size"],                   price: 35,  img: "https://placehold.co/400x530/2D6B3A/FFFFFF?text=Green+Tie" },
+      { id: 9,  name: "Crimson Red Tie",        category: "ties",     color: "#8B1E1E", colorLabel: "Red",      sizes: ["One Size"],                   price: 35,  img: "https://placehold.co/400x530/8B1E1E/FFFFFF?text=Red+Tie" },
+      { id: 10, name: "Jet Black Tie",          category: "ties",     color: "#1A1A1A", colorLabel: "Black",    sizes: ["One Size"],                   price: 35,  img: "https://placehold.co/400x530/1A1A1A/888888?text=Black+Tie" },
+      { id: 11, name: "Paisley Gold Tie",       category: "ties",     color: "#C49A0C", colorLabel: "Gold",     sizes: ["One Size"],                   price: 42,  img: "https://placehold.co/400x530/C49A0C/1A1A1A?text=Gold+Tie" },
+
+      // SOCKS
+      { id: 12, name: "White Crew Socks",       category: "socks",    color: "#F0EDE6", colorLabel: "White",    sizes: ["S/M","L/XL"],                 price: 12,  img: "https://placehold.co/400x530/E8E4DC/999999?text=White+Socks" },
+      { id: 13, name: "Charcoal Dress Socks",   category: "socks",    color: "#4A4A52", colorLabel: "Charcoal", sizes: ["S/M","L/XL"],                 price: 14,  img: "https://placehold.co/400x530/4A4A52/CCCCCC?text=Charcoal+Socks" },
+      { id: 14, name: "Navy Striped Socks",     category: "socks",    color: "#1E2D6B", colorLabel: "Navy",     sizes: ["S/M","L/XL"],                 price: 14,  img: "https://placehold.co/400x530/1E2D6B/FFFFFF?text=Navy+Socks" },
+      { id: 15, name: "Heather Grey Socks",     category: "socks",    color: "#888888", colorLabel: "Grey",     sizes: ["S/M","L/XL"],                 price: 12,  img: "https://placehold.co/400x530/888888/FFFFFF?text=Grey+Socks" },
+      { id: 16, name: "Argyle Pattern Socks",   category: "socks",    color: "#6B3A6B", colorLabel: "Multi",    sizes: ["S/M","L/XL"],                 price: 16,  img: "https://placehold.co/400x530/6B3A6B/FFFFFF?text=Argyle+Socks" },
+
+      // TROUSERS
+      { id: 17, name: "Slim Black Trousers",    category: "trousers", color: "#1A1A1A", colorLabel: "Black",    sizes: ["28","30","32","34","36","38"], price: 95,  img: "../images/blackpants.jpg" },
+      { id: 18, name: "Charcoal Wool Trousers", category: "trousers", color: "#4A4A52", colorLabel: "Charcoal", sizes: ["28","30","32","34","36"],      price: 115, img: "../images/greypants.png" },
+      { id: 19, name: "Navy Chinos",            category: "trousers", color: "#1E2D6B", colorLabel: "Navy",     sizes: ["28","30","32","34","36","38"], price: 85,  img: "../images/bluepants.png" },
+      { id: 20, name: "Stone Cargo Trousers",   category: "trousers", color: "#C4B89A", colorLabel: "Stone",    sizes: ["30","32","34","36","38"],      price: 88,  img: "https://placehold.co/400x530/C4B89A/4A4A4A?text=Stone+Trousers" },
+      { id: 21, name: "Olive Slim Chinos",      category: "trousers", color: "#5B6B3A", colorLabel: "Olive",    sizes: ["28","30","32","34","36"],      price: 82,  img: "../images/greenpants.png" },
+
+      // SWEATERS
+      { id: 22, name: "Heather Grey Crewneck",  category: "sweaters", color: "#888888", colorLabel: "Grey",     sizes: ["XS","S","M","L","XL","XXL"],  price: 75,  img: "https://placehold.co/400x530/888888/FFFFFF?text=Grey+Sweater" },
+      { id: 23, name: "Navy Merino Sweater",    category: "sweaters", color: "#1E2D6B", colorLabel: "Navy",     sizes: ["XS","S","M","L","XL","XXL"],  price: 95,  img: "https://placehold.co/400x530/1E2D6B/FFFFFF?text=Navy+Sweater" },
+      { id: 24, name: "Burgundy Cable Knit",    category: "sweaters", color: "#7A1E2E", colorLabel: "Burgundy", sizes: ["S","M","L","XL","XXL"],        price: 88,  img: "https://placehold.co/400x530/7A1E2E/FFFFFF?text=Burgundy+Knit" },
+      { id: 25, name: "Camel Turtleneck",       category: "sweaters", color: "#C4955A", colorLabel: "Camel",    sizes: ["XS","S","M","L","XL"],        price: 85,  img: "https://placehold.co/400x530/C4955A/FFFFFF?text=Camel+Turtleneck" },
+      { id: 26, name: "Forest Green Hoodie",    category: "sweaters", color: "#2D6B3A", colorLabel: "Green",    sizes: ["XS","S","M","L","XL","XXL"],  price: 72,  img: "https://placehold.co/400x530/2D6B3A/FFFFFF?text=Green+Hoodie" },
+
+      // JACKETS
+      { id: 27, name: "Midnight Leather Jacket",category: "jackets",  color: "#1A1A1A", colorLabel: "Black",    sizes: ["XS","S","M","L","XL","XXL"],  price: 220, img: "https://placehold.co/400x530/1A1A1A/888888?text=Leather+Jacket" },
+      { id: 28, name: "Indigo Denim Jacket",    category: "jackets",  color: "#3D4A8C", colorLabel: "Indigo",   sizes: ["XS","S","M","L","XL","XXL"],  price: 95,  img: "https://placehold.co/400x530/3D4A8C/FFFFFF?text=Denim+Jacket" },
+      { id: 29, name: "Olive Bomber Jacket",    category: "jackets",  color: "#5B6B3A", colorLabel: "Olive",    sizes: ["XS","S","M","L","XL","XXL"],  price: 145, img: "https://placehold.co/400x530/5B6B3A/FFFFFF?text=Bomber+Jacket" },
+      { id: 30, name: "Charcoal Blazer",        category: "jackets",  color: "#4A4A52", colorLabel: "Charcoal", sizes: ["XS","S","M","L","XL","XXL"],  price: 175, img: "https://placehold.co/400x530/4A4A52/CCCCCC?text=Charcoal+Blazer" },
+      { id: 31, name: "Navy Peacoat",           category: "jackets",  color: "#1E2D6B", colorLabel: "Navy",     sizes: ["XS","S","M","L","XL","XXL"],  price: 195, img: "https://placehold.co/400x530/1E2D6B/FFFFFF?text=Navy+Peacoat" },
+    ];
+
+    const categoryLabels = {
+      all: "All Products",
+      shirts: "Shirts",
+      ties: "Ties",
+      socks: "Socks",
+      trousers: "Trousers",
+      sweaters: "Sweaters",
+      jackets: "Jackets",
+    };
+
+    let activeFilter = "all";
+    let cartCount = 0;
+    const selectedSizes = {};
+
+    // ── Render ──
+    function renderProducts(filter) {
+      const grid = document.getElementById("products-grid");
+      const filtered = filter === "all" ? products : products.filter(p => p.category === filter);
+      const title = document.getElementById("shop-title");
+      const count = document.getElementById("shop-count");
+
+      title.textContent = categoryLabels[filter] || "All Products";
+      count.textContent = `${filtered.length} item${filtered.length !== 1 ? "s" : ""}`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="no-results">No products found.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card" data-id="${p.id}">
+          <div class="product-img">
+            <img src="${p.img}" alt="${p.name}" loading="lazy" />
+            <div class="product-img-overlay"></div>
+            <span class="product-category-badge">${p.category}</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">${p.name}</div>
+            <div class="product-color">
+              <span class="color-dot" style="background:${p.color}"></span>
+              ${p.colorLabel}
+            </div>
+            <div>
+              <div class="sizes-label">Size</div>
+              <div class="sizes-row">
+                ${p.sizes.map((s, i) => `
+                  <button
+                    class="size-btn${selectedSizes[p.id] === s ? " selected" : ""}"
+                    onclick="selectSize(${p.id}, '${s}', this)"
+                    aria-label="Size ${s}"
+                  >${s}</button>
+                `).join("")}
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">$${p.price}</div>
+              <button
+                class="add-to-cart"
+                onclick="addToCart(${p.id}, '${p.name}')"
+                id="btn-${p.id}"
+                aria-label="Add ${p.name} to cart"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // ── Size select ──
+    function selectSize(productId, size, btn) {
+      selectedSizes[productId] = size;
+      const card = btn.closest(".product-card");
+      card.querySelectorAll(".size-btn").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+    }
+
+    // ── Add to cart ──
+    function addToCart(productId, name) {
+      const product = products.find(p => p.id === productId);
+      const size = selectedSizes[productId];
+      if (!size && product.sizes.length > 1) {
+        showToast(`Please select a size for ${name}`);
+        return;
+      }
+      cartCount++;
+      document.getElementById("cart-count").textContent = cartCount;
+      const btn = document.getElementById(`btn-${productId}`);
+      btn.classList.add("added");
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Added`;
+      setTimeout(() => {
+        btn.classList.remove("added");
+        btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add`;
+      }, 2000);
+      showToast(`${name}${size ? ` (${size})` : ""} added to cart`);
+    }
+
+    // ── Filter ──
+    document.getElementById("filter-bar").addEventListener("click", e => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeFilter = btn.dataset.filter;
+      renderProducts(activeFilter);
+    });
+
+    // ── Toast ──
+    let toastTimer;
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.remove("show"), 2400);
+    }
+
+    function scrollToCart() {
+      showToast(`${cartCount} item${cartCount !== 1 ? "s" : ""} in your cart`);
+    }
+
+    // ── Init ──
+    renderProducts("all");
+  </script>
+</body>
+</html>

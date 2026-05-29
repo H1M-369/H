@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — H.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --amber:   #C49A0C;
+      --amber-l: #DFB520;
+      --amber-d: #8A6A06;
+      --bg:      #09090C;
+      --surface: #0F0F14;
+      --surface2:#16161E;
+      --border:  rgba(255,255,255,0.08);
+      --text:    #E8E4DC;
+      --muted:   #6A7080;
+      --nav-bg:  rgba(9,9,12,0.88);
+    }
+
+    [data-theme="light"] {
+      --amber:   #B8860B;
+      --amber-l: #D4A017;
+      --amber-d: #7A5606;
+      --bg:      #FAF7F0;
+      --surface: #F2EDE3;
+      --surface2:#E8E0D0;
+      --border:  rgba(0,0,0,0.08);
+      --text:    #1C1710;
+      --muted:   #8A7E6A;
+      --nav-bg:  rgba(250,247,240,0.85);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999; opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100; height: 64px;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(20px) saturate(1.4);
+      background: var(--nav-bg);
+    }
+    nav .inner {
+      max-width: 760px; margin: 0 auto;
+      padding: 0 24px; height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; color: var(--amber-l);
+      text-decoration: none; letter-spacing: -0.02em;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8125rem; font-weight: 500; color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px; border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: color 0.2s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+    .back-link:hover { color: var(--text); background: var(--surface); border-color: var(--amber-d); }
+
+    .theme-toggle {
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--muted); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .theme-toggle:hover { color: var(--amber-l); border-color: var(--amber-d); transform: scale(1.1); }
+
+    /* ── Content ── */
+    .page {
+      max-width: 760px; margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+
+    .page-eyebrow {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .page-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--amber); }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.03em; line-height: 1.1;
+      color: var(--text); margin-bottom: 12px;
+    }
+
+    .last-updated {
+      font-size: 0.8125rem; color: var(--muted);
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section { margin-bottom: 48px; }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; color: var(--text);
+      letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 0.9375rem; color: var(--muted);
+      margin-bottom: 14px; line-height: 1.8;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 8px;
+      margin-bottom: 14px;
+    }
+    ul li {
+      font-size: 0.9375rem; color: var(--muted);
+      padding-left: 20px; position: relative; line-height: 1.7;
+    }
+    ul li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--amber); font-weight: 600;
+    }
+
+    a { color: var(--amber-l); text-decoration: none; }
+    a:hover { color: var(--amber); text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+    }
+    footer .inner {
+      max-width: 760px; margin: 0 auto;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    footer p { font-size: 0.8125rem; color: var(--muted); margin: 0; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="inner">
+      <a href="/" class="nav-logo">H.</a>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="/" class="back-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          Back
+        </a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <div class="page-eyebrow">Legal</div>
+    <h1>Terms of Use</h1>
+    <p class="last-updated">Last updated: May 26, 2026</p>
+
+    <div class="section">
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing or using this website ("Site"), you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use this Site.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Use of This Site</h2>
+      <p>This Site is a personal portfolio showcasing web development and AI agent work. You may use the Site for lawful purposes only. You agree not to:</p>
+      <ul>
+        <li>Use the Site in any way that violates applicable local, national, or international law or regulation</li>
+        <li>Reproduce, duplicate, copy, or resell any part of this Site without express written permission</li>
+        <li>Attempt to gain unauthorised access to any part of the Site or its underlying systems</li>
+        <li>Transmit any unsolicited or unauthorised advertising, spam, or promotional material</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Intellectual Property</h2>
+      <p>All content on this Site — including but not limited to text, design, code, graphics, and project work — is the property of the site owner unless otherwise stated. You may not reproduce, distribute, or create derivative works without prior written consent.</p>
+      <p>Open-source tools, libraries, and frameworks referenced or used in projects are subject to their respective licences.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. Project Demos & Tools</h2>
+      <p>Some pages on this Site include interactive demos or tools. These are provided for demonstration purposes only. The site owner makes no guarantee that they will be available at all times or function without error. Use them at your own discretion.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. External Links</h2>
+      <p>This Site may contain links to third-party websites. These links are provided for convenience only. The site owner has no control over the content of those sites and accepts no responsibility for them or for any loss or damage that may arise from your use of them.</p>
+    </div>
+
+    <div class="section">
+      <h2>6. Disclaimer of Warranties</h2>
+      <p>This Site is provided on an "as is" and "as available" basis without any warranties of any kind, express or implied. The site owner does not warrant that the Site will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, the site owner shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your access to or use of (or inability to use) this Site.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Changes to These Terms</h2>
+      <p>These Terms of Use may be updated from time to time. Continued use of the Site after changes are posted constitutes your acceptance of the revised terms. The date at the top of this page reflects the most recent update.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Contact</h2>
+      <p>If you have any questions about these Terms, you can reach out at <a href="mailto:jonathankariuki99@gmail.com">jonathankariuki99@gmail.com</a>.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="inner">
+      <p>&copy; 2026 H. All rights reserved.</p>
+      <a href="/" class="back-link" style="font-size:0.8rem;">← Portfolio</a>
+    </div>
+  </footer>
+
+  <script>
+    const SUN  = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+    const MOON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+
+    const btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      if (t === 'light') { document.documentElement.setAttribute('data-theme','light'); btn.innerHTML = MOON; }
+      else { document.documentElement.removeAttribute('data-theme'); btn.innerHTML = SUN; }
+      localStorage.setItem('theme', t);
+    }
+    applyTheme(localStorage.getItem('theme') || 'dark');
+    btn.addEventListener('click', () => {
+      applyTheme(document.documentElement.hasAttribute('data-theme') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

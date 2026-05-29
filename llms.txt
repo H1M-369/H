@@ -1,0 +1,64 @@
+# H. — Portfolio
+
+> Jonathan Kariuki · Web Developer & AI Agent Builder
+> https://saintlife.dev
+
+## About
+
+Personal portfolio of a developer who builds websites and custom AI agents. Work spans polished frontends, Claude-powered agents, multi-step automation pipelines, and e-commerce demos. All projects on this site are live, working demonstrations — not mockups.
+
+## Pages
+
+### Main Portfolio
+- URL: https://saintlife.dev
+- Sections: Hero, About, Skills, Projects, Process, Contact
+- Contact: saintlife54@gmail.com | github.com/H1M-369 | wa.me/254789376070
+
+### Terms of Use
+- URL: https://saintlife.dev/terms.html
+
+## Projects (all live demos)
+
+### DRAPE — Clothing Store
+- URL: https://saintlife.dev/shop/
+- Type: Website Build
+- Description: Full e-commerce clothing store. 31 products across 6 categories with color variants, size selectors, and a live cart. Built with Tailwind CSS and vanilla JavaScript.
+
+### Email Support Agent
+- URL: https://saintlife.dev/agents/email-support/
+- Type: Custom AI Agent
+- Description: Paste support documentation and an incoming customer email — receive a grounded, ready-to-send reply via Claude API. Does not hallucinate information outside the provided docs.
+
+### Competitor Analysis Agent
+- URL: https://saintlife.dev/agents/competitor-analysis/
+- Type: Custom AI Agent
+- Description: Analyse any business and surface competitive intelligence. Structured output for positioning, strengths, weaknesses, and opportunities.
+
+### Email Autoresponder Pipeline
+- URL: https://saintlife.dev/workflows/email-autoresponder/
+- Type: Agent Workflow
+- Description: 5-step pipeline — watches Gmail inbox, parses unread emails, loads support docs, drafts a Claude-powered reply, sends it in-thread, marks email read. Fully automated.
+
+### Daily Briefing Pipeline
+- URL: https://saintlife.dev/workflows/daily-briefing/
+- Type: Agent Workflow
+- Description: Runs each morning — fetches topic-specific news, grabs weather, sends to Claude for summarisation, delivers a clean digest to inbox, logs to Google Sheets.
+
+### Ember & Oak — Restaurant Site
+- URL: https://saintlife.dev/websites/restaurant/
+- Type: Website Build
+- Description: Full website for a wood-fired restaurant. Tabbed menu, image gallery, reservation form, opening hours. Mobile-first responsive design.
+
+## Skills & Stack
+
+- Frontend: HTML5, CSS3, Vanilla JavaScript, Tailwind CSS
+- AI/Agents: Claude API (Anthropic), OpenAI, prompt engineering, tool use, multi-step orchestration
+- Automation: Gmail API, Google Sheets API, Python pipelines
+- Design: responsive layouts, animation, dark/light theming, WebGL shaders
+
+## Contact
+
+- Email: saintlife54@gmail.com
+- GitHub: https://github.com/H1M-369
+- WhatsApp: https://wa.me/254789376070
+- Site: https://saintlife.dev

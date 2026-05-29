@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.mypy_cache/
+*.env
+.env
+
+# OAuth credentials — never commit these
+credentials.json
+token.json
+
+# Windows junk
+*.lnk
+Thumbs.db
+desktop.ini
+
+# Node (just in case)
+node_modules/
