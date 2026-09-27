@@ -197,7 +197,8 @@
   let frozen = false;
   const MIN_QUALITY = 0.5;
   const SLOW_FRAME_MS = 45;  // well under the 30fps target
-  let slowRun = 0, prevTick = 0;
+  const WARMUP_MS = 4000;    // ignore load-time jank (shader compile, fonts, images)
+  let slowRun = 0, prevTick = 0, measureFrom = 0;
 
   const saveData = () => navigator.connection?.saveData === true;
   const staticOnly = () => reducedMotion.matches || saveData() || frozen;
@@ -225,7 +226,7 @@
     raf = requestAnimationFrame(loop);
 
     // Sustained slow frames: step the resolution down, then settle on a still frame
-    if (prevTick) slowRun = now - prevTick > SLOW_FRAME_MS ? slowRun + 1 : Math.max(0, slowRun - 2);
+    if (prevTick && now > measureFrom) slowRun = now - prevTick > SLOW_FRAME_MS ? slowRun + 1 : Math.max(0, slowRun - 2);
     prevTick = now;
     if (slowRun > 60) {
       slowRun = 0;
@@ -252,7 +253,7 @@
     stop();
     if (!active) return;
     active.resize();
-    prevTick = 0; slowRun = 0;
+    prevTick = 0; slowRun = 0; measureFrom = performance.now() + WARMUP_MS;
     if (staticOnly() || document.hidden) { active.draw(); return; }
     raf = requestAnimationFrame(loop);
   }

@@ -640,6 +640,65 @@ a.project-card:focus-visible { outline: 2px solid var(--amber-l); outline-offset
 }
 .contact-chip:focus-visible { outline: 2px solid var(--amber-l); outline-offset: 3px; }
 
+/* ── Contact form ── */
+.cf {
+  color-scheme: dark;
+  max-width: 680px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+[data-theme="light"] .cf { color-scheme: light; }
+.cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cf-wide { grid-column: 1 / -1; }
+.cf-field { display: flex; flex-direction: column; gap: 7px; }
+.cf-field > span {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.cf-field > span em { font-style: normal; font-weight: 500; letter-spacing: 0.04em; text-transform: none; opacity: 0.8; margin-left: 4px; }
+.cf input, .cf select, .cf textarea {
+  width: 100%;
+  font: inherit; font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.cf textarea { resize: vertical; min-height: 92px; line-height: 1.55; }
+.cf select {
+  appearance: none; -webkit-appearance: none;
+  padding-right: 38px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA2AE' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+}
+.cf ::placeholder { color: var(--muted); opacity: 0.75; }
+.cf input:focus, .cf select:focus, .cf textarea:focus {
+  outline: none;
+  border-color: var(--amber-l);
+  box-shadow: 0 0 0 3px rgba(212,160,23,0.18);
+}
+.cf.was-validated :invalid { border-color: #E0645A; }
+.cf.was-validated :invalid:focus { box-shadow: 0 0 0 3px rgba(224,100,90,0.2); }
+.cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.cf-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+.cf-foot .btn-primary[disabled] { opacity: 0.6; cursor: progress; transform: none; }
+.cf-status { font-size: 0.875rem; color: var(--muted); margin: 0; }
+.cf-status[data-kind="ok"] { color: #4FB286; }
+.cf-status[data-kind="error"] { color: #E0645A; }
+[data-theme="light"] .cf-status[data-kind="ok"] { color: #1E7A52; }
+[data-theme="light"] .cf-status[data-kind="error"] { color: #B23A2E; }
+.cf-note { font-size: 0.78rem; color: var(--muted); margin-top: 14px; }
+.cf-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.cf-or {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin: 8px 0 16px;
+}
+@media (max-width: 600px) {
+  .cf-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Phone CTA ── */
 #phone-cta {
   padding: 48px 0 40px;

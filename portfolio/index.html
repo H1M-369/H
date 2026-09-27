@@ -362,6 +362,59 @@
       <div class="section-label reveal">Get in touch</div>
       <h2 class="section-title">Scope a build.<br /><em style="font-style:italic; color:var(--amber-l)">Start with the task.</em></h2>
       <p class="section-body"><strong>Available for front-end builds, refactors, LLM agents and automation pipelines. Describe the input, the output and where it should land.</strong></p>
+      <!-- Enquiry form: posts to Formspree. Replace YOUR_FORM_ID with the ID from formspree.io -->
+      <form class="cf" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="cf-grid">
+          <label class="cf-field">
+            <span>Name</span>
+            <input name="name" type="text" autocomplete="name" required maxlength="100" />
+          </label>
+          <label class="cf-field">
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" required maxlength="200" />
+          </label>
+          <label class="cf-field">
+            <span>Project type</span>
+            <select name="type" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Front-end build</option>
+              <option>Site refactor</option>
+              <option>LLM agent</option>
+              <option>Automation pipeline</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label class="cf-field">
+            <span>Timeline <em>optional</em></span>
+            <select name="timeline">
+              <option value="">Flexible</option>
+              <option>As soon as possible</option>
+              <option>Within a month</option>
+              <option>1–3 months</option>
+            </select>
+          </label>
+          <label class="cf-field cf-wide">
+            <span>The task</span>
+            <textarea name="task" rows="3" required maxlength="2000" placeholder="What should it do? For example: answer support emails using our help docs."></textarea>
+          </label>
+          <label class="cf-field cf-wide">
+            <span>Inputs and output <em>optional</em></span>
+            <textarea name="inputs_output" rows="3" maxlength="2000" placeholder="What goes in, what should come out, and where it should land."></textarea>
+          </label>
+        </div>
+        <input type="text" name="_gotcha" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="_subject" value="New project enquiry — saintlife.dev" />
+        <input type="hidden" name="page" value="" />
+        <div class="cf-foot">
+          <button type="submit" class="btn-primary">
+            Send enquiry
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="cf-status" role="status" aria-live="polite"></p>
+        </div>
+        <p class="cf-note">Submissions are handled by Formspree. See the <a href="/privacy.html">privacy policy</a>.</p>
+      </form>
+      <p class="cf-or">Or reach me directly</p>
       <div class="contact-links">
         <a href="mailto:saintlife54@gmail.com" class="contact-chip">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>

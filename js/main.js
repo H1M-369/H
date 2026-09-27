@@ -267,6 +267,7 @@ document.querySelectorAll('.stat-card').forEach(el => statObserver.observe(el));
   }
 
   section.addEventListener('click', e => {
+    if (e.target.closest('form, a, button')) return;   // no bursts while using the form or links
     const rect = section.getBoundingClientRect();
     spawnBurst(e.clientX - rect.left, e.clientY - rect.top);
   });
@@ -290,3 +291,66 @@ window.addEventListener('scroll', () => {
     a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--amber-l)' : '';
   });
 }, { passive: true });
+
+
+/* ── Contact form: Formspree, with an email fallback until the form ID is set ── */
+(function () {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  form.noValidate = true;   // validate in place instead of browser bubbles
+
+  const status = form.querySelector('.cf-status');
+  const button = form.querySelector('button[type="submit"]');
+  const connected = !form.action.includes('YOUR_FORM_ID');
+  const mailChip = document.querySelector('.contact-chip[href^="mailto:"]');
+  const inbox = mailChip ? mailChip.getAttribute('href').replace('mailto:', '') : '';
+  form.elements.page.value = location.pathname;
+
+  const say = (text, kind = '') => { status.textContent = text; status.dataset.kind = kind; };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (form.elements._gotcha.value) return;   // honeypot filled: a bot
+
+    form.classList.add('was-validated');
+    if (!form.checkValidity()) {
+      form.querySelector(':invalid').focus();
+      say('Fill in the highlighted fields.', 'error');
+      return;
+    }
+
+    const data = new FormData(form);
+
+    if (!connected) {
+      // Form service not set up yet: hand the enquiry to the visitor's email app
+      const body = [
+        `Name: ${data.get('name')}`,
+        `Email: ${data.get('email')}`,
+        `Project type: ${data.get('type')}`,
+        `Timeline: ${data.get('timeline') || 'Flexible'}`,
+        '', 'The task:', data.get('task'),
+        '', 'Inputs and output:', data.get('inputs_output') || '—',
+      ].join('\n');
+      location.href = `mailto:${inbox}?subject=${encodeURIComponent('Project enquiry: ' + data.get('type'))}&body=${encodeURIComponent(body)}`;
+      say('Opening your email app with this enquiry.', 'ok');
+      return;
+    }
+
+    button.disabled = true;
+    say('Sending…');
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        form.classList.remove('was-validated');
+        say('Sent. You\'ll get a reply by email.', 'ok');
+      } else {
+        const json = await res.json().catch(() => ({}));
+        say((json.errors || []).map(x => x.message).join(' ') || 'That didn\'t go through. Use the email link below.', 'error');
+      }
+    } catch (err) {
+      say('Couldn\'t reach the form service. Use the email link below.', 'error');
+    }
+    button.disabled = false;
+  });
+})();
