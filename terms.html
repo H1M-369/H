@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Use — H.</title>
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:image" content="https://saintlife.dev/images/og/site.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Jonathan Kariuki — front ends, LLM agents and automation pipelines" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://saintlife.dev/images/og/site.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -160,7 +170,24 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     footer p { font-size: 0.8125rem; color: var(--muted); margin: 0; }
-    /* ── Daytime sky (light mode): js/sky.js paints clouds behind a frosted page ── */
+    /* ── Site backdrop: js/sky.js paints clouds (light) or shooting stars (dark) behind a glass page ── */
+    .page {
+      margin-top: 96px; margin-bottom: 20px;
+      max-width: 800px;
+      margin-left: auto; margin-right: auto;
+      padding: 48px clamp(20px, 5vw, 48px) 56px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.015) 45%, rgba(255,255,255,0.035)), rgba(9,9,12,0.62);
+      -webkit-backdrop-filter: blur(22px) saturate(1.4);
+      backdrop-filter: blur(22px) saturate(1.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 60px -28px rgba(0,0,0,0.7);
+    }
+    footer { border-top: none; }
+    html:not([data-theme="light"]) .page { --muted: #9CA2AE; }
+    @media (max-width: 840px) {
+      .page { margin: 84px 10px 16px; }
+    }
     [data-theme="light"] body { background: linear-gradient(180deg, #0F3A8C 0%, #3370C4 100%) fixed; }
     [data-theme="light"] .page {
       margin-top: 96px; margin-bottom: 20px;

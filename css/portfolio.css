@@ -36,84 +36,245 @@
 }
 
 /* ── Hero ── */
+#hero.pf-hero { padding: 64px 0 48px; flex-direction: column; align-items: stretch; justify-content: flex-start; }
+.pf-hero .pf-marquee {
+  margin-bottom: clamp(16px, 2.4vw, 26px); padding: 10px 0; border-top: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015) 45%, rgba(255,255,255,0.03)), rgba(9,9,12,0.45);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  backdrop-filter: blur(18px) saturate(1.3);
+}
+.pf-hero .pf-marquee-track { gap: 24px; }
+.pf-hero .pf-marquee-track span { font-size: clamp(1rem, 1.6vw, 1.25rem); }
+.pf-hero-card {
+  --muted: #9CA2AE;
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.015) 45%, rgba(255,255,255,0.035)),
+    rgba(9,9,12,0.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  backdrop-filter: blur(22px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: clamp(18px, 2.5vw, 28px);
+  padding: clamp(26px, 3.6vw, 44px) clamp(22px, 4.5vw, 56px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 30px 80px -40px rgba(0,0,0,0.75);
+}
 .pf-hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr 1.05fr;
   gap: 40px;
   align-items: center;
   width: 100%;
 }
+.pf-hero h1.hero-name { font-size: clamp(2.8rem, 6vw, 4.8rem); }
+.pf-hero .hero-cta-row { margin-top: 36px; }
 .pf-hero .hero-sub { max-width: 500px; }
-.pf-core {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  max-width: 480px;
-  justify-self: end;
-  opacity: 0;
-  animation: hero-rise 1s cubic-bezier(0.34,1.56,0.64,1) 0.6s forwards;
-}
-#pf-core-canvas {
-  width: 100%; height: 100%;
-  display: block;
-  cursor: grab;
-  touch-action: pan-y;
-}
-#pf-core-canvas:active { cursor: grabbing; }
-.pf-core::before {
-  content: '';
-  position: absolute; inset: 12%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,160,23,0.14) 0%, transparent 70%);
-  filter: blur(30px);
-  z-index: -1;
-}
-.pf-core-caption {
-  position: absolute; bottom: 4%; left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 0.72rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--muted);
-  padding: 6px 12px;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  background: var(--nav-bg);
-  backdrop-filter: blur(8px);
-  white-space: nowrap;
-}
-.pf-dot-live {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--amber-l);
-  box-shadow: 0 0 0 0 rgba(223,181,32,0.6);
-  animation: pf-ping 2s ease-out infinite;
-}
-@keyframes pf-ping {
-  0%   { box-shadow: 0 0 0 0 rgba(223,181,32,0.55); }
-  80%, 100% { box-shadow: 0 0 0 9px rgba(223,181,32,0); }
+.pf-mark {
+  color: inherit;
+  background: linear-gradient(transparent 12%, rgba(212,160,23,0.16) 12%, rgba(212,160,23,0.16) 92%, transparent 92%);
+  padding: 0 0.12em;
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
 
-.pf-scroll-cue {
-  position: absolute; bottom: 28px; left: 50%;
-  transform: translateX(-50%);
-  width: 22px; height: 36px;
-  border: 1.5px solid var(--border);
-  border-radius: 12px;
-  z-index: 1;
+/* ── Hero illustration: the work at a glance ── */
+.pf-illo-wrap {
+  margin: 0;
   opacity: 0;
-  animation: hero-rise 0.7s ease 1.2s forwards;
+  animation: hero-rise 1s cubic-bezier(0.34,1.56,0.64,1) 0.5s forwards;
 }
-.pf-scroll-cue span {
-  position: absolute; top: 7px; left: 50%;
-  width: 3px; height: 7px; margin-left: -1.5px;
-  border-radius: 2px;
-  background: var(--amber-l);
-  animation: pf-cue 1.8s ease-in-out infinite;
+.pf-illo {
+  --ink:   var(--text);
+  --paper: var(--bg);
+  --acc:   var(--amber-l);
+  display: block; width: 100%; height: auto;
+  overflow: visible;
+  fill: none;
+  stroke-linecap: round; stroke-linejoin: round;
 }
-@keyframes pf-cue {
-  0%   { transform: translateY(0); opacity: 1; }
-  70%  { transform: translateY(12px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 0; }
+.pf-illo .frame   { stroke: var(--ink); stroke-width: 1.6; fill: var(--paper); }
+.pf-illo .d       { stroke: var(--ink); stroke-width: 1.6; stroke-dasharray: 1 1; stroke-dashoffset: 1; animation: pf-draw 1.3s cubic-bezier(0.65,0,0.35,1) var(--dl, 0s) forwards; }
+.pf-illo .frame.d { fill-opacity: 0; animation: pf-draw 1.3s cubic-bezier(0.65,0,0.35,1) var(--dl, 0s) forwards, pf-fill 0.6s ease calc(var(--dl, 0s) + 0.9s) forwards; }
+.pf-illo .f       { opacity: 0; animation: pf-fade 0.7s ease calc(var(--dl, 0s) + 0.9s) forwards; }
+.pf-illo .stroke  { stroke: var(--ink); stroke-width: 1.4; }
+.pf-illo .line    { stroke: var(--ink); stroke-width: 1.4; opacity: 0.75; }
+.pf-illo .line.thick { stroke-width: 2.6; }
+.pf-illo .soft    { fill: var(--ink); fill-opacity: 0.07; stroke: var(--ink); stroke-opacity: 0.25; }
+.pf-illo .hatch   { fill: url(#pf-hatch); stroke: var(--ink); stroke-width: 1.2; stroke-opacity: 0.6; }
+.pf-illo .pf-hatch-line { stroke: var(--ink); stroke-width: 1; opacity: 0.32; }
+.pf-illo .ink-fill { fill: var(--ink); }
+.pf-illo .o6 { opacity: 0.55; } .pf-illo .o5 { opacity: 0.5; } .pf-illo .o3 { opacity: 0.3; }
+.pf-illo .acc-fill   { fill: var(--acc); }
+.pf-illo .acc-stroke { stroke: var(--acc); stroke-width: 1.8; }
+.pf-illo .acc-line   { stroke: var(--acc); stroke-width: 1.6; }
+.pf-illo .acc-soft   { fill: var(--acc); fill-opacity: 0.14; stroke: var(--acc); stroke-width: 1.4; }
+.pf-illo .paper-line { stroke: var(--paper); stroke-width: 2; opacity: 0.9; }
+.pf-illo .cursor     { fill: var(--paper); stroke: var(--ink); stroke-width: 1.3; }
+.pf-illo .route      { stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 2 6; opacity: 0; animation: pf-fade 0.8s ease 0.9s forwards; }
+.pf-illo .dotted     { stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 1 5; stroke-opacity: 0.45; }
+.pf-illo .node       { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+.pf-illo .node-acc   { stroke: var(--acc); stroke-width: 1.8; }
+.pf-illo .mail       { fill: var(--paper); stroke: var(--acc); stroke-width: 1.6; }
+.pf-illo .lbl        { fill: var(--muted); font: 500 12px 'Inter', sans-serif; text-anchor: middle; letter-spacing: 0.04em; }
+
+/* Looping scene: cursor adds to cart, the agent types then replies, mail runs the pipeline */
+.pf-illo-cursor { animation: pf-cursor 6s ease-in-out 2.2s infinite; transform: translate(252px, 198px); opacity: 0; }
+.pf-illo-btn    { animation: pf-press 6s ease 2.2s infinite; transform-box: fill-box; transform-origin: center; }
+.pf-illo-badge  { animation: pf-badge 6s ease 2.2s infinite; transform-box: fill-box; transform-origin: center; transform: scale(0); }
+.pf-illo-typing { animation: pf-typing 6s ease 2.2s infinite; opacity: 0; }
+.pf-illo-typing circle { animation: pf-bounce 1s ease-in-out infinite; transform-box: fill-box; }
+.pf-illo-typing circle:nth-of-type(2) { animation-delay: 0.15s; }
+.pf-illo-typing circle:nth-of-type(3) { animation-delay: 0.3s; }
+.pf-illo-reply  { animation: pf-reply 6s ease 2.2s infinite; opacity: 0; }
+.pf-illo-rl     { transform-box: fill-box; transform-origin: left center; animation: pf-grow 6s ease calc(2.2s + var(--rd, 0s)) infinite; transform: scaleX(0); }
+.pf-illo-antenna, .pf-illo-live { animation: pf-blink 2.4s ease-in-out infinite; }
+.pf-illo-sun    { animation: pf-spin 14s linear infinite; transform-box: fill-box; transform-origin: center; }
+.pf-illo-spark  { animation: pf-twinkle 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+
+@keyframes pf-draw  { to { stroke-dashoffset: 0; } }
+@keyframes pf-fill  { to { fill-opacity: 1; } }
+@keyframes pf-fade  { to { opacity: 1; } }
+@keyframes pf-cursor {
+  0%        { transform: translate(252px, 198px); opacity: 0; }
+  8%        { opacity: 1; }
+  34%, 44%  { transform: translate(200px, 131px); opacity: 1; }
+  38%       { transform: translate(200px, 131px) scale(0.86); }
+  80%       { transform: translate(120px, 190px); opacity: 1; }
+  92%, 100% { transform: translate(120px, 190px); opacity: 0; }
+}
+@keyframes pf-press  { 0%, 36%, 42%, 100% { transform: scale(1); } 38% { transform: scale(0.93); } }
+@keyframes pf-badge  { 0%, 38% { transform: scale(0); } 44% { transform: scale(1.35); } 50%, 90% { transform: scale(1); } 100% { transform: scale(0); } }
+@keyframes pf-typing { 0%, 8% { opacity: 0; } 12%, 44% { opacity: 1; } 48%, 100% { opacity: 0; } }
+@keyframes pf-reply  { 0%, 46% { opacity: 0; } 52%, 92% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes pf-grow   { 0%, 50% { transform: scaleX(0); } 64%, 100% { transform: scaleX(1); } }
+@keyframes pf-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-3px); } }
+@keyframes pf-blink  { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes pf-spin   { to { transform: rotate(360deg); } }
+@keyframes pf-twinkle { 0%, 100% { transform: scale(1) rotate(0); } 50% { transform: scale(1.18) rotate(20deg); } }
+
+/* ── Projects: context-based neumorphic buttons ──
+   Each tile is extruded from the panel it sits on (same fill, paired light and
+   dark shadows) and carries its project's colour in --ctx. Pressing sinks it. */
+.pf-projects {
+  --muted: #9CA2AE;
+  --neu-bg:    rgba(18,18,25,0.55);
+  --neu-light: rgba(255,255,255,0.05);
+  --neu-dark:  rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  backdrop-filter: blur(22px) saturate(1.4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 60px -28px rgba(0,0,0,0.7);
+  margin-top: clamp(18px, 2.4vw, 28px);
+  padding: clamp(18px, 2.6vw, 28px);
+  border-radius: clamp(18px, 2.5vw, 28px);
+  background: var(--neu-bg);
+  border: 1px solid var(--border);
+  opacity: 0;
+  animation: hero-rise 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.9s forwards;
+}
+.pf-projects-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  margin: 2px 4px 18px;
+}
+.pf-projects-head .section-label { margin: 0; }
+.pf-projects-hint { font-size: 0.8125rem; color: var(--muted); }
+.pf-proj-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(12px, 1.6vw, 20px);
+}
+.pf-proj {
+  --c: var(--ctx);
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 20px 10px 18px;
+  border-radius: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--neu-bg);
+  box-shadow: 7px 7px 16px var(--neu-dark), -6px -6px 14px var(--neu-light);
+  transition: box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1), background 0.25s ease;
+}
+.pf-proj-ico {
+  display: grid; place-items: center;
+  width: 64px; height: 64px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  color: var(--c);
+  background: var(--neu-bg);
+  box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light);
+  transition: box-shadow 0.25s ease;
+}
+.pf-proj-ico svg {
+  width: 32px; height: 32px;
+  fill: none; stroke: currentColor; stroke-width: 1.7;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.pf-proj-ico .dot { fill: currentColor; stroke: none; }
+.pf-proj-name { font-size: 0.92rem; font-weight: 600; line-height: 1.3; }
+.pf-proj-kind { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.02em; }
+.pf-proj:hover {
+  transform: translateY(-3px);
+  box-shadow: 10px 10px 22px var(--neu-dark), -8px -8px 18px var(--neu-light),
+              0 0 0 1px color-mix(in srgb, var(--c) 35%, transparent);
+}
+.pf-proj:hover .pf-proj-ico {
+  box-shadow: inset 4px 4px 9px var(--neu-dark), inset -4px -4px 9px var(--neu-light),
+              0 0 22px color-mix(in srgb, var(--c) 40%, transparent);
+}
+.pf-proj:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: inset 6px 6px 13px var(--neu-dark), inset -5px -5px 12px var(--neu-light);
+}
+.pf-proj:focus-visible { outline: 2px solid var(--c); outline-offset: 3px; }
+
+/* ── Project pages: one project and its running demo ── */
+.pj-main { padding: 96px 0 24px; }
+.pj-section { padding: 36px 0 56px; }
+.pj-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.pj-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-size: 0.875rem; font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.pj-back:hover { color: var(--ctx); border-color: var(--ctx); transform: translateX(-3px); }
+.pj-back:focus-visible { outline: 2px solid var(--ctx); outline-offset: 3px; }
+.pj-count { font-size: 0.8125rem; color: var(--muted); letter-spacing: 0.04em; }
+.pj-count b { color: var(--ctx); font-weight: 600; }
+.pj .sc-demo { top: 96px; }
+.pj-pager {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-top: 56px; padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.pj-pager-link {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.pj-pager-link span { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.pj-pager-link b { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.15rem; color: var(--text); }
+.pj-pager-link:hover { border-color: var(--amber-l); background: var(--ghost-hover-bg); }
+.pj-pager-next { text-align: right; }
+
+/* ── Nav: name beside the logo ── */
+.nav-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem; font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0;
+  margin-left: 12px;
 }
 
 /* ── Marquee ── */
@@ -495,15 +656,18 @@
 }
 
 /* ── Responsive ── */
+@media (max-width: 1060px) {
+  .nav-name { display: none; }
+}
 @media (max-width: 960px) {
   .pf-split { grid-template-columns: 1fr; gap: 48px; }
+  .pf-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .pf-illo-wrap { max-width: 560px; justify-self: center; width: 100%; }
+  .pf-proj-grid { grid-template-columns: repeat(3, 1fr); }
   .pf-stats { grid-template-columns: repeat(3, 1fr); }
   .pf-ach-grid, .pf-goals, .pf-do-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .pf-hero-grid { grid-template-columns: 1fr; gap: 16px; }
-  .pf-core { max-width: 340px; justify-self: center; }
-  .pf-scroll-cue { display: none; }
 
   .pf-pipeline { flex-direction: column; align-items: stretch; padding: 20px; }
   .pf-node { flex-direction: row; gap: 14px; }
@@ -530,6 +694,10 @@
   100% { top: 100%; opacity: 0; }
 }
 @media (max-width: 600px) {
+  .pf-proj-grid { grid-template-columns: repeat(2, 1fr); }
+  .pf-projects-hint { display: none; }
+  .pj-pager { grid-template-columns: 1fr; }
+  .pj-pager-next { text-align: left; }
   .pf-ach-grid, .pf-goals, .pf-do-grid { grid-template-columns: 1fr; }
   .pf-orbit { width: 84%; }
   .pf-orb b { font-size: 0.66rem; padding: 4px 8px; }
@@ -543,16 +711,72 @@
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .pf-marquee-track, .pf-ring, .pf-orb b, .pf-dot-live, .pf-tl-dot-now,
-  .pf-scroll-cue span, .pf-venn.visible .venn-pulse { animation: none !important; }
-  .pf-core, .pf-scroll-cue { animation: none; opacity: 1; }
+  .pf-marquee-track, .pf-ring, .pf-orb b, .pf-tl-dot-now,
+  .pf-venn.visible .venn-pulse { animation: none !important; }
+  .pf-illo-wrap, .pf-projects { animation: none; opacity: 1; }
+  .pf-illo, .pf-illo * { animation: none !important; }
+  .pf-illo .d { stroke-dashoffset: 0; }
+  .pf-illo .frame.d { fill-opacity: 1; }
+  .pf-illo .f, .pf-illo .route, .pf-illo-reply, .pf-illo-cursor { opacity: 1; }
+  .pf-illo-typing { opacity: 0; }
+  .pf-illo-cursor { transform: translate(200px, 131px); }
+  .pf-illo-badge, .pf-illo-rl { transform: none; }
 }
 
 /* Daytime sky: the marquee band sits on the open sky between hero and story */
 [data-theme="light"] .pf-marquee {
-  --text:   #FFFFFF;
-  --muted:  rgba(255,255,255,0.88);
-  --border: rgba(255,255,255,0.35);
-  margin-bottom: clamp(14px, 2vw, 24px);
-  text-shadow: 0 1px 14px rgba(4,18,50,0.5);
+  --text:    #15110B;
+  --amber-l: #8A6200;
+  --amber-d: #8F6606;
+  --border:  rgba(255,255,255,0.6);
+  background: linear-gradient(135deg, rgba(255,255,255,0.45), rgba(255,255,255,0.26) 45%, rgba(255,255,255,0.32)), rgba(250,247,240,0.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
 }
+
+/* Daytime sky: the hero card is glass like the sections, with dark ink */
+[data-theme="light"] .pf-hero-card {
+  --bg:       rgba(252,250,245,0.5);
+  --surface:  rgba(248,244,236,0.44);
+  --border:   rgba(255,255,255,0.55);
+  --text:     #15110B;
+  --muted:    #4A4234;
+  --amber:    #8F6606;
+  --amber-l:  #8A6200;
+  --ghost-hover-border: rgba(0,0,0,0.3);
+  --ghost-hover-bg:     rgba(255,255,255,0.3);
+  text-shadow: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.45), rgba(255,255,255,0.26) 45%, rgba(255,255,255,0.32)),
+    rgba(250,247,240,0.2);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  backdrop-filter: blur(22px) saturate(1.5);
+  border: 1px solid rgba(255,255,255,0.65);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 24px 60px -28px rgba(8,28,70,0.5);
+}
+[data-theme="light"] #hero .pf-hero-card .hero-eyebrow { color: var(--amber); }
+[data-theme="light"] #hero .pf-hero-card .hero-eyebrow::before { background: var(--amber); }
+[data-theme="light"] #hero .pf-hero-card .btn-ghost {
+  background: transparent;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  border-color: rgba(21,17,11,0.28);
+}
+[data-theme="light"] #hero .pf-hero-card .btn-ghost:hover { background: var(--ghost-hover-bg); border-color: var(--ghost-hover-border); }
+[data-theme="light"] .pf-mark { background: linear-gradient(transparent 12%, rgba(255,217,94,0.45) 12%, rgba(255,217,94,0.45) 92%, transparent 92%); }
+[data-theme="light"] .pf-projects {
+  --neu-bg:    rgba(236,241,250,0.55);
+  --neu-light: rgba(255,255,255,0.85);
+  --neu-dark:  rgba(22,52,110,0.3);
+  --text:  #15110B;
+  --muted: #4A4234;
+  --amber: #8F6606;
+  text-shadow: none;
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  backdrop-filter: blur(22px) saturate(1.5);
+  border: 1px solid rgba(255,255,255,0.65);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 24px 60px -28px rgba(8,28,70,0.5);
+}
+[data-theme="light"] .pf-proj { --c: var(--ctx-l); }
+[data-theme="light"] .pj { --ctx: var(--ctx-l); }
+/* The hero text sits in a card here, so the homepage's sky shade isn't needed */
+[data-theme="light"] #hero.pf-hero::after { display: none; }

@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DRAPE — Modern Essentials</title>
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -351,7 +355,7 @@
       </div>
     </div>
     <div class="hero-img">
-      <img src="../images/black.png" alt="DRAPE Collection" />
+      <img src="../images/black.webp" alt="DRAPE Collection" />
       <div class="hero-img-overlay"></div>
     </div>
   </div>
@@ -388,10 +392,10 @@
     // ── Products Data ──
     const products = [
       // SHIRTS
-      { id: 1,  name: "Classic White Shirt",    category: "shirts",   color: "#F5F5F0", colorLabel: "White",    sizes: ["XS","S","M","L","XL","XXL"], price: 45,  img: "../images/white shirt.jpg" },
-      { id: 2,  name: "Oxford Blue Shirt",      category: "shirts",   color: "#2B4C8C", colorLabel: "Blue",     sizes: ["XS","S","M","L","XL","XXL"], price: 48,  img: "../images/blue shirt.jpg" },
-      { id: 3,  name: "Midnight Black Shirt",   category: "shirts",   color: "#1C1C1C", colorLabel: "Black",    sizes: ["XS","S","M","L","XL","XXL"], price: 48,  img: "../images/black shirt.jpg" },
-      { id: 4,  name: "Cream Essential Shirt",  category: "shirts",   color: "#F5E6C8", colorLabel: "Cream",    sizes: ["S","M","L","XL","XXL"],       price: 52,  img: "../images/creamshirt.jpg" },
+      { id: 1,  name: "Classic White Shirt",    category: "shirts",   color: "#F5F5F0", colorLabel: "White",    sizes: ["XS","S","M","L","XL","XXL"], price: 45,  img: "../images/white shirt.webp" },
+      { id: 2,  name: "Oxford Blue Shirt",      category: "shirts",   color: "#2B4C8C", colorLabel: "Blue",     sizes: ["XS","S","M","L","XL","XXL"], price: 48,  img: "../images/blue shirt.webp" },
+      { id: 3,  name: "Midnight Black Shirt",   category: "shirts",   color: "#1C1C1C", colorLabel: "Black",    sizes: ["XS","S","M","L","XL","XXL"], price: 48,  img: "../images/black shirt.webp" },
+      { id: 4,  name: "Cream Essential Shirt",  category: "shirts",   color: "#F5E6C8", colorLabel: "Cream",    sizes: ["S","M","L","XL","XXL"],       price: 52,  img: "../images/creamshirt.webp" },
       { id: 5,  name: "Olive Linen Shirt",      category: "shirts",   color: "#5B6B3A", colorLabel: "Olive",    sizes: ["XS","S","M","L","XL"],        price: 55,  img: "https://placehold.co/400x530/5B6B3A/FFFFFF?text=Olive+Shirt" },
       { id: 6,  name: "Burgundy Flannel Shirt", category: "shirts",   color: "#7A1E2E", colorLabel: "Burgundy", sizes: ["S","M","L","XL","XXL"],       price: 58,  img: "https://placehold.co/400x530/7A1E2E/FFFFFF?text=Burgundy+Shirt" },
 
@@ -410,11 +414,11 @@
       { id: 16, name: "Argyle Pattern Socks",   category: "socks",    color: "#6B3A6B", colorLabel: "Multi",    sizes: ["S/M","L/XL"],                 price: 16,  img: "https://placehold.co/400x530/6B3A6B/FFFFFF?text=Argyle+Socks" },
 
       // TROUSERS
-      { id: 17, name: "Slim Black Trousers",    category: "trousers", color: "#1A1A1A", colorLabel: "Black",    sizes: ["28","30","32","34","36","38"], price: 95,  img: "../images/blackpants.jpg" },
-      { id: 18, name: "Charcoal Wool Trousers", category: "trousers", color: "#4A4A52", colorLabel: "Charcoal", sizes: ["28","30","32","34","36"],      price: 115, img: "../images/greypants.png" },
-      { id: 19, name: "Navy Chinos",            category: "trousers", color: "#1E2D6B", colorLabel: "Navy",     sizes: ["28","30","32","34","36","38"], price: 85,  img: "../images/bluepants.png" },
+      { id: 17, name: "Slim Black Trousers",    category: "trousers", color: "#1A1A1A", colorLabel: "Black",    sizes: ["28","30","32","34","36","38"], price: 95,  img: "../images/blackpants.webp" },
+      { id: 18, name: "Charcoal Wool Trousers", category: "trousers", color: "#4A4A52", colorLabel: "Charcoal", sizes: ["28","30","32","34","36"],      price: 115, img: "../images/greypants.webp" },
+      { id: 19, name: "Navy Chinos",            category: "trousers", color: "#1E2D6B", colorLabel: "Navy",     sizes: ["28","30","32","34","36","38"], price: 85,  img: "../images/bluepants.webp" },
       { id: 20, name: "Stone Cargo Trousers",   category: "trousers", color: "#C4B89A", colorLabel: "Stone",    sizes: ["30","32","34","36","38"],      price: 88,  img: "https://placehold.co/400x530/C4B89A/4A4A4A?text=Stone+Trousers" },
-      { id: 21, name: "Olive Slim Chinos",      category: "trousers", color: "#5B6B3A", colorLabel: "Olive",    sizes: ["28","30","32","34","36"],      price: 82,  img: "../images/greenpants.png" },
+      { id: 21, name: "Olive Slim Chinos",      category: "trousers", color: "#5B6B3A", colorLabel: "Olive",    sizes: ["28","30","32","34","36"],      price: 82,  img: "../images/greenpants.webp" },
 
       // SWEATERS
       { id: 22, name: "Heather Grey Crewneck",  category: "sweaters", color: "#888888", colorLabel: "Grey",     sizes: ["XS","S","M","L","XL","XXL"],  price: 75,  img: "https://placehold.co/400x530/888888/FFFFFF?text=Grey+Sweater" },

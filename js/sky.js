@@ -1,32 +1,21 @@
-/* ── Daytime sky (light mode only) ──
-   A fixed WebGL backdrop of drifting cumulus clouds behind the whole page.
-   Scrolling moves through the sky with parallax, and the clock and scroll
-   position are kept in sessionStorage so the sky carries on across pages. */
+/* ── Site backdrop: daytime clouds (light mode) / shooting stars (dark mode) ──
+   Each theme paints a fixed WebGL layer behind the whole page. Scrolling moves
+   through it with parallax, and the clock and scroll position are kept in
+   sessionStorage so the backdrop carries on across pages. */
 (function () {
   const STORE_KEY = 'sky-state';
-  const PARALLAX  = 0.35;   // sky travel per viewport of page scroll
-  const RES_SCALE = 0.75;   // clouds are soft, so render below device resolution
+  const PARALLAX  = 0.35;   // backdrop travel per viewport of page scroll
   const FRAME_MS  = 1000 / 30;
 
   const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const canvas = document.createElement('canvas');
-  canvas.id = 'sky-canvas';
-  canvas.setAttribute('aria-hidden', 'true');
-  canvas.style.cssText =
-    'position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;' +
-    'display:block;opacity:0;transition:opacity 0.8s ease;';
-  document.body.prepend(canvas);
-
-  const gl = canvas.getContext('webgl2', { antialias: false, alpha: false, powerPreference: 'low-power' });
-  if (!gl) return;   // the CSS sky gradient on <body> stays as the fallback
-
   const VERT = `#version 300 es
     in vec2 a_pos;
     void main(){ gl_Position = vec4(a_pos, 0, 1); }
   `;
-  const FRAG = `#version 300 es
+
+  const DAY = `#version 300 es
     precision highp float;
     out vec4 O;
     uniform vec2  u_res;
@@ -88,48 +77,45 @@
     }
   `;
 
-  function compile(type, src) {
-    const s = gl.createShader(type);
-    gl.shaderSource(s, src);
-    gl.compileShader(s);
-    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
-      console.warn('Sky shader compile error:', gl.getShaderInfoLog(s));
-      return null;
+  // The site's original dark hero shader: streaking light trails over drifting amber nebula
+  const NIGHT = `#version 300 es
+    precision highp float;
+    out vec4 O;
+    uniform vec2  u_res;
+    uniform float u_time;
+    uniform float u_scroll;
+    #define FC gl_FragCoord.xy
+    #define T u_time
+    #define R u_res
+    #define MN min(R.x,R.y)
+    float rnd(vec2 p){p=fract(p*vec2(12.9898,78.233));p+=dot(p,p+34.56);return fract(p.x*p.y);}
+    float noise(in vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);float a=rnd(i),b=rnd(i+vec2(1,0)),c=rnd(i+vec2(0,1)),d=rnd(i+1.);return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);}
+    float fbm(vec2 p){float t=.0,a=1.;mat2 m=mat2(1.,-.5,.2,1.2);for(int i=0;i<5;i++){t+=a*noise(p);p*=2.*m;a*=.5;}return t;}
+    float clouds(vec2 p){float d=1.,t=.0;for(float i=.0;i<3.;i++){float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);t=mix(t,d,a);d=a;p*=2./(i+1.);}return t;}
+    void main(void){
+      vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
+      vec3 col=vec3(0);
+      float bg=clouds(vec2(st.x+T*.5,-st.y-u_scroll*2.));
+      uv*=1.-.3*(sin(T*.2)*.5+.5);
+      for(float i=1.;i<12.;i++){
+        uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
+        vec2 p=uv;
+        float d=length(p);
+        col+=.00125/d*(cos(sin(i)*vec3(1,2,3))+1.);
+        float b=noise(i+p+bg*1.731);
+        col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
+        col=mix(col,vec3(bg*.25,bg*.137,bg*.05),d);
+      }
+      O=vec4(col,1);
     }
-    return s;
-  }
+  `;
 
-  const vs = compile(gl.VERTEX_SHADER, VERT);
-  const fs = compile(gl.FRAGMENT_SHADER, FRAG);
-  if (!vs || !fs) return;
-
-  const prog = gl.createProgram();
-  gl.attachShader(prog, vs);
-  gl.attachShader(prog, fs);
-  gl.linkProgram(prog);
-  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-    console.warn('Sky program link error:', gl.getProgramInfoLog(prog));
-    return;
-  }
-  gl.useProgram(prog);
-
-  const buf = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
-  const posLoc = gl.getAttribLocation(prog, 'a_pos');
-  gl.enableVertexAttribArray(posLoc);
-  gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
-
-  const uRes    = gl.getUniformLocation(prog, 'u_res');
-  const uTime   = gl.getUniformLocation(prog, 'u_time');
-  const uScroll = gl.getUniformLocation(prog, 'u_scroll');
-
-  /* Shared clock + sky position across pages in this tab */
+  /* Shared clock + position across pages in this tab */
   let state = null;
   try { state = JSON.parse(sessionStorage.getItem(STORE_KEY)); } catch (e) {}
   if (!state || typeof state.epoch !== 'number') state = { epoch: Date.now(), offset: 0 };
 
-  // Scrolling adds to the sky offset, so each page starts exactly where the
+  // Scrolling adds to the offset, so each page starts exactly where the
   // previous one left off, whatever scroll position it opens at
   let offset = typeof state.offset === 'number' ? state.offset : 0;
   let lastY = window.scrollY;
@@ -137,59 +123,142 @@
     offset += ((window.scrollY - lastY) / window.innerHeight) * PARALLAX;
     lastY = window.scrollY;
   }, { passive: true });
-  const skyOffset = () => offset;
 
-  function saveState() {
+  window.addEventListener('pagehide', () => {
     try { sessionStorage.setItem(STORE_KEY, JSON.stringify({ epoch: state.epoch, offset })); } catch (e) {}
-  }
-  window.addEventListener('pagehide', saveState);
+  });
 
-  function resize() {
-    const scale = Math.min(window.devicePixelRatio || 1, 2) * RES_SCALE;
-    canvas.width  = Math.max(1, Math.round(window.innerWidth  * scale));
-    canvas.height = Math.max(1, Math.round(window.innerHeight * scale));
-    gl.viewport(0, 0, canvas.width, canvas.height);
+  function makeLayer(id, frag, resScale) {
+    const canvas = document.createElement('canvas');
+    canvas.id = id;
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.style.cssText =
+      'position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;' +
+      'display:block;opacity:0;transition:opacity 0.8s ease;';
+    document.body.prepend(canvas);
+
+    const gl = canvas.getContext('webgl2', { antialias: false, alpha: false, powerPreference: 'low-power' });
+    if (!gl) return null;   // the CSS gradient on <body> stays as the fallback
+
+    function compile(type, src) {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+        console.warn('Backdrop shader compile error:', gl.getShaderInfoLog(s));
+        return null;
+      }
+      return s;
+    }
+    const vs = compile(gl.VERTEX_SHADER, VERT);
+    const fs = compile(gl.FRAGMENT_SHADER, frag);
+    if (!vs || !fs) return null;
+
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      console.warn('Backdrop program link error:', gl.getProgramInfoLog(prog));
+      return null;
+    }
+    gl.useProgram(prog);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+    const posLoc = gl.getAttribLocation(prog, 'a_pos');
+    gl.enableVertexAttribArray(posLoc);
+    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+    const uRes    = gl.getUniformLocation(prog, 'u_res');
+    const uTime   = gl.getUniformLocation(prog, 'u_time');
+    const uScroll = gl.getUniformLocation(prog, 'u_scroll');
+
+    return {
+      canvas,
+      resize() {
+        const scale = Math.min(window.devicePixelRatio || 1, 2) * resScale * quality;
+        canvas.width  = Math.max(1, Math.round(window.innerWidth  * scale));
+        canvas.height = Math.max(1, Math.round(window.innerHeight * scale));
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      },
+      draw() {
+        gl.uniform2f(uRes, canvas.width, canvas.height);
+        gl.uniform1f(uTime, (Date.now() - state.epoch) * 0.001);
+        gl.uniform1f(uScroll, offset);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+    };
   }
 
-  function draw() {
-    gl.uniform2f(uRes, canvas.width, canvas.height);
-    gl.uniform1f(uTime, (Date.now() - state.epoch) * 0.001);
-    gl.uniform1f(uScroll, skyOffset());
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-  }
+  /* Low-power handling: Data Saver or a low battery shows a still frame, and a
+     device that can't keep up gets a lower render resolution, then a still frame */
+  let quality = 1;          // multiplier on each layer's render scale
+  let frozen = false;
+  const MIN_QUALITY = 0.5;
+  const SLOW_FRAME_MS = 45;  // well under the 30fps target
+  let slowRun = 0, prevTick = 0;
 
+  const saveData = () => navigator.connection?.saveData === true;
+  const staticOnly = () => reducedMotion.matches || saveData() || frozen;
+
+  navigator.getBattery?.().then(battery => {
+    const check = () => {
+      const low = !battery.charging && battery.level < 0.2;
+      if (low !== frozen) { frozen = low; sync(); }
+    };
+    battery.addEventListener('levelchange', check);
+    battery.addEventListener('chargingchange', check);
+    check();
+  }).catch(() => {});
+
+  // Clouds are soft and the nebula is busy, so both render below device resolution
+  const day   = makeLayer('sky-canvas', DAY, 0.75);
+  const night = makeLayer('night-canvas', NIGHT, 0.6);
+
+  let active = null;
   let raf = null;
   let last = 0;
   let lastScroll = -1;
 
   function loop(now) {
     raf = requestAnimationFrame(loop);
-    // Drift at 30fps; redraw immediately when the page scrolls so parallax stays smooth
+
+    // Sustained slow frames: step the resolution down, then settle on a still frame
+    if (prevTick) slowRun = now - prevTick > SLOW_FRAME_MS ? slowRun + 1 : Math.max(0, slowRun - 2);
+    prevTick = now;
+    if (slowRun > 60) {
+      slowRun = 0;
+      if (quality > MIN_QUALITY) { quality = Math.max(MIN_QUALITY, quality * 0.75); active.resize(); }
+      else { frozen = true; stop(); active.draw(); return; }
+    }
+
+    // Animate at 30fps; redraw immediately when the page scrolls so parallax stays smooth
     const scrolled = window.scrollY !== lastScroll;
     if (!scrolled && now - last < FRAME_MS) return;
     last = now;
     lastScroll = window.scrollY;
-    draw();
+    active.draw();
   }
 
-  function start() {
-    resize();
-    canvas.style.opacity = '1';
-    if (reducedMotion.matches) { stop(false); draw(); return; }
-    if (raf === null && !document.hidden) raf = requestAnimationFrame(loop);
-  }
-
-  function stop(hide = true) {
+  function stop() {
     if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
-    if (hide) canvas.style.opacity = '0';
   }
 
-  function sync() { isLight() ? start() : stop(); }
+  function sync() {
+    const next = isLight() ? day : night;
+    [day, night].forEach(l => { if (l) l.canvas.style.opacity = l === next ? '1' : '0'; });
+    active = next;
+    stop();
+    if (!active) return;
+    active.resize();
+    prevTick = 0; slowRun = 0;
+    if (staticOnly() || document.hidden) { active.draw(); return; }
+    raf = requestAnimationFrame(loop);
+  }
 
-  window.addEventListener('resize', () => { if (isLight()) { resize(); draw(); } }, { passive: true });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stop(false); else sync();
-  });
+  window.addEventListener('resize', () => { if (active) { active.resize(); active.draw(); } }, { passive: true });
+  document.addEventListener('visibilitychange', () => { document.hidden ? stop() : sync(); });
   reducedMotion.addEventListener?.('change', sync);
 
   new MutationObserver(sync).observe(document.documentElement, {

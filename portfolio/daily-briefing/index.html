@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Briefing Pipeline — Jonathan Kariuki</title>
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="description" content="Scheduled six-stage pipeline: headlines for chosen topics plus local weather, compressed by Claude into two-sentence summaries, emailed as a digest and logged to Google Sheets on every run." />
+  <meta name="author" content="Jonathan Kariuki" />
+  <link rel="canonical" href="https://saintlife.dev/portfolio/daily-briefing/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://saintlife.dev/portfolio/daily-briefing/" />
+  <meta property="og:site_name" content="saintlife.dev" />
+  <meta property="og:title" content="Daily Briefing Pipeline — Jonathan Kariuki" />
+  <meta property="og:description" content="Scheduled six-stage pipeline: headlines for chosen topics plus local weather, compressed by Claude into two-sentence summaries, emailed as a digest and logged to Google Sheets on every run." />
+  <meta property="og:image" content="https://saintlife.dev/images/og/daily-briefing.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Daily Briefing — scheduled LLM pipeline" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://saintlife.dev/images/og/daily-briefing.jpg" />
+
+  <!-- Anti-flash: apply saved theme before first paint -->
+  <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/portfolio.css" />
+  <link rel="stylesheet" href="/css/showcase.css" />
+</head>
+<body class="pf pj" style="--ctx:#F2C14E; --ctx-l:#8F6606;">
+  <!-- Cursor glow -->
+  <div id="cursor-glow"></div>
+
+  <!-- Background glow layers -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="inner">
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path class="ham-top" d="M4 12L20 12"/>
+          <path class="ham-mid" d="M4 12H20"/>
+          <path class="ham-bot" d="M4 12H20"/>
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="/" class="nav-logo">H.<span class="nav-name">Jonathan Kariuki</span></a>
+
+      <!-- Desktop links -->
+      <div class="nav-center">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#skills" class="nav-link">Skills</a>
+        <div class="nav-item" id="nav-projects">
+          <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
+            Projects
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-label">Websites</div>
+            <a href="/shop/">DRAPE — Shop</a>
+            <a href="/websites/restaurant/">Ember &amp; Oak</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Agents</div>
+            <a href="/agents/email-support/">Email Support</a>
+            <a href="/agents/competitor-analysis/">Competitor Analysis</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Workflows</div>
+            <a href="/workflows/daily-briefing/">Daily Briefing</a>
+            <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
+          </div>
+        </div>
+        <a href="/portfolio/#projects" class="nav-link">Work</a>
+        <a href="/portfolio/#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Right side -->
+      <div class="nav-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+        <a href="/portfolio/" class="btn-primary btn-sm">Portfolio</a>
+        <a href="/portfolio/#contact" class="btn-primary btn-sm">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/" class="mobile-menu-link">Home</a>
+      <a href="/#about" class="mobile-menu-link">About</a>
+      <a href="/#skills" class="mobile-menu-link">Skills</a>
+      <a href="/portfolio/" class="mobile-menu-link">Portfolio</a>
+      <a href="/portfolio/#projects" class="mobile-menu-link">Work</a>
+      <div class="mobile-menu-label">Websites</div>
+      <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
+      <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
+      <div class="mobile-menu-label">Agents</div>
+      <a href="/agents/email-support/" class="mobile-menu-link mobile-menu-sub">Email Support</a>
+      <a href="/agents/competitor-analysis/" class="mobile-menu-link mobile-menu-sub">Competitor Analysis</a>
+      <div class="mobile-menu-label">Workflows</div>
+      <a href="/workflows/daily-briefing/" class="mobile-menu-link mobile-menu-sub">Daily Briefing</a>
+      <a href="/workflows/email-autoresponder/" class="mobile-menu-link mobile-menu-sub">Email Autoresponder</a>
+      <a href="/portfolio/#contact" class="mobile-menu-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── PROJECT: Daily Briefing Pipeline ── -->
+  <main class="pj-main">
+    <section id="project" class="pj-section">
+      <div class="container">
+        <div class="pj-top">
+          <a class="pj-back" href="/portfolio/#projects">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to portfolio
+          </a>
+          <span class="pj-count"><b>Workflow</b> · Project 05 / 06</span>
+        </div>
+
+        <div class="sc-list">
+      <article class="sc" data-cat="flow" data-demo="brief" id="sc-brief">
+        <div class="sc-info">
+          <div class="sc-cover sc-cover-illo">
+            <svg viewBox="0 0 400 170" role="img" aria-label="Illustration: sun rising behind a newspaper at 7 AM">
+              <g class="illo-sun">
+                <circle cx="200" cy="118" r="44" class="illo-core" />
+                <path d="M200 50 V62 M152 70 L160 79 M248 70 L240 79 M132 112 H144 M256 112 H268" class="illo-stroke illo-rays" />
+              </g>
+              <line x1="40" y1="118" x2="360" y2="118" class="illo-grid" />
+              <g transform="translate(138 94) rotate(-4)">
+                <rect width="124" height="66" rx="4" class="illo-fill" />
+                <rect x="10" y="10" width="46" height="26" rx="2" class="illo-hl" />
+                <path d="M64 14 H112 M64 24 H106 M64 34 H112 M10 46 H112 M10 56 H90" class="illo-stroke" />
+              </g>
+              <g transform="translate(318 44)">
+                <circle r="22" class="illo-fill" />
+                <path d="M0 -12 V0 L8 6" class="illo-stroke" />
+              </g>
+              <text x="318" y="84" class="illo-lbl" text-anchor="middle">7:00 AM</text>
+            </svg>
+            <span class="sc-badge">Agent Workflow</span>
+          </div>
+          <h3 class="sc-title">Daily Briefing Pipeline</h3>
+          <p class="sc-desc">Scheduled six-stage pipeline: headlines for chosen topics plus local weather, compressed by Claude into two-sentence summaries, emailed as a digest and logged to Google Sheets on every run.</p>
+          <ol class="sc-steps">
+            <li><b>Cron trigger</b>Fires daily at 07:00, or manually on demand.</li>
+            <li><b>Fetch news</b>Pulls headlines for the configured topics.</li>
+            <li><b>Fetch weather</b>Current conditions and the day's forecast.</li>
+            <li><b>Summarise</b>Claude compresses each story to two sentences.</li>
+            <li><b>Email digest</b>Renders the briefing and sends it to your inbox.</li>
+            <li><b>Log run</b>Appends the date, topics and item count to Sheets.</li>
+          </ol>
+          <div class="sc-links">
+            <a href="/workflows/daily-briefing/" class="btn-primary btn-sm">Open the demo <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="sc-demo">
+          <div class="sc-frame">
+            <div class="sc-frame-bar">
+              <span class="sc-dots"><i></i><i></i><i></i></span>
+              <span class="sc-url">saintlife.dev/workflows/daily-briefing</span>
+              <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
+            </div>
+            <div class="sc-stage mk-brief">
+              <div class="mk-rail" data-rail>
+                <span>⏰</span><span>📰</span><span>🌤️</span><span>🤖</span><span>✉️</span><span>📋</span>
+              </div>
+              <div class="mk-brief-body">
+                <div class="mk-col mk-col-narrow">
+                  <div class="mk-clock" data-clock><b>6:59</b><span>AM · scheduled</span></div>
+                  <div class="mk-feed" data-feed></div>
+                  <div class="mk-weather mk-hide" data-weather><b>24°</b><span>Partly cloudy<br/>H 26° · L 15°</span><i>🌤️</i></div>
+                </div>
+                <div class="mk-col">
+                  <div class="mk-card mk-mail-preview">
+                    <div class="mk-pane-h">☀️ Morning Briefing <span class="mk-pill mk-hide" data-delivered>✓ Delivered</span></div>
+                    <div class="mk-sum" data-sums><p class="mk-empty">Summaries appear here…</p></div>
+                  </div>
+                  <table class="mk-sheet">
+                    <thead><tr><th>Date</th><th>Topics</th><th>Items</th></tr></thead>
+                    <tbody data-sheet>
+                      <tr><td>Yesterday</td><td>Tech, AI</td><td>7</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="sc-cursor" aria-hidden="true"></div>
+            </div>
+          </div>
+          <p class="sc-note">Illustration with made-up headlines. The live demo runs the full simulation.</p>
+        </div>
+      </article>
+        </div>
+
+        <div class="pj-pager">
+          <a class="pj-pager-link" href="/portfolio/competitor-analysis/">
+            <span>← Previous</span>
+            <b>Competitor Analysis Agent</b>
+          </a>
+          <a class="pj-pager-link pj-pager-next" href="/portfolio/email-autoresponder/">
+            <span>Next →</span>
+            <b>Email Autoresponder Pipeline</b>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">Built with intent. &copy; 2026 &nbsp;·&nbsp; <a href="/terms.html" class="pf-footer-link">Terms of Use</a> &nbsp;·&nbsp; <a href="/privacy.html" class="pf-footer-link">Privacy Policy</a></span>
+
+        <div class="footer-pill">
+          <a href="mailto:saintlife54@gmail.com" class="footer-icon" aria-label="Email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <div class="footer-sep"></div>
+          <a href="https://wa.me/254789376070" target="_blank" rel="noopener" class="footer-icon" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+          <div class="footer-sep"></div>
+          <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="footer-icon footer-top" aria-label="Back to top">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sky.js" defer></script>
+  <script src="/js/showcase.js" defer></script>
+</body>
+</html>

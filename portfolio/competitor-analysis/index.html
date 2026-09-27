@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competitor Analysis Agent — Jonathan Kariuki</title>
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="description" content="Structured-output analysis agent. Given a company and optional rivals, it runs a seven-step analysis and returns a 0–100 score, strengths, gaps and an impact-ranked roadmap." />
+  <meta name="author" content="Jonathan Kariuki" />
+  <link rel="canonical" href="https://saintlife.dev/portfolio/competitor-analysis/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://saintlife.dev/portfolio/competitor-analysis/" />
+  <meta property="og:site_name" content="saintlife.dev" />
+  <meta property="og:title" content="Competitor Analysis Agent — Jonathan Kariuki" />
+  <meta property="og:description" content="Structured-output analysis agent. Given a company and optional rivals, it runs a seven-step analysis and returns a 0–100 score, strengths, gaps and an impact-ranked roadmap." />
+  <meta property="og:image" content="https://saintlife.dev/images/og/competitor-analysis.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Competitor Analysis Agent — scored report and roadmap" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://saintlife.dev/images/og/competitor-analysis.jpg" />
+
+  <!-- Anti-flash: apply saved theme before first paint -->
+  <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/portfolio.css" />
+  <link rel="stylesheet" href="/css/showcase.css" />
+</head>
+<body class="pf pj" style="--ctx:#A88BF0; --ctx-l:#6242B8;">
+  <!-- Cursor glow -->
+  <div id="cursor-glow"></div>
+
+  <!-- Background glow layers -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="inner">
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path class="ham-top" d="M4 12L20 12"/>
+          <path class="ham-mid" d="M4 12H20"/>
+          <path class="ham-bot" d="M4 12H20"/>
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="/" class="nav-logo">H.<span class="nav-name">Jonathan Kariuki</span></a>
+
+      <!-- Desktop links -->
+      <div class="nav-center">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#skills" class="nav-link">Skills</a>
+        <div class="nav-item" id="nav-projects">
+          <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
+            Projects
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-label">Websites</div>
+            <a href="/shop/">DRAPE — Shop</a>
+            <a href="/websites/restaurant/">Ember &amp; Oak</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Agents</div>
+            <a href="/agents/email-support/">Email Support</a>
+            <a href="/agents/competitor-analysis/">Competitor Analysis</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Workflows</div>
+            <a href="/workflows/daily-briefing/">Daily Briefing</a>
+            <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
+          </div>
+        </div>
+        <a href="/portfolio/#projects" class="nav-link">Work</a>
+        <a href="/portfolio/#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Right side -->
+      <div class="nav-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+        <a href="/portfolio/" class="btn-primary btn-sm">Portfolio</a>
+        <a href="/portfolio/#contact" class="btn-primary btn-sm">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/" class="mobile-menu-link">Home</a>
+      <a href="/#about" class="mobile-menu-link">About</a>
+      <a href="/#skills" class="mobile-menu-link">Skills</a>
+      <a href="/portfolio/" class="mobile-menu-link">Portfolio</a>
+      <a href="/portfolio/#projects" class="mobile-menu-link">Work</a>
+      <div class="mobile-menu-label">Websites</div>
+      <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
+      <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
+      <div class="mobile-menu-label">Agents</div>
+      <a href="/agents/email-support/" class="mobile-menu-link mobile-menu-sub">Email Support</a>
+      <a href="/agents/competitor-analysis/" class="mobile-menu-link mobile-menu-sub">Competitor Analysis</a>
+      <div class="mobile-menu-label">Workflows</div>
+      <a href="/workflows/daily-briefing/" class="mobile-menu-link mobile-menu-sub">Daily Briefing</a>
+      <a href="/workflows/email-autoresponder/" class="mobile-menu-link mobile-menu-sub">Email Autoresponder</a>
+      <a href="/portfolio/#contact" class="mobile-menu-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── PROJECT: Competitor Analysis Agent ── -->
+  <main class="pj-main">
+    <section id="project" class="pj-section">
+      <div class="container">
+        <div class="pj-top">
+          <a class="pj-back" href="/portfolio/#projects">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to portfolio
+          </a>
+          <span class="pj-count"><b>Agent</b> · Project 04 / 06</span>
+        </div>
+
+        <div class="sc-list">
+      <article class="sc" data-cat="agent" data-demo="comp" id="sc-comp">
+        <div class="sc-info">
+          <div class="sc-cover sc-cover-illo">
+            <svg viewBox="0 0 400 170" role="img" aria-label="Illustration: radar chart comparing a business with a competitor">
+              <g transform="translate(200 88)">
+                <polygon points="0,-70 61,-35 61,35 0,70 -61,35 -61,-35" class="illo-grid" />
+                <polygon points="0,-47 41,-23 41,23 0,47 -41,23 -41,-23" class="illo-grid" />
+                <polygon points="0,-24 21,-12 21,12 0,24 -21,12 -21,-12" class="illo-grid" />
+                <path d="M0 -70 V70 M61 -35 L-61 35 M61 35 L-61 -35" class="illo-grid" />
+                <polygon points="0,-40 50,-29 36,21 0,58 -30,17 -54,-31" class="illo-radar-b" />
+                <polygon points="0,-62 38,-22 55,32 0,38 -48,28 -35,-20" class="illo-radar-a" />
+              </g>
+              <g class="illo-legend">
+                <rect x="316" y="18" width="12" height="12" rx="3" class="illo-radar-a" /><text x="334" y="28" class="illo-lbl">You</text>
+                <rect x="316" y="38" width="12" height="12" rx="3" class="illo-radar-b" /><text x="334" y="48" class="illo-lbl">Rival</text>
+              </g>
+              <text x="200" y="12" class="illo-lbl" text-anchor="middle">Messaging</text>
+              <text x="272" y="56" class="illo-lbl">SEO</text>
+              <text x="272" y="130" class="illo-lbl">Pricing</text>
+              <text x="128" y="130" class="illo-lbl" text-anchor="end">UX</text>
+              <text x="128" y="56" class="illo-lbl" text-anchor="end">Reach</text>
+            </svg>
+            <span class="sc-badge">Custom Agent</span>
+          </div>
+          <h3 class="sc-title">Competitor Analysis Agent</h3>
+          <p class="sc-desc">Structured-output analysis agent. Given a company and optional rivals, it runs a seven-step analysis and returns a 0–100 score, strengths, gaps and an impact-ranked roadmap.</p>
+          <ol class="sc-steps">
+            <li><b>Target</b>A company name or URL, plus optional competitors.</li>
+            <li><b>Seven-step analysis</b>Strengths, weaknesses and rivals, assessed and then compared.</li>
+            <li><b>Scored report</b>An overall 0–100 score with findings on both sides.</li>
+            <li><b>Roadmap</b>Next actions, ranked by expected impact.</li>
+          </ol>
+          <div class="sc-links">
+            <a href="/agents/competitor-analysis/" class="btn-primary btn-sm">Run an analysis <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="sc-demo">
+          <div class="sc-frame">
+            <div class="sc-frame-bar">
+              <span class="sc-dots"><i></i><i></i><i></i></span>
+              <span class="sc-url">saintlife.dev/agents/competitor-analysis</span>
+              <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
+            </div>
+            <div class="sc-stage mk-comp">
+              <div class="mk-col mk-col-narrow">
+                <div class="mk-card">
+                  <div class="mk-pane-h">🎯 Analysis target</div>
+                  <label class="mk-lbl">Company or URL</label>
+                  <div class="mk-input" data-target><span></span></div>
+                  <label class="mk-lbl">Competitors</label>
+                  <div class="mk-chips" data-rivals></div>
+                  <button class="mk-btn" type="button" data-run>Run analysis</button>
+                </div>
+              </div>
+              <div class="mk-col">
+                <div class="mk-card mk-card-tall mk-swap">
+                  <div class="mk-progress" data-progress>
+                    <div class="mk-pane-h">⚡ Analysis progress</div>
+                    <ul data-plist>
+                      <li>Scanning target</li><li>Analysing strengths</li><li>Identifying weaknesses</li>
+                      <li>Scanning competitors</li><li>Cross-comparison</li><li>Building roadmap</li><li>Compiling report</li>
+                    </ul>
+                  </div>
+                  <div class="mk-report mk-hide" data-report>
+                    <div class="mk-score">
+                      <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" class="mk-ring-bg"/><circle cx="32" cy="32" r="27" class="mk-ring" data-ring/></svg>
+                      <div><b data-score>0</b><span>/100 overall</span></div>
+                    </div>
+                    <div class="mk-two">
+                      <div><div class="mk-mini-h ok">What's working</div><p>Loyal repeat customers</p><p>Strong local reviews (4.7★)</p></div>
+                      <div><div class="mk-mini-h bad">What's not</div><p>No online ordering</p><p>Weak search visibility</p></div>
+                    </div>
+                    <div class="mk-mini-h">Roadmap</div>
+                    <ol class="mk-road" data-road>
+                      <li><span class="mk-pri hi">High</span>Launch pickup ordering on the site</li>
+                      <li><span class="mk-pri hi">High</span>Claim &amp; optimise Google Business profile</li>
+                      <li><span class="mk-pri md">Med</span>Loyalty card to match BeanStreet</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+              <div class="sc-cursor" aria-hidden="true"></div>
+            </div>
+          </div>
+          <p class="sc-note">Illustration with a fictional business and sample findings.</p>
+        </div>
+      </article>
+        </div>
+
+        <div class="pj-pager">
+          <a class="pj-pager-link" href="/portfolio/email-support/">
+            <span>← Previous</span>
+            <b>Email Support Agent</b>
+          </a>
+          <a class="pj-pager-link pj-pager-next" href="/portfolio/daily-briefing/">
+            <span>Next →</span>
+            <b>Daily Briefing Pipeline</b>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">Built with intent. &copy; 2026 &nbsp;·&nbsp; <a href="/terms.html" class="pf-footer-link">Terms of Use</a> &nbsp;·&nbsp; <a href="/privacy.html" class="pf-footer-link">Privacy Policy</a></span>
+
+        <div class="footer-pill">
+          <a href="mailto:saintlife54@gmail.com" class="footer-icon" aria-label="Email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <div class="footer-sep"></div>
+          <a href="https://wa.me/254789376070" target="_blank" rel="noopener" class="footer-icon" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+          <div class="footer-sep"></div>
+          <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="footer-icon footer-top" aria-label="Back to top">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sky.js" defer></script>
+  <script src="/js/showcase.js" defer></script>
+</body>
+</html>

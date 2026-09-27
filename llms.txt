@@ -1,60 +1,72 @@
-# H. — Portfolio
+# H. — Jonathan Kariuki
 
-> Jonathan Kariuki · Web Developer & AI Agent Builder
+> Front ends that load fast. LLM agents that run unattended.
 > https://saintlife.dev
 
 ## About
 
-Personal portfolio of a developer who builds websites and custom AI agents. Work spans polished frontends, Claude-powered agents, multi-step automation pipelines, and e-commerce demos. All projects on this site are live, working demonstrations — not mockups.
+Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM agents with scoped tools and retrieval over the client's own data, and event-driven automation pipelines. Every project listed below has a running demo on this site; none are mockups.
 
 ## Pages
 
-### Main Portfolio
-- URL: https://saintlife.dev
-- Sections: Hero, About, Skills, Projects, Process, Contact
-- Contact: saintlife54@gmail.com | wa.me/254789376070
+### Home
+- URL: https://saintlife.dev/
+- Sections: Hero, About, Capabilities, Projects, Process, Contact
 
-### Terms of Use
-- URL: https://saintlife.dev/terms.html
+### Portfolio
+- URL: https://saintlife.dev/portfolio/
+- Sections: Hero with an illustrated summary of the work, Projects (one page per project), Who I am, Contact
 
-## Projects (all live demos)
+### Legal
+- Terms of Use: https://saintlife.dev/terms.html
+- Privacy Policy: https://saintlife.dev/privacy.html
 
-### DRAPE — Clothing Store
-- URL: https://saintlife.dev/shop/
-- Type: Website Build
-- Description: Full e-commerce clothing store. 31 products across 6 categories with color variants, size selectors, and a live cart. Built with Tailwind CSS and vanilla JavaScript.
+## Projects
 
-### Email Support Agent
-- URL: https://saintlife.dev/agents/email-support/
-- Type: Custom AI Agent
-- Description: Paste support documentation and an incoming customer email — receive a grounded, ready-to-send reply via Claude API. Does not hallucinate information outside the provided docs.
+Each project has a case page (write-up plus an animated demo) and a separate live build.
 
-### Competitor Analysis Agent
-- URL: https://saintlife.dev/agents/competitor-analysis/
-- Type: Custom AI Agent
-- Description: Analyse any business and surface competitive intelligence. Structured output for positioning, strengths, weaknesses, and opportunities.
+### DRAPE — static e-commerce front end
+- Case page: https://saintlife.dev/portfolio/drape/
+- Live build: https://saintlife.dev/shop/
+- Type: Website
+- Summary: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart, all client-side. Tailwind CSS and plain JavaScript, no JS framework.
 
-### Email Autoresponder Pipeline
-- URL: https://saintlife.dev/workflows/email-autoresponder/
-- Type: Agent Workflow
-- Description: 5-step pipeline — watches Gmail inbox, parses unread emails, loads support docs, drafts a Claude-powered reply, sends it in-thread, marks email read. Fully automated.
+### Ember & Oak — restaurant site
+- Case page: https://saintlife.dev/portfolio/ember-oak/
+- Live build: https://saintlife.dev/websites/restaurant/
+- Type: Website
+- Summary: Mobile-first site with an editorial layout, in-place tabbed menu, dietary tags, gallery, opening hours and a reservation flow with a confirmation state.
 
-### Daily Briefing Pipeline
-- URL: https://saintlife.dev/workflows/daily-briefing/
-- Type: Agent Workflow
-- Description: Runs each morning — fetches topic-specific news, grabs weather, sends to Claude for summarisation, delivers a clean digest to inbox, logs to Google Sheets.
+### Email Support Agent — retrieval-grounded replies
+- Case page: https://saintlife.dev/portfolio/email-support/
+- Live build: https://saintlife.dev/agents/email-support/
+- Type: LLM agent
+- Summary: Takes support docs and an inbound email, locates the section that answers the question, and drafts a reply restricted to that source, with the citation shown.
 
-### Ember & Oak — Restaurant Site
-- URL: https://saintlife.dev/websites/restaurant/
-- Type: Website Build
-- Description: Full website for a wood-fired restaurant. Tabbed menu, image gallery, reservation form, opening hours. Mobile-first responsive design.
+### Competitor Analysis Agent — scored report and roadmap
+- Case page: https://saintlife.dev/portfolio/competitor-analysis/
+- Live build: https://saintlife.dev/agents/competitor-analysis/
+- Type: LLM agent (structured output)
+- Summary: Given a company and optional rivals, runs a seven-step analysis and returns a 0–100 score, strengths, gaps and an impact-ranked roadmap.
 
-## Skills & Stack
+### Daily Briefing — scheduled pipeline
+- Case page: https://saintlife.dev/portfolio/daily-briefing/
+- Live build: https://saintlife.dev/workflows/daily-briefing/
+- Type: Automation pipeline
+- Summary: Six stages: cron trigger, topic headlines, local weather, two-sentence summaries per story by Claude, emailed digest, run log appended to Google Sheets.
 
-- Frontend: HTML5, CSS3, Vanilla JavaScript, Tailwind CSS
-- AI/Agents: Claude API (Anthropic), OpenAI, prompt engineering, tool use, multi-step orchestration
-- Automation: Gmail API, Google Sheets API, Python pipelines
-- Design: responsive layouts, animation, dark/light theming, WebGL shaders
+### Email Autoresponder — event-driven Gmail pipeline
+- Case page: https://saintlife.dev/portfolio/email-autoresponder/
+- Live build: https://saintlife.dev/workflows/email-autoresponder/
+- Type: Automation pipeline
+- Summary: No human in the loop: polls Gmail every 30 seconds, parses and filters (drops newsletters and spam), retrieves the matching policy docs, drafts with Claude, replies in-thread, marks the message read and logs the run.
+
+## Capabilities & stack
+
+- Front end: semantic HTML, token-based CSS, plain JavaScript, Tailwind CSS, WebGL shaders, light/dark theming
+- Refactors: accessibility fixes, render-blocking asset removal, Core Web Vitals
+- LLM agents: Claude API (Anthropic), OpenAI, tool calling, structured outputs, retrieval over client documents
+- Pipelines: Gmail API, Google Sheets API, Python, scheduled and event-driven runs with retries and run logs
 
 ## Contact
 

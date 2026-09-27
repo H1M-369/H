@@ -16,13 +16,17 @@ const MIME = {
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".svg": "image/svg+xml",
+  ".webp": "image/webp",
   ".ico": "image/x-icon",
+  ".webmanifest": "application/manifest+json",
+  ".txt": "text/plain",
+  ".xml": "application/xml",
   ".woff2": "font/woff2",
   ".woff": "font/woff",
 };
 
 http.createServer((req, res) => {
-  let urlPath = req.url.split("?")[0];
+  let urlPath = decodeURIComponent(req.url.split("?")[0]);
   if (urlPath === "/" || urlPath.endsWith("/")) urlPath = urlPath + "index.html";
   if (!path.extname(urlPath)) urlPath = urlPath + "/index.html";
 
@@ -32,8 +36,11 @@ http.createServer((req, res) => {
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("404 Not Found");
+      // Mirror the host: unknown pages get the site's 404 page
+      fs.readFile(path.join(__dirname, "404.html"), (err404, page) => {
+        res.writeHead(404, { "Content-Type": err404 ? "text/plain" : "text/html" });
+        res.end(err404 ? "404 Not Found" : page);
+      });
       return;
     }
     res.writeHead(200, { "Content-Type": contentType });

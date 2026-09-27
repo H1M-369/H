@@ -233,16 +233,7 @@ nav .inner {
   position: relative;
   overflow: hidden;
 }
-#hero-shader {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  z-index: 0;
-}
+#hero > .container { width: 100%; }  /* flex item: keep it on the page grid, not sized to the headline */
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -261,7 +252,7 @@ nav .inner {
   background: var(--amber);
 }
 h1.hero-name {
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: clamp(2.6rem, 6.2vw, 4.6rem);
   line-height: 1.0;
   color: var(--text);
   margin-bottom: 8px;
@@ -503,6 +494,8 @@ section { padding: 100px 0; }
     transform 0.22s cubic-bezier(0.34,1.56,0.64,1),
     box-shadow 0.22s ease;
 }
+a.project-card { color: inherit; text-decoration: none; }
+a.project-card:focus-visible { outline: 2px solid var(--amber-l); outline-offset: 3px; }
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow:
@@ -835,33 +828,70 @@ h1.hero-name  { opacity: 0; animation: hero-rise 0.85s cubic-bezier(0.34,1.56,0.
   .process-step { border-right: none; }
 }
 
-/* ── Daytime sky (light mode) ──
-   js/sky.js paints drifting clouds on a fixed canvas behind the page.
-   Content sections float over it as frosted panels so text stays readable;
-   the key areas (projects / work) get the most solid panels. */
+/* ── Site backdrop + glass panels (both themes) ──
+   js/sky.js paints a fixed WebGL backdrop behind every page: drifting clouds
+   in light mode, shooting stars over an amber nebula in dark mode. Sections
+   float over it as glass panels; the cards inside are frostier tiles that
+   carry the text. Key areas (projects / work / achievements) use denser glass.
+   Each theme only sets the tints; the panel itself is shared. */
 [data-theme="light"] body {
   background: linear-gradient(180deg, #0F3A8C 0%, #3370C4 100%) fixed;
 }
-[data-theme="light"] .bg-glow { display: none; }
+.bg-glow { display: none; }
 
-[data-theme="light"] section:not(#hero),
-[data-theme="light"] footer {
+section:not(#hero),
+footer {
+  /* Dark glass: surfaces inside become translucent smoked tiles */
+  --bg:       rgba(10,10,14,0.55);
+  --surface:  rgba(20,20,28,0.5);
+  --surface2: rgba(30,30,40,0.55);
+  --border:   rgba(255,255,255,0.09);
+  --muted:    #9CA2AE;
+  --glass-sheen: linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.015) 45%, rgba(255,255,255,0.035));
+  --glass-base:  rgba(9,9,12,0.46);
+  --glass-key:   rgba(9,9,12,0.6);
+  --glass-edge:  rgba(255,255,255,0.1);
+  --glass-hi:    rgba(255,255,255,0.08);
+  --glass-lo:    rgba(255,255,255,0.02);
+  --glass-drop:  rgba(0,0,0,0.7);
   position: relative;
   z-index: 1;
   margin: 0 clamp(10px, 2.5vw, 32px) clamp(14px, 2vw, 24px);
-  background: var(--panel, rgba(250,247,240,0.92));
-  -webkit-backdrop-filter: blur(14px) saturate(1.15);
-  backdrop-filter: blur(14px) saturate(1.15);
-  border: 1px solid rgba(255,255,255,0.6);
+  background: var(--glass-sheen), var(--panel, var(--glass-base));
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  backdrop-filter: blur(22px) saturate(1.4);
+  border: 1px solid var(--glass-edge);
   border-radius: clamp(18px, 2.5vw, 28px);
-  box-shadow: 0 24px 60px -28px rgba(8,28,70,0.55);
+  box-shadow:
+    inset 0 1px 0 var(--glass-hi),
+    inset 0 -1px 0 var(--glass-lo),
+    0 24px 60px -28px var(--glass-drop);
 }
-[data-theme="light"] #skills,
-[data-theme="light"] #process,
-[data-theme="light"] .pf-surface { --panel: rgba(244,239,229,0.94); }
-[data-theme="light"] #projects,
-[data-theme="light"] #work,
-[data-theme="light"] #achievements { --panel: rgba(250,247,240,0.97); }
+[data-theme="light"] section:not(#hero),
+[data-theme="light"] footer {
+  --bg:       rgba(252,250,245,0.5);
+  --surface:  rgba(248,244,236,0.44);
+  --surface2: rgba(236,229,214,0.48);
+  --border:   rgba(255,255,255,0.55);
+  --text:     #15110B;
+  --muted:    #4A4234;
+  --amber:    #8F6606;
+  --amber-l:  #8A6200;
+  --glass-sheen: linear-gradient(135deg, rgba(255,255,255,0.375), rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.255));
+  --glass-base:  rgba(250,247,240,0.094);
+  --glass-key:   rgba(250,247,240,0.21);
+  --glass-edge:  rgba(255,255,255,0.65);
+  --glass-hi:    rgba(255,255,255,0.8);
+  --glass-lo:    rgba(255,255,255,0.2);
+  --glass-drop:  rgba(8,28,70,0.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  backdrop-filter: blur(22px) saturate(1.5);
+}
+#projects, #work, #achievements { --panel: var(--glass-key); }
+
+.process-steps { background: var(--bg); }
+.step-num { color: rgba(223,181,32,0.3); }
+[data-theme="light"] .step-num { color: rgba(143,102,6,0.35); }
 
 /* Hero sits directly on the sky: white type over a soft shade */
 [data-theme="light"] #hero {
