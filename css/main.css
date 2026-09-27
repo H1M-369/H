@@ -834,3 +834,63 @@ h1.hero-name  { opacity: 0; animation: hero-rise 0.85s cubic-bezier(0.34,1.56,0.
   .process-steps { grid-template-columns: 1fr; }
   .process-step { border-right: none; }
 }
+
+/* ── Daytime sky (light mode) ──
+   js/sky.js paints drifting clouds on a fixed canvas behind the page.
+   Content sections float over it as frosted panels so text stays readable;
+   the key areas (projects / work) get the most solid panels. */
+[data-theme="light"] body {
+  background: linear-gradient(180deg, #0F3A8C 0%, #3370C4 100%) fixed;
+}
+[data-theme="light"] .bg-glow { display: none; }
+
+[data-theme="light"] section:not(#hero),
+[data-theme="light"] footer {
+  position: relative;
+  z-index: 1;
+  margin: 0 clamp(10px, 2.5vw, 32px) clamp(14px, 2vw, 24px);
+  background: var(--panel, rgba(250,247,240,0.92));
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: clamp(18px, 2.5vw, 28px);
+  box-shadow: 0 24px 60px -28px rgba(8,28,70,0.55);
+}
+[data-theme="light"] #skills,
+[data-theme="light"] #process,
+[data-theme="light"] .pf-surface { --panel: rgba(244,239,229,0.94); }
+[data-theme="light"] #projects,
+[data-theme="light"] #work,
+[data-theme="light"] #achievements { --panel: rgba(250,247,240,0.97); }
+
+/* Hero sits directly on the sky: white type over a soft shade */
+[data-theme="light"] #hero {
+  --text:  #FFFFFF;
+  --muted: rgba(255,255,255,0.86);
+  --border: rgba(255,255,255,0.4);
+  --ghost-hover-border: rgba(255,255,255,0.75);
+  --ghost-hover-bg:     rgba(255,255,255,0.14);
+  --nav-bg:  rgba(6,24,64,0.45);
+  --surface: rgba(255,255,255,0.12);
+  --amber-l: #FFD95E;
+}
+[data-theme="light"] #hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 75% 65% at 28% 55%, rgba(6,24,64,0.5), transparent 72%),
+    linear-gradient(180deg, rgba(6,24,64,0.18), transparent 30%, transparent 75%, rgba(6,24,64,0.2));
+}
+[data-theme="light"] #hero .container { text-shadow: 0 2px 24px rgba(4,18,50,0.45); }
+[data-theme="light"] #hero .btn-primary { text-shadow: none; box-shadow: 0 10px 30px -10px rgba(4,18,50,0.6); }
+[data-theme="light"] #hero .hero-eyebrow { color: #FFFFFF; }
+[data-theme="light"] #hero .hero-eyebrow::before { background: #FFFFFF; }
+[data-theme="light"] #hero .btn-ghost {
+  background: rgba(6,24,64,0.3);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+[data-theme="light"] #hero .btn-ghost:hover { background: rgba(6,24,64,0.42); }

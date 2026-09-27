@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Jonathan Kariuki</title>
+  <meta name="description" content="Jonathan Kariuki — web developer and AI agent builder based in Kenya. Who I am, what I build, how I learned it, what I've shipped, and where I'm heading." />
+  <meta name="author" content="Jonathan Kariuki" />
+  <link rel="canonical" href="https://saintlife.dev/portfolio/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://saintlife.dev/portfolio/" />
+  <meta property="og:site_name" content="saintlife.dev" />
+  <meta property="og:title" content="Portfolio — Jonathan Kariuki" />
+  <meta property="og:description" content="Web developer and AI agent builder. The story, the stack, the shipped work, and the plan." />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Portfolio — Jonathan Kariuki" />
+  <meta name="twitter:description" content="Web developer and AI agent builder. The story, the stack, the shipped work, and the plan." />
+
+  <!-- Anti-flash: apply saved theme before first paint -->
+  <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/portfolio.css" />
+  <link rel="stylesheet" href="/css/showcase.css" />
+</head>
+<body class="pf">
+
+  <!-- Scroll progress -->
+  <div class="pf-progress" id="pf-progress"></div>
+
+  <!-- Cursor glow -->
+  <div id="cursor-glow"></div>
+
+  <!-- Background glow layers -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="inner">
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path class="ham-top" d="M4 12L20 12"/>
+          <path class="ham-mid" d="M4 12H20"/>
+          <path class="ham-bot" d="M4 12H20"/>
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="/" class="nav-logo">H.</a>
+
+      <!-- Desktop links -->
+      <div class="nav-center">
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#skills" class="nav-link">Skills</a>
+        <div class="nav-item" id="nav-projects">
+          <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
+            Projects
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-label">Websites</div>
+            <a href="/shop/">DRAPE — Shop</a>
+            <a href="/websites/restaurant/">Ember &amp; Oak</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Agents</div>
+            <a href="/agents/email-support/">Email Support</a>
+            <a href="/agents/competitor-analysis/">Competitor Analysis</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Workflows</div>
+            <a href="/workflows/daily-briefing/">Daily Briefing</a>
+            <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
+          </div>
+        </div>
+        <a href="/portfolio/" class="nav-link nav-link-current" aria-current="page">Portfolio</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Right side -->
+      <div class="nav-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+        <a href="#contact" class="btn-primary btn-sm">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/#about" class="mobile-menu-link">About</a>
+      <a href="/#skills" class="mobile-menu-link">Skills</a>
+      <a href="/portfolio/" class="mobile-menu-link" aria-current="page">Portfolio</a>
+      <div class="mobile-menu-label">Websites</div>
+      <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
+      <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
+      <div class="mobile-menu-label">Agents</div>
+      <a href="/agents/email-support/" class="mobile-menu-link mobile-menu-sub">Email Support</a>
+      <a href="/agents/competitor-analysis/" class="mobile-menu-link mobile-menu-sub">Competitor Analysis</a>
+      <div class="mobile-menu-label">Workflows</div>
+      <a href="/workflows/daily-briefing/" class="mobile-menu-link mobile-menu-sub">Daily Briefing</a>
+      <a href="/workflows/email-autoresponder/" class="mobile-menu-link mobile-menu-sub">Email Autoresponder</a>
+      <a href="#contact" class="mobile-menu-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero" class="pf-hero">
+    <canvas id="hero-shader" style="display:block;"></canvas>
+    <div class="container pf-hero-grid">
+      <div class="pf-hero-copy">
+        <div class="hero-eyebrow">Portfolio · Based in Kenya</div>
+        <h1 class="hero-name">Jonathan<br /><em>Kariuki.</em></h1>
+        <p class="hero-sub">
+          I build websites people enjoy using and AI agents that do real work.
+          This page covers who I am, how I learned, what I've shipped, and what's next.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#story" class="btn-primary">
+            Read the story
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a href="#work" class="btn-ghost">See the work</a>
+        </div>
+      </div>
+
+      <!-- Interactive 3D model: the "agent core" -->
+      <figure class="pf-core" aria-label="Rotating 3D network sphere representing an AI agent core">
+        <canvas id="pf-core-canvas"></canvas>
+        <figcaption class="pf-core-caption">
+          <span class="pf-dot-live"></span> Agent core · drag to rotate
+        </figcaption>
+      </figure>
+    </div>
+
+    <a href="#story" class="pf-scroll-cue" aria-label="Scroll to story">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="pf-marquee" aria-hidden="true">
+    <div class="pf-marquee-track">
+      <span>Websites</span><i>✦</i><span>AI Agents</span><i>✦</i><span>Workflows</span><i>✦</i><span>Automation</span><i>✦</i><span>Frontend Design</span><i>✦</i><span>Claude API</span><i>✦</i>
+      <span>Websites</span><i>✦</i><span>AI Agents</span><i>✦</i><span>Workflows</span><i>✦</i><span>Automation</span><i>✦</i><span>Frontend Design</span><i>✦</i><span>Claude API</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- ── STORY / WHO I AM ── -->
+  <section id="story">
+    <div class="container">
+      <div class="pf-split">
+        <div>
+          <div class="section-label reveal">01 — Who I am</div>
+          <h2 class="section-title reveal reveal-delay-1">A builder working<br />where <em class="pf-em">web meets AI</em>.</h2>
+          <p class="section-body reveal reveal-delay-2">
+            I'm Jonathan, a freelance developer based in Kenya, and I go by <strong class="pf-strong">H</strong> online.
+            I started out making websites. Once I saw what language models could do behind a good interface,
+            I started building the agents too.
+          </p>
+          <p class="section-body reveal reveal-delay-3" style="margin-top:16px;">
+            Now I work on both sides: frontends that feel intentional, and agents and pipelines that
+            read, reason, and act without someone copying and pasting between tabs.
+          </p>
+
+          <div class="pf-traits reveal reveal-delay-3">
+            <div class="pf-trait"><span>Outcome first</span>I start with the result you need, then pick the tech stack.</div>
+            <div class="pf-trait"><span>Detail-driven</span>I care about spacing, motion, and edge cases.</div>
+            <div class="pf-trait"><span>Always shipping</span>I'd rather ship something that works and keep improving it than wait for perfect.</div>
+          </div>
+        </div>
+
+        <!-- Venn model: Web ∩ AI -->
+        <div class="pf-venn reveal reveal-delay-2" id="pf-venn">
+          <svg viewBox="0 0 420 340" role="img" aria-labelledby="venn-title">
+            <title id="venn-title">Diagram: my work sits where web development and AI overlap</title>
+            <defs>
+              <radialGradient id="vg-l" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="var(--amber-l)" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="var(--amber-l)" stop-opacity="0.02"/>
+              </radialGradient>
+            </defs>
+            <g class="venn-left">
+              <circle cx="150" cy="170" r="120" fill="url(#vg-l)" stroke="var(--amber)" stroke-opacity="0.55" stroke-width="1.2"/>
+              <text x="95" y="130" class="venn-title">Web</text>
+              <text x="95" y="156" class="venn-item">Sites from scratch</text>
+              <text x="95" y="176" class="venn-item">Upgrades</text>
+              <text x="95" y="196" class="venn-item">Frontend design</text>
+            </g>
+            <g class="venn-right">
+              <circle cx="270" cy="170" r="120" fill="url(#vg-l)" stroke="var(--amber)" stroke-opacity="0.55" stroke-width="1.2"/>
+              <text x="325" y="130" class="venn-title" text-anchor="end">AI</text>
+              <text x="325" y="156" class="venn-item" text-anchor="end">Custom agents</text>
+              <text x="325" y="176" class="venn-item" text-anchor="end">Workflows</text>
+              <text x="325" y="196" class="venn-item" text-anchor="end">Integration</text>
+            </g>
+            <g class="venn-center">
+              <circle cx="210" cy="170" r="30" class="venn-pulse"/>
+              <text x="210" y="178" class="venn-me" text-anchor="middle">H.</text>
+            </g>
+          </svg>
+          <p class="pf-caption">Most developers do one or the other. My work is in the overlap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT I DO: live pipeline model ── -->
+  <section id="what" class="pf-surface">
+    <div class="container">
+      <div class="section-label reveal">02 — What I do</div>
+      <h2 class="section-title reveal reveal-delay-1">From trigger to output,<br />every step has a job.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        This is the pattern behind most of what I build. The model below runs the same five steps as my
+        <a href="/workflows/email-autoresponder/" class="pf-link">Email Autoresponder</a> pipeline. Click any step to see what it does.
+      </p>
+
+      <div class="pf-pipeline reveal reveal-delay-2" id="pf-pipeline" role="tablist" aria-label="Agent pipeline steps">
+        <button class="pf-node is-active" role="tab" aria-selected="true" data-step="0">
+          <span class="pf-node-ico">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </span>
+          <span class="pf-node-num">01</span>
+          <span class="pf-node-name">Trigger</span>
+        </button>
+        <div class="pf-wire"><span class="pf-packet"></span></div>
+        <button class="pf-node" role="tab" aria-selected="false" data-step="1">
+          <span class="pf-node-ico">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg>
+          </span>
+          <span class="pf-node-num">02</span>
+          <span class="pf-node-name">Parse</span>
+        </button>
+        <div class="pf-wire"><span class="pf-packet"></span></div>
+        <button class="pf-node" role="tab" aria-selected="false" data-step="2">
+          <span class="pf-node-ico">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/><path d="M8 7h8M8 11h6"/></svg>
+          </span>
+          <span class="pf-node-num">03</span>
+          <span class="pf-node-name">Context</span>
+        </button>
+        <div class="pf-wire"><span class="pf-packet"></span></div>
+        <button class="pf-node pf-node-brain" role="tab" aria-selected="false" data-step="3">
+          <span class="pf-node-ico">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+          </span>
+          <span class="pf-node-num">04</span>
+          <span class="pf-node-name">Reason</span>
+        </button>
+        <div class="pf-wire"><span class="pf-packet"></span></div>
+        <button class="pf-node" role="tab" aria-selected="false" data-step="4">
+          <span class="pf-node-ico">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
+          </span>
+          <span class="pf-node-num">05</span>
+          <span class="pf-node-name">Deliver</span>
+        </button>
+      </div>
+
+      <div class="pf-pipe-detail" id="pf-pipe-detail" aria-live="polite">
+        <div class="pf-pipe-detail-label" id="pf-pd-label">Step 01 · Trigger</div>
+        <div class="pf-pipe-detail-title" id="pf-pd-title">Something happens.</div>
+        <p class="pf-pipe-detail-body" id="pf-pd-body">A new email arrives, a schedule fires, or a form is submitted. The pipeline watches for that event so nobody has to.</p>
+        <div class="skill-tags" id="pf-pd-tags"><span class="tag">Gmail API</span><span class="tag">Cron</span><span class="tag">Webhooks</span></div>
+      </div>
+
+      <div class="pf-do-grid">
+        <div class="pf-do reveal reveal-delay-1">
+          <div class="pf-do-head"><span class="pf-do-ico">🌐</span>Websites</div>
+          <p>Custom-built sites, from landing pages to full storefronts. They load fast, work on phones first, and feel considered.</p>
+          <a href="/shop/" class="project-link">DRAPE — Shop <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="pf-do reveal reveal-delay-2">
+          <div class="pf-do-head"><span class="pf-do-ico">🤖</span>Agents</div>
+          <p>Agents built for one job and grounded in your own data, so they don't make things up.</p>
+          <a href="/agents/email-support/" class="project-link">Email Support Agent <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="pf-do reveal reveal-delay-3">
+          <div class="pf-do-head"><span class="pf-do-ico">⚙️</span>Workflows</div>
+          <p>Multi-step automations that run on their own, handle failures, and send the output somewhere useful.</p>
+          <a href="/workflows/daily-briefing/" class="project-link">Daily Briefing <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WORK, UP CLOSE: project showcases with live mock demos ── -->
+  <section id="work">
+    <div class="container">
+      <div class="section-label reveal">03 — The work, up close</div>
+      <h2 class="section-title reveal reveal-delay-1">Every project,<br /><em class="pf-em">shown working</em>.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        Each demo below plays through how the project works, step by step, using sample data.
+        You can click through the website demos yourself.
+      </p>
+
+      <div class="sc-filter reveal reveal-delay-2" role="tablist" aria-label="Filter projects">
+        <button class="sc-filter-btn is-on" data-filter="all" role="tab" aria-selected="true">All <span>6</span></button>
+        <button class="sc-filter-btn" data-filter="web" role="tab" aria-selected="false">Websites <span>2</span></button>
+        <button class="sc-filter-btn" data-filter="agent" role="tab" aria-selected="false">Agents <span>2</span></button>
+        <button class="sc-filter-btn" data-filter="flow" role="tab" aria-selected="false">Workflows <span>2</span></button>
+      </div>
+
+      <div class="sc-list">
+
+        <!-- ════════ 1. EMAIL AUTORESPONDER ════════ -->
+        <article class="sc reveal" data-cat="flow" data-demo="auto">
+          <div class="sc-info">
+            <div class="sc-cover sc-cover-illo">
+              <svg viewBox="0 0 400 170" role="img" aria-label="Illustration: an email flows through an AI step and out as a sent reply">
+                <path class="sc-flow-line" d="M92 88 C 140 40, 160 40, 200 85 S 260 130, 312 82" />
+                <g transform="translate(40 62)">
+                  <rect width="64" height="46" rx="6" class="illo-fill" />
+                  <path d="M4 6 L32 28 L60 6" class="illo-stroke" />
+                </g>
+                <g transform="translate(200 85)">
+                  <circle r="30" class="illo-core" />
+                  <circle r="30" class="illo-ring" />
+                  <path d="M0 -12 L3 -3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3 -3 Z" class="illo-spark" />
+                </g>
+                <g transform="translate(318 60) rotate(-12)">
+                  <path d="M0 22 L52 0 L36 48 L24 30 Z" class="illo-fill" />
+                  <path d="M24 30 L52 0" class="illo-stroke" />
+                </g>
+                <text x="72" y="140" class="illo-lbl" text-anchor="middle">Inbox</text>
+                <text x="200" y="140" class="illo-lbl" text-anchor="middle">Claude</text>
+                <text x="336" y="140" class="illo-lbl" text-anchor="middle">Sent</text>
+              </svg>
+              <span class="sc-badge">Agent Workflow</span>
+            </div>
+            <h3 class="sc-title">Email Autoresponder Pipeline</h3>
+            <p class="sc-desc">A five-step pipeline that answers support email automatically. It watches Gmail, filters out noise, reads your support docs, drafts a reply with Claude, and sends it in the same thread.</p>
+            <ol class="sc-steps">
+              <li><b>Watch</b>Checks the inbox for new unread mail every 30 seconds.</li>
+              <li><b>Parse &amp; filter</b>Pulls out the sender, subject and intent, and skips newsletters and spam.</li>
+              <li><b>Load docs</b>Fetches the support policy that matches the question.</li>
+              <li><b>Draft</b>Claude writes a reply based only on those docs.</li>
+              <li><b>Send</b>Replies in the same thread, marks the email read, and logs it.</li>
+            </ol>
+            <div class="sc-links">
+              <a href="/workflows/email-autoresponder/" class="btn-primary btn-sm">Open the demo <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="sc-demo">
+            <div class="sc-frame">
+              <div class="sc-frame-bar">
+                <span class="sc-dots"><i></i><i></i><i></i></span>
+                <span class="sc-url">saintlife.dev/workflows/email-autoresponder</span>
+                <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
+              </div>
+              <div class="sc-stage mk-auto">
+                <div class="mk-rail" data-rail>
+                  <span>📥 <em>Watch</em></span><span>🔍 <em>Parse</em></span><span>📄 <em>Docs</em></span><span>🤖 <em>Draft</em></span><span>📤 <em>Send</em></span>
+                </div>
+                <div class="mk-auto-body">
+                  <div class="mk-inbox">
+                    <div class="mk-pane-h">Inbox <em data-poll>idle</em></div>
+                    <div class="mk-mails" data-mails>
+                      <div class="mk-mail is-read"><b>Kofi A.</b><span>Invoice question — thanks!</span></div>
+                      <div class="mk-mail is-read"><b>Leah P.</b><span>Re: Delivery to Mombasa</span></div>
+                    </div>
+                  </div>
+                  <div class="mk-thread" data-thread>
+                    <div class="mk-pane-h">Processing</div>
+                    <div class="mk-empty" data-empty>Waiting for new email…</div>
+                    <div class="mk-parsed mk-hide" data-parsed>
+                      <div><span>From</span>amina.w@example.com</div>
+                      <div><span>Subject</span>Where is my order #4821?</div>
+                      <div><span>Intent</span><b class="mk-pill">Order status</b></div>
+                    </div>
+                    <div class="mk-doc mk-hide" data-doc>
+                      <span class="mk-doc-name">📄 shipping-policy.md</span>
+                      <q>Orders ship within 2 business days. Tracking is emailed once dispatched.</q>
+                    </div>
+                    <div class="mk-reply mk-hide" data-reply>
+                      <div class="mk-reply-h">🤖 Draft reply <span class="mk-sent mk-hide" data-sent>✓ Sent in thread</span></div>
+                      <p data-reply-text></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="mk-log" data-log></div>
+                <div class="sc-cursor" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="sc-note">Illustration with sample data. The live demo runs the full simulation.</p>
+          </div>
+        </article>
+
+        <!-- ════════ 2. EMAIL SUPPORT AGENT ════════ -->
+        <article class="sc sc-flip reveal" data-cat="agent" data-demo="support">
+          <div class="sc-info">
+            <div class="sc-cover sc-cover-illo">
+              <svg viewBox="0 0 400 170" role="img" aria-label="Illustration: support documents feed a reply bubble with a check mark">
+                <g transform="translate(58 34)">
+                  <rect x="16" y="-8" width="92" height="112" rx="6" class="illo-fill illo-back" />
+                  <rect x="8" y="0" width="92" height="112" rx="6" class="illo-fill illo-mid" />
+                  <rect x="0" y="8" width="92" height="112" rx="6" class="illo-fill" />
+                  <path d="M14 30 H70 M14 44 H78 M14 58 H60 M14 72 H74 M14 86 H52" class="illo-stroke" />
+                  <rect x="10" y="52" width="72" height="12" rx="3" class="illo-hl" />
+                </g>
+                <path class="sc-flow-line" d="M168 96 C 200 96, 206 88, 236 88" />
+                <g transform="translate(240 40)">
+                  <path d="M0 10 Q0 0 10 0 H110 Q120 0 120 10 V74 Q120 84 110 84 H34 L14 102 L18 84 H10 Q0 84 0 74 Z" class="illo-core" />
+                  <path d="M0 10 Q0 0 10 0 H110 Q120 0 120 10 V74 Q120 84 110 84 H34 L14 102 L18 84 H10 Q0 84 0 74 Z" class="illo-ring" />
+                  <path d="M16 24 H96 M16 38 H84 M16 52 H66" class="illo-stroke" />
+                  <circle cx="102" cy="64" r="11" class="illo-check-bg" />
+                  <path d="M96 64 L100.5 68.5 L108 60" class="illo-check" />
+                </g>
+              </svg>
+              <span class="sc-badge">Custom Agent</span>
+            </div>
+            <h3 class="sc-title">Email Support Agent</h3>
+            <p class="sc-desc">You give it your support docs and an incoming email, and it gives back a reply that's ready to send. It answers only from what's in your documentation, and it shows which section it used.</p>
+            <ol class="sc-steps">
+              <li><b>Load your docs</b>Paste text or upload a .txt file with your help content.</li>
+              <li><b>Paste the email</b>Drop in the customer's message just as it came in.</li>
+              <li><b>Ground the answer</b>The agent finds the section of your docs that answers the question.</li>
+              <li><b>Ready to send</b>You get a polite reply you can copy, with its source shown.</li>
+            </ol>
+            <div class="sc-links">
+              <a href="/agents/email-support/" class="btn-primary btn-sm">Try the agent <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="sc-demo">
+            <div class="sc-frame">
+              <div class="sc-frame-bar">
+                <span class="sc-dots"><i></i><i></i><i></i></span>
+                <span class="sc-url">saintlife.dev/agents/email-support</span>
+                <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
+              </div>
+              <div class="sc-stage mk-support">
+                <div class="mk-col">
+                  <div class="mk-card">
+                    <div class="mk-pane-h">📄 Support documents</div>
+                    <div class="mk-drop" data-drop>
+                      <span data-drop-label>Drop a .txt file or <u data-browse>browse</u></span>
+                      <div class="mk-bar"><i data-bar></i></div>
+                    </div>
+                    <div class="mk-doclines mk-hide" data-doclines>
+                      <div class="mk-file">✓ support-docs.txt loaded</div>
+                      <p class="mk-h">## Password reset</p>
+                      <p data-l1>Reset links expire after 24 hours for security.</p>
+                      <p data-l2>Request a new one from the login page via “Forgot password?”.</p>
+                      <p class="mk-h">## Refunds</p>
+                      <p>Refunds are issued within 5–7 business days.</p>
+                    </div>
+                  </div>
+                  <div class="mk-card">
+                    <div class="mk-pane-h">✉️ Incoming email</div>
+                    <p class="mk-typed" data-email></p>
+                    <button class="mk-btn" type="button" data-gen>Generate reply</button>
+                  </div>
+                </div>
+                <div class="mk-col">
+                  <div class="mk-card mk-card-tall">
+                    <div class="mk-pane-h">✍️ Draft reply <span class="mk-pill mk-hide" data-ready>Ready</span></div>
+                    <div class="mk-thinking mk-hide" data-thinking><i></i><i></i><i></i> Reading documents and drafting reply…</div>
+                    <p class="mk-typed mk-reply-text" data-out></p>
+                    <div class="mk-source mk-hide" data-source>Grounded in <b>support-docs.txt → Password reset</b></div>
+                  </div>
+                </div>
+                <div class="sc-cursor" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="sc-note">Illustration with sample data.</p>
+          </div>
+        </article>
+
+        <!-- ════════ 3. COMPETITOR ANALYSIS ════════ -->
+        <article class="sc reveal" data-cat="agent" data-demo="comp">
+          <div class="sc-info">
+            <div class="sc-cover sc-cover-illo">
+              <svg viewBox="0 0 400 170" role="img" aria-label="Illustration: radar chart comparing a business with a competitor">
+                <g transform="translate(200 88)">
+                  <polygon points="0,-70 61,-35 61,35 0,70 -61,35 -61,-35" class="illo-grid" />
+                  <polygon points="0,-47 41,-23 41,23 0,47 -41,23 -41,-23" class="illo-grid" />
+                  <polygon points="0,-24 21,-12 21,12 0,24 -21,12 -21,-12" class="illo-grid" />
+                  <path d="M0 -70 V70 M61 -35 L-61 35 M61 35 L-61 -35" class="illo-grid" />
+                  <polygon points="0,-40 50,-29 36,21 0,58 -30,17 -54,-31" class="illo-radar-b" />
+                  <polygon points="0,-62 38,-22 55,32 0,38 -48,28 -35,-20" class="illo-radar-a" />
+                </g>
+                <g class="illo-legend">
+                  <rect x="316" y="18" width="12" height="12" rx="3" class="illo-radar-a" /><text x="334" y="28" class="illo-lbl">You</text>
+                  <rect x="316" y="38" width="12" height="12" rx="3" class="illo-radar-b" /><text x="334" y="48" class="illo-lbl">Rival</text>
+                </g>
+                <text x="200" y="12" class="illo-lbl" text-anchor="middle">Messaging</text>
+                <text x="272" y="56" class="illo-lbl">SEO</text>
+                <text x="272" y="130" class="illo-lbl">Pricing</text>
+                <text x="128" y="130" class="illo-lbl" text-anchor="end">UX</text>
+                <text x="128" y="56" class="illo-lbl" text-anchor="end">Reach</text>
+              </svg>
+              <span class="sc-badge">Custom Agent</span>
+            </div>
+            <h3 class="sc-title">Competitor Analysis Agent</h3>
+            <p class="sc-desc">Name a business and optionally a few competitors, and the agent returns a full breakdown: a score, what's working, what isn't, and a prioritised plan for what to fix first.</p>
+            <ol class="sc-steps">
+              <li><b>Set the target</b>Enter a company or URL and any competitors.</li>
+              <li><b>Seven-step analysis</b>Checks strengths, weaknesses and competitors, then compares them.</li>
+              <li><b>Scored report</b>An overall score out of 100, with what's working and what isn't.</li>
+              <li><b>Roadmap</b>A list of next steps, ranked by impact.</li>
+            </ol>
+            <div class="sc-links">
+              <a href="/agents/competitor-analysis/" class="btn-primary btn-sm">Run an analysis <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="sc-demo">
+            <div class="sc-frame">
+              <div class="sc-frame-bar">
+                <span class="sc-dots"><i></i><i></i><i></i></span>
+                <span class="sc-url">saintlife.dev/agents/competitor-analysis</span>
+                <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
+              </div>
+              <div class="sc-stage mk-comp">
+                <div class="mk-col mk-col-narrow">
+                  <div class="mk-card">
+                    <div class="mk-pane-h">🎯 Analysis target</div>
+                    <label class="mk-lbl">Company or URL</label>
+                    <div class="mk-input" data-target><span></span></div>
+                    <label class="mk-lbl">Competitors</label>
+                    <div class="mk-chips" data-rivals></div>
+                    <button class="mk-btn" type="button" data-run>Run analysis</button>
+                  </div>
+                </div>
+                <div class="mk-col">
+                  <div class="mk-card mk-card-tall mk-swap">
+                    <div class="mk-progress" data-progress>
+                      <div class="mk-pane-h">⚡ Analysis progress</div>
+                      <ul data-plist>
+                        <li>Scanning target</li><li>Analysing strengths</li><li>Identifying weaknesses</li>
+                        <li>Scanning competitors</li><li>Cross-comparison</li><li>Building roadmap</li><li>Compiling report</li>
+                      </ul>
+                    </div>
+                    <div class="mk-report mk-hide" data-report>
+                      <div class="mk-score">
+                        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" class="mk-ring-bg"/><circle cx="32" cy="32" r="27" class="mk-ring" data-ring/></svg>
+                        <div><b data-score>0</b><span>/100 overall</span></div>
+                      </div>
+                      <div class="mk-two">
+                        <div><div class="mk-mini-h ok">What's working</div><p>Loyal repeat customers</p><p>Strong local reviews (4.7★)</p></div>
+                        <div><div class="mk-mini-h bad">What's not</div><p>No online ordering</p><p>Weak search visibility</p></div>
+                      </div>
+                      <div class="mk-mini-h">Roadmap</div>
+                      <ol class="mk-road" data-road>
+                        <li><span class="mk-pri hi">High</span>Launch pickup ordering on the site</li>
+                        <li><span class="mk-pri hi">High</span>Claim &amp; optimise Google Business profile</li>
+                        <li><span class="mk-pri md">Med</span>Loyalty card to match BeanStreet</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+                <div class="sc-cursor" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="sc-note">Illustration with a fictional business and sample findings.</p>
+          </div>
+        </article>
+
+        <!-- ════════ 4. DAILY BRIEFING ════════ -->
+        <article class="sc sc-flip reveal" data-cat="flow" data-demo="brief">
+          <div class="sc-info">
+            <div class="sc-cover sc-cover-illo">
+              <svg viewBox="0 0 400 170" role="img" aria-label="Illustration: sun rising behind a newspaper at 7 AM">
+                <g class="illo-sun">
+                  <circle cx="200" cy="118" r="44" class="illo-core" />
+                  <path d="M200 50 V62 M152 70 L160 79 M248 70 L240 79 M132 112 H144 M256 112 H268" class="illo-stroke illo-rays" />
+                </g>
+                <line x1="40" y1="118" x2="360" y2="118" class="illo-grid" />
+                <g transform="translate(138 94) rotate(-4)">
+                  <rect width="124" height="66" rx="4" class="illo-fill" />
+                  <rect x="10" y="10" width="46" height="26" rx="2" class="illo-hl" />
+                  <path d="M64 14 H112 M64 24 H106 M64 34 H112 M10 46 H112 M10 56 H90" class="illo-stroke" />
+                </g>
+                <g transform="translate(318 44)">
+                  <circle r="22" class="illo-fill" />
+                  <path d="M0 -12 V0 L8 6" class="illo-stroke" />
+                </g>
+                <text x="318" y="84" class="illo-lbl" text-anchor="middle">7:00 AM</text>
+              </svg>
+              <span class="sc-badge">Agent Workflow</span>
+            </div>
+            <h3 class="sc-title">Daily Briefing Pipeline</h3>
+            <p class="sc-desc">A morning digest that assembles itself. It runs on a schedule, pulls headlines for your topics and the weather, has Claude summarise everything, emails it to you, and logs each run to Google Sheets.</p>
+            <ol class="sc-steps">
+              <li><b>Scheduled trigger</b>Runs every day at 7:00 AM, or on demand.</li>
+              <li><b>Fetch news</b>Gets headlines for the topics you picked.</li>
+              <li><b>Fetch weather</b>Gets current conditions and today's forecast.</li>
+              <li><b>Summarise</b>Claude writes a two-sentence summary of each story.</li>
+              <li><b>Email digest</b>The formatted briefing arrives in your inbox.</li>
+              <li><b>Log to Sheets</b>Adds a row with the date, topics and item count.</li>
+            </ol>
+            <div class="sc-links">
+              <a href="/workflows/daily-briefing/" class="btn-primary btn-sm">Open the demo <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="sc-demo">
+            <div class="sc-frame">
+              <div class="sc-frame-bar">
+                <span class="sc-dots"><i></i><i></i><i></i></span>
+                <span class="sc-url">saintlife.dev/workflows/daily-briefing</span>
+                <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
+              </div>
+              <div class="sc-stage mk-brief">
+                <div class="mk-rail" data-rail>
+                  <span>⏰</span><span>📰</span><span>🌤️</span><span>🤖</span><span>✉️</span><span>📋</span>
+                </div>
+                <div class="mk-brief-body">
+                  <div class="mk-col mk-col-narrow">
+                    <div class="mk-clock" data-clock><b>6:59</b><span>AM · scheduled</span></div>
+                    <div class="mk-feed" data-feed></div>
+                    <div class="mk-weather mk-hide" data-weather><b>24°</b><span>Partly cloudy<br/>H 26° · L 15°</span><i>🌤️</i></div>
+                  </div>
+                  <div class="mk-col">
+                    <div class="mk-card mk-mail-preview">
+                      <div class="mk-pane-h">☀️ Morning Briefing <span class="mk-pill mk-hide" data-delivered>✓ Delivered</span></div>
+                      <div class="mk-sum" data-sums><p class="mk-empty">Summaries appear here…</p></div>
+                    </div>
+                    <table class="mk-sheet">
+                      <thead><tr><th>Date</th><th>Topics</th><th>Items</th></tr></thead>
+                      <tbody data-sheet>
+                        <tr><td>Yesterday</td><td>Tech, AI</td><td>7</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="sc-cursor" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="sc-note">Illustration with made-up headlines. The live demo runs the full simulation.</p>
+          </div>
+        </article>
+
+        <!-- ════════ 5. DRAPE ════════ -->
+        <article class="sc reveal" data-cat="web" data-demo="drape">
+          <div class="sc-info">
+            <div class="sc-cover">
+              <img src="/images/drape.png" alt="Clothing store interior used as DRAPE's hero imagery" loading="lazy" />
+              <span class="sc-badge">Website Build</span>
+            </div>
+            <h3 class="sc-title">DRAPE — Clothing Store</h3>
+            <p class="sc-desc">A complete e-commerce store built from scratch: 31 products in 6 categories, each with colour variants, a size selector and a working cart.</p>
+            <ol class="sc-steps">
+              <li><b>Browse</b>Filter the catalogue by category.</li>
+              <li><b>Pick a colour</b>The product image changes to match the selected colour.</li>
+              <li><b>Choose a size</b>Sizes are selected like buttons, with a clear selected state.</li>
+              <li><b>Add to cart</b>The cart count updates and a drawer slides open with the item.</li>
+            </ol>
+            <div class="sc-links">
+              <a href="/shop/" class="btn-primary btn-sm">Visit the store <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="sc-demo">
+            <div class="sc-frame">
+              <div class="sc-frame-bar">
+                <span class="sc-dots"><i></i><i></i><i></i></span>
+                <span class="sc-url">saintlife.dev/shop</span>
+                <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
+              </div>
+              <div class="sc-stage mk-store">
+                <div class="mk-store-bar">
+                  <span class="mk-store-logo">DR<i>A</i>PE</span>
+                  <div class="mk-cats" data-cats>
+                    <button type="button" class="is-on" data-cat="shirt">All</button>
+                    <button type="button" data-cat="shirt">Shirts</button>
+                    <button type="button" data-cat="tie">Ties</button>
+                    <button type="button" data-cat="jacket">Jackets</button>
+                  </div>
+                  <button type="button" class="mk-cart-btn" data-cart-btn>Cart <b data-count>0</b></button>
+                </div>
+                <div class="mk-store-body">
+                  <div class="mk-garment" data-garment></div>
+                  <div class="mk-pinfo">
+                    <div class="mk-kicker" data-kicker>Shirts</div>
+                    <div class="mk-pname" data-pname>Oxford Button-Down</div>
+                    <div class="mk-price" data-price>$48</div>
+                    <div class="mk-lbl">Colour · <span data-cname>Chalk</span></div>
+                    <div class="mk-swatches" data-swatches></div>
+                    <div class="mk-lbl">Size</div>
+                    <div class="mk-sizes" data-sizes>
+                      <button type="button">S</button><button type="button">M</button><button type="button">L</button><button type="button">XL</button>
+                    </div>
+                    <button type="button" class="mk-btn mk-add" data-add>Add to cart</button>
+                  </div>
+                </div>
+                <aside class="mk-drawer" data-drawer>
+                  <div class="mk-pane-h">Your cart <button type="button" class="mk-x" data-close aria-label="Close cart">✕</button></div>
+                  <div data-lines></div>
+                  <div class="mk-subtotal">Subtotal <b data-subtotal>$0</b></div>
+                  <button type="button" class="mk-btn">Checkout</button>
+                </aside>
+                <div class="sc-cursor" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="sc-note">Interactive: pick a colour or size, or add to cart.</p>
+          </div>
+        </article>
+
+        <!-- ════════ 6. EMBER & OAK ════════ -->
+        <article class="sc sc-flip reveal" data-cat="web" data-demo="ember">
+          <div class="sc-info">
+            <div class="sc-cover">
+              <img src="/images/ember.png" alt="Wood fire used as Ember &amp; Oak's hero imagery" loading="lazy" />
+              <span class="sc-badge">Website Build</span>
+            </div>
+            <h3 class="sc-title">Ember &amp; Oak — Restaurant Site</h3>
+            <p class="sc-desc">A full site for a wood-fired restaurant with an editorial design, tabbed seasonal menu, gallery, opening hours and a reservation form. It's built mobile-first and loads fast.</p>
+            <ol class="sc-steps">
+              <li><b>Tabbed menu</b>Starters, mains, desserts and drinks, without reloading the page.</li>
+              <li><b>Helpful tags</b>Items are marked as chef's pick, vegan, gluten-free and so on.</li>
+              <li><b>Reserve a table</b>A short form: name, day, time and number of guests.</li>
+              <li><b>Confirmed</b>A clear confirmation that the table is booked.</li>
+            </ol>
+            <div class="sc-links">
+              <a href="/websites/restaurant/" class="btn-primary btn-sm">Visit the site <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="sc-demo">
+            <div class="sc-frame">
+              <div class="sc-frame-bar">
+                <span class="sc-dots"><i></i><i></i><i></i></span>
+                <span class="sc-url">saintlife.dev/websites/restaurant</span>
+                <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
+              </div>
+              <div class="sc-stage mk-ember">
+                <div class="mk-ember-nav">
+                  <span class="mk-ember-logo">Ember &amp; Oak</span>
+                  <button type="button" class="is-on" data-view="menu">Menu</button>
+                  <button type="button" data-view="reserve">Reserve</button>
+                </div>
+                <div class="mk-ember-view is-on" data-pane="menu">
+                  <div class="mk-tabs" data-tabs>
+                    <button type="button" class="is-on" data-tab="starters">Starters</button>
+                    <button type="button" data-tab="mains">Mains</button>
+                    <button type="button" data-tab="desserts">Desserts</button>
+                  </div>
+                  <div class="mk-dishes" data-dishes></div>
+                </div>
+                <div class="mk-ember-view" data-pane="reserve">
+                  <div class="mk-ember-h">Reserve a table</div>
+                  <div class="mk-form">
+                    <div><label class="mk-lbl">Name</label><div class="mk-input" data-f="name"><span></span></div></div>
+                    <div><label class="mk-lbl">Day</label><div class="mk-input" data-f="day"><span></span></div></div>
+                    <div><label class="mk-lbl">Time</label><div class="mk-input" data-f="time"><span></span></div></div>
+                    <div><label class="mk-lbl">Guests</label><div class="mk-input" data-f="guests"><span></span></div></div>
+                  </div>
+                  <button type="button" class="mk-btn" data-book>Reserve table</button>
+                  <div class="mk-booked" data-booked>
+                    <div class="mk-booked-ico">✓</div>
+                    <b>You're booked.</b>
+                    <span data-booked-text>Table for 4 · Friday · 7:30 pm</span>
+                  </div>
+                </div>
+                <div class="sc-cursor" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="sc-note">Interactive: switch the menu tabs or reserve a table.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STUDY / LEARNING TIMELINE ── -->
+  <section id="study">
+    <div class="container">
+      <div class="section-label reveal">04 — Study &amp; growth</div>
+      <h2 class="section-title reveal reveal-delay-1">Learning by<br /><em class="pf-em">building</em>.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        I learn by doing. Every course and tutorial ends in something I ship, and every project teaches me
+        something the tutorial left out.
+      </p>
+
+      <!-- EDIT: add your school / program to the first card if you want formal study listed. -->
+      <div class="pf-timeline" id="pf-timeline">
+        <div class="pf-tl-line"><div class="pf-tl-fill" id="pf-tl-fill"></div></div>
+
+        <article class="pf-tl-item reveal">
+          <div class="pf-tl-dot"></div>
+          <div class="pf-tl-card">
+            <div class="pf-tl-date">Early 2025</div>
+            <h3>The foundations</h3>
+            <p>Started working seriously in HTML, CSS, and JavaScript, set up GitHub, and began building every day. I learned how the web works by making things and breaking them.</p>
+            <div class="skill-tags"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">Git</span></div>
+          </div>
+        </article>
+
+        <article class="pf-tl-item reveal">
+          <div class="pf-tl-dot"></div>
+          <div class="pf-tl-card">
+            <div class="pf-tl-date">Mid 2025</div>
+            <h3>Generative AI, properly</h3>
+            <p>Worked through Microsoft's <em>Generative AI for Beginners</em>, a 21-lesson course covering prompt engineering, RAG, function calling, and building LLM apps. That's when agents became something I could build rather than just read about.</p>
+            <div class="skill-tags"><span class="tag">Prompt Engineering</span><span class="tag">RAG</span><span class="tag">Function Calling</span></div>
+          </div>
+        </article>
+
+        <article class="pf-tl-item reveal">
+          <div class="pf-tl-dot"></div>
+          <div class="pf-tl-card">
+            <div class="pf-tl-date">Late 2025</div>
+            <h3>Design that holds up</h3>
+            <p>Moved from pages that work to sites with a point of view: Tailwind, motion, typography, responsive layouts. DRAPE and Ember &amp; Oak came out of this stretch.</p>
+            <div class="skill-tags"><span class="tag">Tailwind</span><span class="tag">Animation</span><span class="tag">E-commerce</span></div>
+          </div>
+        </article>
+
+        <article class="pf-tl-item reveal">
+          <div class="pf-tl-dot"></div>
+          <div class="pf-tl-card">
+            <div class="pf-tl-date">2026</div>
+            <h3>Agents &amp; orchestration</h3>
+            <p>Went deep on the Claude API, tool use, and structured output. I connected models to Gmail, Google Sheets, and news feeds to build pipelines that run with nobody watching.</p>
+            <div class="skill-tags"><span class="tag">Claude API</span><span class="tag">Python</span><span class="tag">Tool Use</span></div>
+          </div>
+        </article>
+
+        <article class="pf-tl-item reveal">
+          <div class="pf-tl-dot pf-tl-dot-now"></div>
+          <div class="pf-tl-card">
+            <div class="pf-tl-date">Now</div>
+            <h3>Security, TypeScript &amp; real users</h3>
+            <p>Building <strong class="pf-strong">vibe-safe</strong>, a security audit tool for AI-generated web apps, in TypeScript, and taking on client work through saintlife.dev.</p>
+            <div class="skill-tags"><span class="tag">TypeScript</span><span class="tag">App Security</span><span class="tag">Freelance</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TOOLKIT ORBIT ── -->
+  <section id="toolkit" class="pf-surface">
+    <div class="container pf-split pf-split-center">
+      <div>
+        <div class="section-label reveal">05 — The toolkit</div>
+        <h2 class="section-title reveal reveal-delay-1">Three rings,<br />one system.</h2>
+        <p class="section-body reveal reveal-delay-2">
+          The inner ring is <strong class="pf-strong">craft</strong>: what people see and touch.
+          The middle ring is <strong class="pf-strong">intelligence</strong>: the models and how I prompt and steer them.
+          The outer ring is <strong class="pf-strong">plumbing</strong>: the APIs and languages that connect everything and keep it running.
+        </p>
+        <ul class="pf-legend reveal reveal-delay-3">
+          <li><span class="pf-legend-sw sw-1"></span>Craft: HTML/CSS, JavaScript, Tailwind</li>
+          <li><span class="pf-legend-sw sw-2"></span>Intelligence: Claude, OpenAI, prompts, tool use</li>
+          <li><span class="pf-legend-sw sw-3"></span>Plumbing: Python, TypeScript, Gmail, Sheets</li>
+        </ul>
+      </div>
+
+      <div class="pf-orbit reveal reveal-delay-2" aria-label="Orbit diagram of my tools">
+        <div class="pf-orbit-core">H.</div>
+        <div class="pf-ring pf-ring-1" style="--r:22%;--dur:38s">
+          <div class="pf-orb" style="--a:0deg"><span><b>HTML/CSS</b></span></div>
+          <div class="pf-orb" style="--a:120deg"><span><b>JavaScript</b></span></div>
+          <div class="pf-orb" style="--a:240deg"><span><b>Tailwind</b></span></div>
+        </div>
+        <div class="pf-ring pf-ring-2" style="--r:34%;--dur:56s">
+          <div class="pf-orb" style="--a:30deg"><span><b>Claude API</b></span></div>
+          <div class="pf-orb" style="--a:120deg"><span><b>OpenAI</b></span></div>
+          <div class="pf-orb" style="--a:210deg"><span><b>Prompting</b></span></div>
+          <div class="pf-orb" style="--a:300deg"><span><b>Tool Use</b></span></div>
+        </div>
+        <div class="pf-ring pf-ring-3" style="--r:46%;--dur:80s">
+          <div class="pf-orb" style="--a:10deg"><span><b>Python</b></span></div>
+          <div class="pf-orb" style="--a:82deg"><span><b>TypeScript</b></span></div>
+          <div class="pf-orb" style="--a:154deg"><span><b>Gmail API</b></span></div>
+          <div class="pf-orb" style="--a:226deg"><span><b>Sheets</b></span></div>
+          <div class="pf-orb" style="--a:298deg"><span><b>News API</b></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ACHIEVEMENTS ── -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-label reveal">06 — Achievements</div>
+      <h2 class="section-title reveal reveal-delay-1">Things that are<br />live today.</h2>
+
+      <div class="pf-stats">
+        <div class="stat-card reveal reveal-delay-1"><div class="stat-number">6</div><div class="stat-label">Live projects on saintlife.dev you can try right now</div></div>
+        <div class="stat-card reveal reveal-delay-2"><div class="stat-number">4</div><div class="stat-label">AI agents and automated pipelines, all built on Claude</div></div>
+        <div class="stat-card reveal reveal-delay-3"><div class="stat-number">31</div><div class="stat-label">Products in DRAPE, each with color and size variants</div></div>
+      </div>
+
+      <div class="pf-ach-grid">
+        <a class="pf-ach reveal reveal-delay-1" href="/shop/">
+          <div class="pf-ach-badge">Website</div>
+          <h3>Shipped a full e-commerce store</h3>
+          <p>DRAPE: 31 products in 6 categories, with variants, size selectors, and a live cart, built from scratch.</p>
+          <span class="project-link">Visit <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="pf-ach reveal reveal-delay-2" href="/workflows/email-autoresponder/">
+          <div class="pf-ach-badge">Workflow</div>
+          <h3>Automated a support inbox end to end</h3>
+          <p>A 5-step pipeline that watches Gmail, loads the docs, drafts a reply with Claude, and sends it with no copy-pasting.</p>
+          <span class="project-link">Visit <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="pf-ach reveal reveal-delay-3" href="/agents/email-support/">
+          <div class="pf-ach-badge">Agent</div>
+          <h3>Grounded answers, no hallucination</h3>
+          <p>A support agent that answers only from the documents you give it. It's designed to stay faithful to your source.</p>
+          <span class="project-link">Visit <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="pf-ach reveal reveal-delay-4" href="/">
+          <div class="pf-ach-badge">Milestone</div>
+          <h3>Launched saintlife.dev</h3>
+          <p>My own studio site, hand-built with a WebGL hero, light and dark themes, and live demos of every project.</p>
+          <span class="project-link">Home <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GOALS ── -->
+  <section id="goals" class="pf-surface">
+    <div class="container">
+      <div class="section-label reveal">07 — Goals</div>
+      <h2 class="section-title reveal reveal-delay-1">Where this<br />is <em class="pf-em">heading</em>.</h2>
+
+      <div class="pf-horizon reveal reveal-delay-2" aria-hidden="true">
+        <svg viewBox="0 0 1000 80" preserveAspectRatio="none">
+          <path id="pf-horizon-path" d="M0 60 C 200 60, 250 20, 500 30 S 800 10, 1000 8" fill="none" stroke="var(--amber)" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 6"/>
+          <circle r="5" fill="var(--amber-l)" class="pf-horizon-dot">
+            <animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#pf-horizon-path"/>
+            </animateMotion>
+          </circle>
+        </svg>
+      </div>
+
+      <div class="pf-goals">
+        <div class="pf-goal reveal reveal-delay-1">
+          <div class="pf-goal-when">Next 12 months</div>
+          <h3>Grow the client base</h3>
+          <ul>
+            <li>Take on regular clients for combined website and agent packages</li>
+            <li>Turn the Email Support Agent into a product businesses can plug in</li>
+            <li>Get vibe-safe ready for other developers to use</li>
+          </ul>
+        </div>
+        <div class="pf-goal reveal reveal-delay-2">
+          <div class="pf-goal-when">2–3 years</div>
+          <h3>Go deeper</h3>
+          <ul>
+            <li>Get strong in TypeScript and backend systems</li>
+            <li>Build multi-agent systems that run in production for real teams</li>
+            <li>Build AI tools for education, starting with teacher-focused</li>
+          </ul>
+        </div>
+        <div class="pf-goal reveal reveal-delay-3">
+          <div class="pf-goal-when">The long game</div>
+          <h3>A studio from Kenya</h3>
+          <ul>
+            <li>Build an automation studio in Kenya that clients anywhere can work with</li>
+            <li>Help local businesses adopt AI that saves them real hours</li>
+            <li>Teach what I learn so more builders here can do the same</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label reveal">Get in touch</div>
+      <h2 class="section-title">Like what you see?<br /><em style="font-style:italic; color:var(--amber-l)">Let's build something.</em></h2>
+      <p class="section-body"><strong>I'm available for website builds, site upgrades, custom AI agents, and workflow automation.</strong></p>
+      <div class="contact-links">
+        <a href="mailto:saintlife54@gmail.com" class="contact-chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </a>
+        <a href="https://wa.me/254789376070" target="_blank" rel="noopener" class="contact-chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHONE CTA ── -->
+  <section id="phone-cta">
+    <div class="container">
+      <p class="phone-label">Call me</p>
+      <div class="text-disperse-wrap" id="text-disperse" aria-label="+254789376070"></div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">Built with intent. &copy; 2026 &nbsp;·&nbsp; <a href="/terms.html" class="pf-footer-link">Terms of Use</a> &nbsp;·&nbsp; <a href="/privacy.html" class="pf-footer-link">Privacy Policy</a></span>
+
+        <div class="footer-pill">
+          <a href="mailto:saintlife54@gmail.com" class="footer-icon" aria-label="Email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <div class="footer-sep"></div>
+          <a href="https://wa.me/254789376070" target="_blank" rel="noopener" class="footer-icon" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+          <div class="footer-sep"></div>
+          <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="footer-icon footer-top" aria-label="Back to top">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sky.js" defer></script>
+  <script src="/js/portfolio.js" defer></script>
+  <script src="/js/showcase.js" defer></script>
+</body>
+</html>

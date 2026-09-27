@@ -160,6 +160,31 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     footer p { font-size: 0.8125rem; color: var(--muted); margin: 0; }
+    /* ── Daytime sky (light mode): js/sky.js paints clouds behind a frosted page ── */
+    [data-theme="light"] body { background: linear-gradient(180deg, #0F3A8C 0%, #3370C4 100%) fixed; }
+    [data-theme="light"] .page {
+      margin-top: 96px; margin-bottom: 20px;
+      max-width: 800px;
+      margin-left: auto; margin-right: auto;
+      padding: 48px clamp(20px, 5vw, 48px) 56px;
+      background: rgba(250,247,240,0.95);
+      -webkit-backdrop-filter: blur(14px) saturate(1.15);
+      backdrop-filter: blur(14px) saturate(1.15);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px -28px rgba(8,28,70,0.55);
+    }
+    [data-theme="light"] footer {
+      border-top: none;
+      --text: #FFFFFF;
+      --muted: rgba(255,255,255,0.88);
+      --amber-l: #FFD95E;
+      --amber: #FFD95E;
+      text-shadow: 0 1px 12px rgba(4,18,50,0.5);
+    }
+    @media (max-width: 840px) {
+      [data-theme="light"] .page { margin: 84px 10px 16px; }
+    }
   </style>
 </head>
 <body>
@@ -259,5 +284,6 @@
       applyTheme(document.documentElement.hasAttribute('data-theme') ? 'dark' : 'light');
     });
   </script>
+  <script src="/js/sky.js" defer></script>
 </body>
 </html>
