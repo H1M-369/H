@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════
-   Project showcases — filter tabs + scripted mock demos.
+   Project showcases — scripted mock demos.
    Each demo = { reset(stage), run(ctx), init?(stage) }.
    Demos play while on screen, loop, and stop when scrolled away.
    Interactive demos (websites) hand control to the visitor on first touch.
@@ -15,23 +15,6 @@
     if (html != null) n.innerHTML = html;
     return n;
   };
-
-
-  /* ── Filter tabs ── */
-  const filterBtns = document.querySelectorAll('.sc-filter-btn');
-  filterBtns.forEach(btn => btn.addEventListener('click', () => {
-    const f = btn.dataset.filter;
-    filterBtns.forEach(b => {
-      b.classList.toggle('is-on', b === btn);
-      b.setAttribute('aria-selected', String(b === btn));
-    });
-    document.querySelectorAll('.sc').forEach(sc => {
-      const show = f === 'all' || sc.dataset.cat === f;
-      sc.classList.toggle('is-hidden', !show);
-      sc.classList.remove('is-entering');
-      if (show) { void sc.offsetWidth; sc.classList.add('is-entering'); }
-    });
-  }));
 
 
   /* ── Demo context: timing, cursor, typing — all cancellable ── */

@@ -105,35 +105,6 @@ document.addEventListener('mousemove', e => {
 })();
 
 
-/* ── Stat counter ── */
-function countUp(el, target, suffix, duration) {
-  const isNum = !isNaN(parseInt(target));
-  if (!isNum) return;
-  const end = parseInt(target);
-  const start = performance.now();
-  function step(now) {
-    const t = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - t, 3);
-    el.textContent = Math.round(ease * end) + suffix;
-    if (t < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const numEl = e.target.querySelector('.stat-number');
-    if (!numEl) return;
-    const raw   = numEl.textContent.trim();
-    const match = raw.match(/^(\d+)(.*)$/);
-    if (match) countUp(numEl, match[1], match[2], 1200);
-    statObserver.unobserve(e.target);
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat-card').forEach(el => statObserver.observe(el));
-
-
 /* ── Text disperse (phone CTA) ── */
 (function () {
   const phoneText  = '+254789376070';
