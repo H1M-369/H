@@ -220,6 +220,28 @@
       .form-row{grid-template-columns:1fr;}
       footer{padding:40px 20px;}
     }
+    /* Dish photos: a floating preview follows the pointer on hover (desktop);
+       touch screens without hover show a thumbnail inside each item instead */
+    .menu-thumb { display: none; }
+    .menu-preview {
+      position: fixed; left: 0; top: 0; z-index: 60;
+      width: 240px; aspect-ratio: 4 / 3;
+      border-radius: 12px; overflow: hidden; pointer-events: none;
+      border: 1px solid rgba(200,130,10,0.35);
+      box-shadow: 0 18px 40px -12px rgba(0,0,0,0.75);
+      background: var(--s2) center / cover no-repeat;
+      opacity: 0; transform: translate(24px, -50%) scale(0.92);
+      transition: opacity 0.18s ease, transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+      will-change: left, top;
+    }
+    .menu-preview.is-on { opacity: 1; transform: translate(24px, -50%) scale(1); }
+    .menu-preview.is-left.is-on, .menu-preview.is-left { transform: translate(calc(-100% - 24px), -50%) scale(1); }
+    @media (hover: none), (pointer: coarse) {
+      .menu-preview { display: none; }
+      .menu-item[data-photo] { display: grid; grid-template-columns: 76px 1fr; column-gap: 14px; row-gap: 6px; align-items: start; }
+      .menu-thumb { display: block; grid-row: 1 / span 3; width: 76px; height: 76px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); }
+    }
+    @media (prefers-reduced-motion: reduce) { .menu-preview { transition: opacity 0.1s linear; } }
   </style>
 </head>
 <body>
@@ -305,30 +327,30 @@
       </div>
 
       <div class="menu-section active" id="menu-starters">
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Smoked Bone Marrow</span><span class="menu-item-price">$18</span></div><div class="menu-item-desc">Oak-smoked marrow with toasted sourdough, chimichurri, and pickled shallots.</div><div class="menu-item-tags"><span class="menu-tag">Wood-fired</span><span class="menu-tag">Chef's pick</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Burrata & Heirloom Tomato</span><span class="menu-item-price">$16</span></div><div class="menu-item-desc">Creamy burrata with roasted heirloom tomatoes, aged balsamic, and basil oil.</div><div class="menu-item-tags"><span class="menu-tag">Vegetarian</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fire-Roasted Oysters</span><span class="menu-item-price">$22</span></div><div class="menu-item-desc">Half dozen oysters roasted over oak, finished with drawn butter and fresh herbs.</div><div class="menu-item-tags"><span class="menu-tag">Seasonal</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Whipped Ricotta Toast</span><span class="menu-item-price">$14</span></div><div class="menu-item-desc">House-made ricotta on charred bread with honey, walnuts, and fresh thyme.</div><div class="menu-item-tags"><span class="menu-tag">Vegetarian</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/bone-marrow.webp"><img class="menu-thumb" src="/images/menu/bone-marrow.webp" alt="Smoked Bone Marrow" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Smoked Bone Marrow</span><span class="menu-item-price">$18</span></div><div class="menu-item-desc">Oak-smoked marrow with toasted sourdough, chimichurri, and pickled shallots.</div><div class="menu-item-tags"><span class="menu-tag">Wood-fired</span><span class="menu-tag">Chef's pick</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/burrata.webp"><img class="menu-thumb" src="/images/menu/burrata.webp" alt="Burrata & Heirloom Tomato" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Burrata & Heirloom Tomato</span><span class="menu-item-price">$16</span></div><div class="menu-item-desc">Creamy burrata with roasted heirloom tomatoes, aged balsamic, and basil oil.</div><div class="menu-item-tags"><span class="menu-tag">Vegetarian</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/oysters.webp"><img class="menu-thumb" src="/images/menu/oysters.webp" alt="Fire-Roasted Oysters" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Fire-Roasted Oysters</span><span class="menu-item-price">$22</span></div><div class="menu-item-desc">Half dozen oysters roasted over oak, finished with drawn butter and fresh herbs.</div><div class="menu-item-tags"><span class="menu-tag">Seasonal</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/ricotta.webp"><img class="menu-thumb" src="/images/menu/ricotta.webp" alt="Whipped Ricotta Toast" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Whipped Ricotta Toast</span><span class="menu-item-price">$14</span></div><div class="menu-item-desc">House-made ricotta on charred bread with honey, walnuts, and fresh thyme.</div><div class="menu-item-tags"><span class="menu-tag">Vegetarian</span></div></div>
       </div>
 
       <div class="menu-section" id="menu-mains">
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Wood-Fired Ribeye</span><span class="menu-item-price">$58</span></div><div class="menu-item-desc">300g dry-aged ribeye, charred over oak, with roasted garlic butter and seasonal greens.</div><div class="menu-item-tags"><span class="menu-tag">Wood-fired</span><span class="menu-tag">Chef's pick</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Whole Roasted Chicken</span><span class="menu-item-price">$42</span></div><div class="menu-item-desc">Free-range chicken slow-roasted in the hearth with preserved lemon, herbs, and pan jus.</div><div class="menu-item-tags"><span class="menu-tag">Serves 2</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ember Salmon</span><span class="menu-item-price">$36</span></div><div class="menu-item-desc">Wild-caught salmon cooked directly on embers, with celery root puree and dill oil.</div><div class="menu-item-tags"><span class="menu-tag">Gluten free</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Roasted Cauliflower</span><span class="menu-item-price">$28</span></div><div class="menu-item-desc">Whole cauliflower roasted in the wood oven with harissa, pomegranate, and tahini.</div><div class="menu-item-tags"><span class="menu-tag">Vegan</span><span class="menu-tag">Gluten free</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/ribeye.webp"><img class="menu-thumb" src="/images/menu/ribeye.webp" alt="Wood-Fired Ribeye" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Wood-Fired Ribeye</span><span class="menu-item-price">$58</span></div><div class="menu-item-desc">300g dry-aged ribeye, charred over oak, with roasted garlic butter and seasonal greens.</div><div class="menu-item-tags"><span class="menu-tag">Wood-fired</span><span class="menu-tag">Chef's pick</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/chicken.webp"><img class="menu-thumb" src="/images/menu/chicken.webp" alt="Whole Roasted Chicken" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Whole Roasted Chicken</span><span class="menu-item-price">$42</span></div><div class="menu-item-desc">Free-range chicken slow-roasted in the hearth with preserved lemon, herbs, and pan jus.</div><div class="menu-item-tags"><span class="menu-tag">Serves 2</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/salmon.webp"><img class="menu-thumb" src="/images/menu/salmon.webp" alt="Ember Salmon" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Ember Salmon</span><span class="menu-item-price">$36</span></div><div class="menu-item-desc">Wild-caught salmon cooked directly on embers, with celery root puree and dill oil.</div><div class="menu-item-tags"><span class="menu-tag">Gluten free</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/cauliflower.webp"><img class="menu-thumb" src="/images/menu/cauliflower.webp" alt="Roasted Cauliflower" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Roasted Cauliflower</span><span class="menu-item-price">$28</span></div><div class="menu-item-desc">Whole cauliflower roasted in the wood oven with harissa, pomegranate, and tahini.</div><div class="menu-item-tags"><span class="menu-tag">Vegan</span><span class="menu-tag">Gluten free</span></div></div>
       </div>
 
       <div class="menu-section" id="menu-desserts">
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Burnt Basque Cheesecake</span><span class="menu-item-price">$14</span></div><div class="menu-item-desc">Classic Basque cheesecake with a flame-kissed crust, served warm with crème fraîche.</div><div class="menu-item-tags"><span class="menu-tag">Chef's pick</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Chocolate Ember Tart</span><span class="menu-item-price">$15</span></div><div class="menu-item-desc">Dark chocolate ganache tart with smoked sea salt and single-origin coffee ice cream.</div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Grilled Stone Fruit</span><span class="menu-item-price">$12</span></div><div class="menu-item-desc">Seasonal stone fruits grilled over oak, with mascarpone and roasted almond brittle.</div><div class="menu-item-tags"><span class="menu-tag">Seasonal</span><span class="menu-tag">Vegetarian</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/cheesecake.webp"><img class="menu-thumb" src="/images/menu/cheesecake.webp" alt="Burnt Basque Cheesecake" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Burnt Basque Cheesecake</span><span class="menu-item-price">$14</span></div><div class="menu-item-desc">Classic Basque cheesecake with a flame-kissed crust, served warm with crème fraîche.</div><div class="menu-item-tags"><span class="menu-tag">Chef's pick</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/tart.webp"><img class="menu-thumb" src="/images/menu/tart.webp" alt="Chocolate Ember Tart" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Chocolate Ember Tart</span><span class="menu-item-price">$15</span></div><div class="menu-item-desc">Dark chocolate ganache tart with smoked sea salt and single-origin coffee ice cream.</div></div>
+        <div class="menu-item" data-photo="/images/menu/stone-fruit.webp"><img class="menu-thumb" src="/images/menu/stone-fruit.webp" alt="Grilled Stone Fruit" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Grilled Stone Fruit</span><span class="menu-item-price">$12</span></div><div class="menu-item-desc">Seasonal stone fruits grilled over oak, with mascarpone and roasted almond brittle.</div><div class="menu-item-tags"><span class="menu-tag">Seasonal</span><span class="menu-tag">Vegetarian</span></div></div>
       </div>
 
       <div class="menu-section" id="menu-drinks">
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Ember Old Fashioned</span><span class="menu-item-price">$18</span></div><div class="menu-item-desc">Smoked bourbon, house-made demerara syrup, Angostura bitters, orange peel.</div><div class="menu-item-tags"><span class="menu-tag">Signature</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Oak & Honey Sour</span><span class="menu-item-price">$17</span></div><div class="menu-item-desc">Rye whiskey, fresh lemon, raw honey syrup, egg white, and aromatic bitters.</div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Fireside Spritz</span><span class="menu-item-price">$15</span></div><div class="menu-item-desc">Aperol, elderflower, prosecco, soda, fresh orange — light and sessionable.</div><div class="menu-item-tags"><span class="menu-tag">Non-alcoholic option</span></div></div>
-        <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">Natural Wine Selection</span><span class="menu-item-price">from $14</span></div><div class="menu-item-desc">A rotating selection of natural and low-intervention wines. Ask your server for today's list.</div></div>
+        <div class="menu-item" data-photo="/images/menu/old-fashioned.webp"><img class="menu-thumb" src="/images/menu/old-fashioned.webp" alt="Ember Old Fashioned" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Ember Old Fashioned</span><span class="menu-item-price">$18</span></div><div class="menu-item-desc">Smoked bourbon, house-made demerara syrup, Angostura bitters, orange peel.</div><div class="menu-item-tags"><span class="menu-tag">Signature</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/sour.webp"><img class="menu-thumb" src="/images/menu/sour.webp" alt="Oak & Honey Sour" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Oak & Honey Sour</span><span class="menu-item-price">$17</span></div><div class="menu-item-desc">Rye whiskey, fresh lemon, raw honey syrup, egg white, and aromatic bitters.</div></div>
+        <div class="menu-item" data-photo="/images/menu/spritz.webp"><img class="menu-thumb" src="/images/menu/spritz.webp" alt="Fireside Spritz" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Fireside Spritz</span><span class="menu-item-price">$15</span></div><div class="menu-item-desc">Aperol, elderflower, prosecco, soda, fresh orange — light and sessionable.</div><div class="menu-item-tags"><span class="menu-tag">Non-alcoholic option</span></div></div>
+        <div class="menu-item" data-photo="/images/menu/wine.webp"><img class="menu-thumb" src="/images/menu/wine.webp" alt="Natural Wine Selection" loading="lazy" width="480" height="360" /><div class="menu-item-header"><span class="menu-item-name">Natural Wine Selection</span><span class="menu-item-price">from $14</span></div><div class="menu-item-desc">A rotating selection of natural and low-intervention wines. Ask your server for today's list.</div></div>
       </div>
     </div>
   </section>
@@ -421,5 +443,34 @@
     }
   </script>
   <script src="/js/whatsapp.js" defer></script>
+  <script>
+    // Menu: show each dish's photo in a card that follows the pointer
+    (function () {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      const card = document.createElement('div');
+      card.className = 'menu-preview';
+      card.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(card);
+      let x = 0, y = 0, raf = 0;
+      const place = () => { raf = 0; card.style.left = x + 'px'; card.style.top = y + 'px'; };
+      document.querySelectorAll('.menu-item[data-photo]').forEach(item => {
+        item.addEventListener('pointerenter', e => {
+          card.style.backgroundImage = `url("${item.dataset.photo}")`;
+          x = e.clientX; y = Math.min(Math.max(e.clientY, 170), innerHeight - 110);
+          card.classList.toggle('is-left', x > innerWidth - 300); place();
+          card.classList.add('is-on');
+        });
+        item.addEventListener('pointermove', e => {
+          x = e.clientX; y = Math.min(Math.max(e.clientY, 170), innerHeight - 110);   // keep it on screen
+          card.classList.toggle('is-left', x > innerWidth - 300);                    // flip near the right edge
+          if (!raf) raf = requestAnimationFrame(place);
+        });
+        item.addEventListener('pointerleave', () => card.classList.remove('is-on'));
+      });
+      addEventListener('scroll', () => card.classList.remove('is-on'), { passive: true });
+      // warm the cache so the first hover shows instantly
+      addEventListener('load', () => document.querySelectorAll('.menu-item[data-photo]').forEach(i => { new Image().src = i.dataset.photo; }));
+    })();
+  </script>
 </body>
 </html>
