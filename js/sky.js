@@ -4,7 +4,8 @@
    sessionStorage so the backdrop carries on across pages. */
 (function () {
   const STORE_KEY = 'sky-state';
-  const PARALLAX  = 0.35;   // backdrop travel per viewport of page scroll
+  const PARALLAX  = 0.14;   // backdrop travel per viewport of page scroll: a slow drift, not a scroll
+  const EASE      = 0.12;   // share of the remaining distance the sky covers each frame
   const FRAME_MS  = 1000 / 30;
 
   const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
@@ -101,7 +102,7 @@
     void main(void){
       vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
       vec3 col=vec3(0);
-      float bg=clouds(vec2(st.x+T*.5,-st.y-u_scroll*2.));
+      float bg=clouds(vec2(st.x+T*.5,-st.y-u_scroll));
       uv*=1.-.3*(sin(T*.2)*.5+.5);
       for(float i=1.;i<12.;i++){
         uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
@@ -129,7 +130,8 @@
 
   // Scrolling adds to the offset, so each page starts exactly where the
   // previous one left off, whatever scroll position it opens at
-  let offset = typeof state.offset === 'number' ? state.offset : 0;
+  let offset = typeof state.offset === 'number' ? state.offset : 0;   // where scrolling says the sky should be
+  let shown = offset;                                                // where it is drawn; eases toward offset
   let lastY = window.scrollY;
   window.addEventListener('scroll', () => {
     offset += ((window.scrollY - lastY) / (viewH || window.innerHeight)) * PARALLAX;
@@ -206,7 +208,7 @@
       draw() {
         gl.uniform2f(uRes, canvas.width, canvas.height);
         gl.uniform1f(uTime, (Date.now() - state.epoch) * 0.001);
-        gl.uniform1f(uScroll, offset);
+        gl.uniform1f(uScroll, shown);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       }
     };
@@ -243,6 +245,7 @@
   let last = 0;
   let lastScroll = -1;
   let lastScrollAt = 0;
+  let prevEase = 0;
 
   function loop(now) {
     raf = requestAnimationFrame(loop);
@@ -258,11 +261,19 @@
       else { frozen = true; stop(); active.draw(); return; }
     }
 
-    // Animate at 30fps; redraw immediately when the page scrolls so parallax stays smooth
-    const scrolled = window.scrollY !== lastScroll;
-    if (!scrolled && now - last < FRAME_MS) return;
-    last = now;
+    // Ease the drawn sky toward where scrolling put it (frame-rate independent),
+    // so scroll steps become one continuous glide instead of visible jumps
+    const dt = Math.min(now - (prevEase || now), 100);
+    prevEase = now;
+    const gap = offset - shown;
+    const easing = Math.abs(gap) > 1e-4;
+    if (easing) shown += gap * (1 - Math.pow(1 - EASE, dt / 16.7));
+    else shown = offset;
     lastScroll = window.scrollY;
+
+    // Drift at 30fps; while the sky is gliding, draw every frame
+    if (!easing && now - last < FRAME_MS) return;
+    last = now;
     active.draw();
   }
 
@@ -278,6 +289,7 @@
     if (!active) return;
     active.resize();
     measureView();
+    shown = offset; prevEase = 0;
     prevTick = 0; slowRun = 0; measureFrom = performance.now() + WARMUP_MS;
     if (staticOnly() || document.hidden) { active.draw(); return; }
     raf = requestAnimationFrame(loop);
