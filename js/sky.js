@@ -22,7 +22,17 @@
     uniform float u_time;
     uniform float u_scroll;
 
-    float hash(vec2 p){ p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
+    // Integer hash (PCG 2D) on the lattice cell: exact on every GPU. A float
+    // hash like fract(p * 456.21) loses precision on many phone GPUs and turns
+    // the clouds into hard-edged shards.
+    float hash(vec2 p){
+      uvec2 v = uvec2(ivec2(p)) * 1664525u + 1013904223u;
+      v.x += v.y * 1664525u; v.y += v.x * 1664525u;
+      v ^= v >> 16u;
+      v.x += v.y * 1664525u; v.y += v.x * 1664525u;
+      v ^= v >> 16u;
+      return float(v.x ^ v.y) * (1.0 / 4294967295.0);
+    }
     float noise(vec2 p){
       vec2 i = floor(p), f = fract(p);
       vec2 u = f * f * f * (f * (f * 6. - 15.) + 10.);
@@ -88,7 +98,7 @@
     #define T u_time
     #define R u_res
     #define MN min(R.x,R.y)
-    float rnd(vec2 p){p=fract(p*vec2(12.9898,78.233));p+=dot(p,p+34.56);return fract(p.x*p.y);}
+    float rnd(vec2 p){uvec2 v=uvec2(ivec2(floor(p)))*1664525u+1013904223u;v.x+=v.y*1664525u;v.y+=v.x*1664525u;v^=v>>16u;v.x+=v.y*1664525u;v.y+=v.x*1664525u;v^=v>>16u;return float(v.x^v.y)*(1.0/4294967295.0);}  // integer hash: exact on phone GPUs
     float noise(in vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);float a=rnd(i),b=rnd(i+vec2(1,0)),c=rnd(i+vec2(0,1)),d=rnd(i+1.);return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);}
     float fbm(vec2 p){float t=.0,a=1.;mat2 m=mat2(1.,-.5,.2,1.2);for(int i=0;i<5;i++){t+=a*noise(p);p*=2.*m;a*=.5;}return t;}
     float clouds(vec2 p){float d=1.,t=.0;for(float i=.0;i<3.;i++){float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);t=mix(t,d,a);d=a;p*=2./(i+1.);}return t;}
@@ -115,12 +125,18 @@
   try { state = JSON.parse(sessionStorage.getItem(STORE_KEY)); } catch (e) {}
   if (!state || typeof state.epoch !== 'number') state = { epoch: Date.now(), offset: 0 };
 
+  // Phones show and hide the address bar while scrolling, which changes
+  // innerHeight. The backdrop is sized to the large viewport (100lvh) instead,
+  // and parallax is measured against it, so nothing stretches or jumps.
+  let viewH = 0;
+  const measureView = () => { viewH = (active && active.canvas.clientHeight) || window.innerHeight; };
+
   // Scrolling adds to the offset, so each page starts exactly where the
   // previous one left off, whatever scroll position it opens at
   let offset = typeof state.offset === 'number' ? state.offset : 0;
   let lastY = window.scrollY;
   window.addEventListener('scroll', () => {
-    offset += ((window.scrollY - lastY) / window.innerHeight) * PARALLAX;
+    offset += ((window.scrollY - lastY) / (viewH || window.innerHeight)) * PARALLAX;
     lastY = window.scrollY;
   }, { passive: true });
 
@@ -133,7 +149,7 @@
     canvas.id = id;
     canvas.setAttribute('aria-hidden', 'true');
     canvas.style.cssText =
-      'position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;' +
+      'position:fixed;left:0;top:0;width:100%;height:100vh;height:100lvh;z-index:-1;pointer-events:none;' +
       'display:block;opacity:0;transition:opacity 0.8s ease;';
     document.body.prepend(canvas);
 
@@ -177,10 +193,19 @@
     return {
       canvas,
       resize() {
-        const scale = Math.min(window.devicePixelRatio || 1, 2) * resScale * quality;
-        canvas.width  = Math.max(1, Math.round(window.innerWidth  * scale));
-        canvas.height = Math.max(1, Math.round(window.innerHeight * scale));
-        gl.viewport(0, 0, canvas.width, canvas.height);
+        const cssW = canvas.clientWidth || window.innerWidth;
+        const cssH = canvas.clientHeight || window.innerHeight;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        let scale = dpr * resScale * quality;
+        // keep phones and tablets under ~0.6 MP of shading per frame
+        const MAX_PIXELS = 600000;
+        if (cssW * cssH * scale * scale > MAX_PIXELS) scale = Math.sqrt(MAX_PIXELS / (cssW * cssH));
+        const w = Math.max(1, Math.round(cssW * scale));
+        const h = Math.max(1, Math.round(cssH * scale));
+        if (w === canvas.width && h === canvas.height) return false;   // nothing to do: no clear, no flash
+        canvas.width = w; canvas.height = h;
+        gl.viewport(0, 0, w, h);
+        return true;
       },
       draw() {
         gl.uniform2f(uRes, canvas.width, canvas.height);
@@ -221,12 +246,15 @@
   let raf = null;
   let last = 0;
   let lastScroll = -1;
+  let lastScrollAt = 0;
 
   function loop(now) {
     raf = requestAnimationFrame(loop);
 
     // Sustained slow frames: step the resolution down, then settle on a still frame
-    if (prevTick && now > measureFrom) slowRun = now - prevTick > SLOW_FRAME_MS ? slowRun + 1 : Math.max(0, slowRun - 2);
+    const scrollingNow = window.scrollY !== lastScroll || now - lastScrollAt < 400;
+    if (window.scrollY !== lastScroll) lastScrollAt = now;
+    if (prevTick && now > measureFrom && !scrollingNow) slowRun = now - prevTick > SLOW_FRAME_MS ? slowRun + 1 : Math.max(0, slowRun - 2);
     prevTick = now;
     if (slowRun > 60) {
       slowRun = 0;
@@ -253,12 +281,17 @@
     stop();
     if (!active) return;
     active.resize();
+    measureView();
     prevTick = 0; slowRun = 0; measureFrom = performance.now() + WARMUP_MS;
     if (staticOnly() || document.hidden) { active.draw(); return; }
     raf = requestAnimationFrame(loop);
   }
 
-  window.addEventListener('resize', () => { if (active) { active.resize(); active.draw(); } }, { passive: true });
+  window.addEventListener('resize', () => {
+    if (!active) return;
+    measureView();
+    if (active.resize()) { active.draw(); measureFrom = performance.now() + 1500; }
+  }, { passive: true });
   document.addEventListener('visibilitychange', () => { document.hidden ? stop() : sync(); });
   reducedMotion.addEventListener?.('change', sync);
 
