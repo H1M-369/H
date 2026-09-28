@@ -16,3 +16,6 @@ desktop.ini
 
 # Node (just in case)
 node_modules/
+
+# Local working files (reference video, notes)
+1/
