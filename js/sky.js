@@ -22,17 +22,12 @@
     uniform float u_time;
     uniform float u_scroll;
 
-    // Integer hash (PCG 2D) on the lattice cell: exact on every GPU. A float
-    // hash like fract(p * 456.21) loses precision on many phone GPUs and turns
-    // the clouds into hard-edged shards.
-    float hash(vec2 p){
-      uvec2 v = uvec2(ivec2(p)) * 1664525u + 1013904223u;
-      v.x += v.y * 1664525u; v.y += v.x * 1664525u;
-      v ^= v >> 16u;
-      v.x += v.y * 1664525u; v.y += v.x * 1664525u;
-      v ^= v >> 16u;
-      return float(v.x ^ v.y) * (1.0 / 4294967295.0);
-    }
+    // Lattice hash from the webgl-noise permutation polynomial (x*34+1)*x mod 289.
+    // Every intermediate stays below 2^24, so it is exact in 32-bit floats on any
+    // GPU. Large-multiplier float hashes shatter on phones, and integer hashes
+    // collapse there because fragment shaders default ints to mediump.
+    float permute(float x){ return mod((x * 34. + 1.) * x, 289.); }
+    float hash(vec2 p){ vec2 q = mod(p, 289.); return permute(permute(q.x) + q.y) * (1. / 289.); }
     float noise(vec2 p){
       vec2 i = floor(p), f = fract(p);
       vec2 u = f * f * f * (f * (f * 6. - 15.) + 10.);
@@ -98,7 +93,8 @@
     #define T u_time
     #define R u_res
     #define MN min(R.x,R.y)
-    float rnd(vec2 p){uvec2 v=uvec2(ivec2(floor(p)))*1664525u+1013904223u;v.x+=v.y*1664525u;v.y+=v.x*1664525u;v^=v>>16u;v.x+=v.y*1664525u;v.y+=v.x*1664525u;v^=v>>16u;return float(v.x^v.y)*(1.0/4294967295.0);}  // integer hash: exact on phone GPUs
+    float perm(float x){return mod((x*34.+1.)*x,289.);}
+    float rnd(vec2 p){vec2 q=mod(floor(p),289.);return perm(perm(q.x)+q.y)*(1./289.);}  // exact on phone GPUs (see day shader)
     float noise(in vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);float a=rnd(i),b=rnd(i+vec2(1,0)),c=rnd(i+vec2(0,1)),d=rnd(i+1.);return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);}
     float fbm(vec2 p){float t=.0,a=1.;mat2 m=mat2(1.,-.5,.2,1.2);for(int i=0;i<5;i++){t+=a*noise(p);p*=2.*m;a*=.5;}return t;}
     float clouds(vec2 p){float d=1.,t=.0;for(float i=.0;i<3.;i++){float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);t=mix(t,d,a);d=a;p*=2./(i+1.);}return t;}
