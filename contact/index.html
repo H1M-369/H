@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Email & Workflow Automation in Kenya — H.</title>
+  <title>Contact — H.</title>
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="description" content="Workflow automation for Kenyan businesses: automatic email replies, scheduled reports and data logged to Google Sheets, running without anyone at the keyboard." />
-  <link rel="canonical" href="https://saintlife.dev/services/automation/" />
+  <meta name="description" content="Get in touch with H., a web and AI developer in Kenya. Send an enquiry, email, or message on WhatsApp about a website, AI agent or automation." />
+  <link rel="canonical" href="https://saintlife.dev/contact/" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://saintlife.dev/services/automation/" />
-  <meta property="og:title" content="Email & Workflow Automation in Kenya — H." />
-  <meta property="og:description" content="Workflow automation for Kenyan businesses: automatic email replies, scheduled reports and data logged to Google Sheets, running without anyone at the keyboard." />
+  <meta property="og:url" content="https://saintlife.dev/contact/" />
+  <meta property="og:title" content="Contact — H." />
+  <meta property="og:description" content="Get in touch with H., a web and AI developer in Kenya. Send an enquiry, email, or message on WhatsApp about a website, AI agent or automation." />
   <meta property="og:image" content="https://saintlife.dev/images/og/site.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="author" content="Jonathan Kariuki" />
@@ -30,15 +30,11 @@
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="/css/portfolio.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[
-    {"@type":"Service","name":"Email & Workflow Automation in Kenya","description":"Workflow automation for Kenyan businesses: automatic email replies, scheduled reports and data logged to Google Sheets, running without anyone at the keyboard.","url":"https://saintlife.dev/services/automation/","areaServed":{"@type":"Country","name":"Kenya"},"provider":{"@id":"https://saintlife.dev/#business"}},
-    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which tools can it connect to?","acceptedAnswer":{"@type":"Answer","text":"Gmail and Google Sheets are shown in the demos. Other tools are checked during scoping."}},{"@type":"Question","name":"What happens if something fails?","acceptedAnswer":{"@type":"Answer","text":"Failures are retried or flagged to you, and every run is logged, so nothing disappears silently."}},{"@type":"Question","name":"How much does an automation cost?","acceptedAnswer":{"@type":"Answer","text":"Setup starts at KSh 8,000 for a single workflow and KSh 15,000 for a multi-step automation. After that, the monthly fee is the actual cost of the apps and AI it uses, passed on at cost, plus a management plan of KSh 2,000 or KSh 3,500."}}]}
-  ]}
+  {"@context":"https://schema.org","@type":"ContactPage","name":"Contact H. — Web and AI Developer","url":"https://saintlife.dev/contact/","about":{"@id":"https://saintlife.dev/#person"}}
   </script>
   <script>if(!/^(localhost|127\.)/.test(location.hostname)){window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s)}</script>
 </head>
 <body class="pf">
-
 
   <!-- Cursor glow -->
   <div id="cursor-glow"></div>
@@ -63,7 +59,7 @@
         <a href="/" class="nav-link">Home</a>
         <a href="/about/" class="nav-link">About</a>
         <a href="/#skills" class="nav-link">Skills</a>
-        <a href="/services/" class="nav-link" aria-current="page">Services</a>
+        <a href="/services/" class="nav-link">Services</a>
         <div class="nav-item" id="nav-projects">
           <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
             Projects
@@ -83,7 +79,7 @@
             <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
           </div>
         </div>
-        <a href="/contact/" class="nav-link">Contact</a>
+        <a href="/contact/" class="nav-link" aria-current="page">Contact</a>
       </div>
 
       <!-- Right side -->
@@ -110,99 +106,88 @@
       <div class="mobile-menu-label">Workflows</div>
       <a href="/workflows/daily-briefing/" class="mobile-menu-link mobile-menu-sub">Daily Briefing</a>
       <a href="/workflows/email-autoresponder/" class="mobile-menu-link mobile-menu-sub">Email Autoresponder</a>
-      <a href="/contact/" class="mobile-menu-link">Contact</a>
+      <a href="/contact/" class="mobile-menu-link" aria-current="page">Contact</a>
     </div>
   </nav>
 
-  <!-- ── SERVICE: Email & Workflow Automation in Kenya ── -->
+  <!-- ── CONTACT ── -->
   <main class="svc">
-    <section class="svc-hero">
+    <section id="contact">
       <div class="container">
-        <div class="section-label">Service · Automation</div>
-        <h1 class="section-title svc-title">Automations that <em>run while you work</em>.</h1>
-        <p class="section-body">An automation connects the tools you already use and runs a routine task on its own, on a schedule or whenever something arrives, so nobody has to copy, paste or remember.</p>
-        <div class="hero-cta-row svc-cta">
-          <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20to%20automate%20a%20task%20in%20my%20business." target="_blank" rel="noopener" class="btn-primary">Talk on WhatsApp</a>
-          <a href="/services/#pricing" class="btn-ghost">See all prices</a>
+        <div class="section-label reveal">Get in touch</div>
+        <h1 class="section-title">Have something<br />worth <em style="font-style:italic; color:var(--amber-l)">building?</em></h1>
+        <p class="section-body"><strong>A new website, a fix for the one you have, an AI agent or an automation. Tell me what you need, and I'll reply with a plan and a quote.</strong></p>
+        <!-- Enquiry form: posts to Formspree (form xkjgperv) -->
+        <form class="cf" id="contact-form" action="https://formspree.io/f/xkjgperv" method="POST">
+          <div class="cf-grid">
+            <label class="cf-field">
+              <span>Name</span>
+              <input name="name" type="text" autocomplete="name" required maxlength="100" />
+            </label>
+            <label class="cf-field">
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" required maxlength="200" />
+            </label>
+            <label class="cf-field">
+              <span>What do you need?</span>
+              <select name="type" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>New website</option>
+                <option>Fix or upgrade my website</option>
+                <option>AI agent</option>
+                <option>Automation</option>
+                <option>Something else</option>
+              </select>
+            </label>
+            <label class="cf-field">
+              <span>When? <em>optional</em></span>
+              <select name="timeline">
+                <option value="">Flexible</option>
+                <option>As soon as possible</option>
+                <option>Within a month</option>
+                <option>1–3 months</option>
+              </select>
+            </label>
+            <label class="cf-field cf-wide">
+              <span>Tell me about it</span>
+              <textarea name="task" rows="4" required maxlength="2000" placeholder="What should it do? For example: answer customer emails using our help documents."></textarea>
+            </label>
+            <label class="cf-field cf-wide">
+              <span>Anything else? <em>optional</em></span>
+              <textarea name="inputs_output" rows="3" maxlength="2000" placeholder="Your budget, a website you like, or anything that helps."></textarea>
+            </label>
+          </div>
+          <input type="text" name="_gotcha" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="_subject" value="New project enquiry — saintlife.dev" />
+          <input type="hidden" name="page" value="" />
+          <div class="cf-foot">
+            <button type="submit" class="btn-primary">
+              Send enquiry
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="cf-status" role="status" aria-live="polite"></p>
+          </div>
+          <p class="cf-note">Submissions are handled by Formspree. See the <a href="/privacy.html">privacy policy</a>.</p>
+        </form>
+        <p class="cf-or">Or reach me directly</p>
+        <div class="contact-links">
+          <a href="mailto:saintlife54@gmail.com" class="contact-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email
+          </a>
+          <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20project." target="_blank" rel="noopener" class="contact-chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp
+          </a>
         </div>
       </div>
     </section>
 
-    <section>
+    <!-- ── PHONE CTA ── -->
+    <section id="phone-cta">
       <div class="container">
-        <div class="section-label reveal">What you can automate</div>
-        <div class="svc-uses reveal reveal-delay-1">
-          <div class="svc-use">
-            <span class="svc-price">Setup from KSh 15,000</span>
-            <h3>Email replies</h3>
-            <p>New support emails are read, answered from your policies and replied to in the same thread, around the clock.</p>
-          </div>
-          <div class="svc-use">
-            <span class="svc-price">Setup from KSh 8,000</span>
-            <h3>Daily and weekly reports</h3>
-            <p>News, figures or updates gathered, summarised and sent to your inbox at the same time every day.</p>
-          </div>
-          <div class="svc-use">
-            <span class="svc-price">Setup from KSh 8,000</span>
-            <h3>Record keeping</h3>
-            <p>Every run is written to Google Sheets, so there is a log you can check and share.</p>
-          </div>
-        </div>
-
-        <div class="section-label reveal" style="margin-top:56px;">See it working</div>
-        <div class="svc-demos reveal reveal-delay-1">
-          <a class="svc-demo" href="/portfolio/email-autoresponder/">
-            <span class="svc-demo-kind">Running demo</span>
-            <b>Email Autoresponder</b>
-            <span>Replies to support email with no one at the keyboard.</span>
-            <span class="svc-demo-go" aria-hidden="true">→</span>
-          </a>
-          <a class="svc-demo" href="/portfolio/whatsapp-mpesa/">
-            <span class="svc-demo-kind">Running demo</span>
-            <b>WhatsApp + M-Pesa</b>
-            <span>Paid orders sent to the owner on WhatsApp, the moment M-Pesa confirms.</span>
-            <span class="svc-demo-go" aria-hidden="true">→</span>
-          </a>
-          <a class="svc-demo" href="/portfolio/daily-briefing/">
-            <span class="svc-demo-kind">Running demo</span>
-            <b>Daily Briefing</b>
-            <span>News and weather, summarised in your inbox every morning.</span>
-            <span class="svc-demo-go" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-label reveal">How it works</div>
-        <ol class="svc-how reveal reveal-delay-1">
-          <li><b>Map the routine</b><span>We write down the steps you repeat today, what triggers them and where the result goes.</span></li>
-          <li><b>Connect the tools</b><span>Gmail, Google Sheets and the other services involved are linked securely.</span></li>
-          <li><b>Handle the exceptions</b><span>Spam, missing data and failures are caught, retried or flagged to you.</span></li>
-          <li><b>Run and log</b><span>It runs on its own, and every run is recorded so you can check it.</span></li>
-        </ol>
-
-        <div class="section-label reveal" style="margin-top:56px;">Questions</div>
-        <div class="faq-list reveal reveal-delay-1">
-          <details class="faq">
-            <summary>Which tools can it connect to?</summary>
-            <p>Gmail and Google Sheets are shown in the demos. Other tools are checked during scoping.</p>
-          </details>
-          <details class="faq">
-            <summary>What happens if something fails?</summary>
-            <p>Failures are retried or flagged to you, and every run is logged, so nothing disappears silently.</p>
-          </details>
-          <details class="faq">
-            <summary>How much does an automation cost?</summary>
-            <p>Setup starts at KSh 8,000 for a single workflow and KSh 15,000 for a multi-step automation. After that, the monthly fee is the actual cost of the apps and AI it uses, passed on at cost, plus a management plan of KSh 2,000 or KSh 3,500.</p>
-          </details>
-        </div>
-
-        <div class="price-cta reveal">
-          <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20to%20automate%20a%20task%20in%20my%20business." target="_blank" rel="noopener" class="btn-primary">Get a quote on WhatsApp</a>
-          <a href="/contact/" class="btn-ghost">Or send the details</a>
-        </div>
+        <p class="phone-label">Call me</p>
+        <div class="text-disperse-wrap" id="text-disperse" aria-label="+254789376070"></div>
       </div>
     </section>
   </main>
@@ -210,16 +195,6 @@
   <!-- ── FOOTER ── -->
   <footer>
     <div class="container">
-      <div class="ft-cta">
-        <div>
-          <p class="ft-kicker">Have a project in mind?</p>
-          <h2 class="ft-title">Let's build something <em>useful.</em></h2>
-        </div>
-        <div class="ft-cta-btns">
-          <a href="/contact/" class="btn-primary">Start a project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="https://wa.me/254789376070" target="_blank" rel="noopener" class="btn-ghost"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg> WhatsApp me</a>
-        </div>
-      </div>
       <div class="ft-grid">
         <div class="ft-brand">
           <a href="/" class="ft-logo" aria-label="H. home">H.</a>

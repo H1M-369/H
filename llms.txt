@@ -11,7 +11,7 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 
 ### Home
 - URL: https://saintlife.dev/
-- Sections: Hero, Capabilities, links to Services and About, FAQ, Contact (projects live on the portfolio)
+- Sections: Hero, Capabilities, links to Services and About (projects live on the portfolio; contact has its own page)
 
 ### Services & prices
 - URL: https://saintlife.dev/services/
@@ -21,9 +21,13 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 - URL: https://saintlife.dev/about/
 - About H., and the four steps: understand the vision, plan the build, build and test, launch and support
 
+### Contact
+- URL: https://saintlife.dev/contact/
+- Enquiry form (name, email, what you need, timeline, details), plus email, WhatsApp and phone
+
 ### Portfolio
 - URL: https://saintlife.dev/portfolio/
-- Sections: Hero with an illustrated summary of the work, Projects (one page per project), Who I am, Contact
+- Sections: Hero with an illustrated summary of the work, Projects (one page per project), Who I am
 
 ### Services
 - Websites (simple static sites from KSh 30,000; e-commerce from KSh 250,000): https://saintlife.dev/services/websites/
@@ -34,7 +38,7 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 - Websites: simple static KSh 30,000; business KSh 60,000; e-commerce KSh 250,000 (hosting at cost, care plan optional)
 - AI agents: custom email agent KSh 6,000; website chat assistant KSh 10,000; custom AI agent KSh 25,000
 - Automations: single workflow KSh 8,000; multi-step pipeline KSh 15,000
-- Integrations for an existing website: AI assistant KSh 12,000; M-Pesa checkout (Daraja) KSh 20,000; WhatsApp order alerts KSh 12,000
+- Integrations for an existing website: AI assistant KSh 12,000; M-Pesa payments on your site KSh 20,000; WhatsApp order alerts KSh 12,000
 - Details and "why the price": https://saintlife.dev/services/#pricing
 
 ### Legal

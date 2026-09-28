@@ -241,6 +241,8 @@
 .pj-count { font-size: 0.8125rem; color: var(--muted); letter-spacing: 0.04em; }
 .pj-count b { color: var(--pj-accent); font-weight: 600; }
 .pj .sc-demo { top: 96px; }
+.pj-faq { margin-top: 64px; }
+.pj-faq .section-title { margin-bottom: 0; }
 .pj-pager {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   margin-top: 56px; padding-top: 28px;
@@ -258,15 +260,6 @@
 .pj-pager-link b { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.15rem; color: var(--text); }
 .pj-pager-link:hover { border-color: var(--amber-l); background: var(--ghost-hover-bg); }
 .pj-pager-next { text-align: right; }
-
-/* ── Nav: name beside the logo ── */
-.nav-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem; font-weight: 500;
-  color: var(--text);
-  letter-spacing: 0;
-  margin-left: 12px;
-}
 
 /* ── Marquee ── */
 .pf-marquee {
@@ -326,9 +319,6 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1060px) {
-  .nav-name { display: none; }
-}
 @media (max-width: 960px) {
   .pf-split { grid-template-columns: 1fr; gap: 48px; }
   .pf-hero-grid { grid-template-columns: 1fr; gap: 32px; }
