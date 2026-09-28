@@ -1,6 +1,6 @@
 # H. — Portfolio
 
-> Front ends that load fast. LLM agents that run unattended.
+> Websites, AI agents and automations, with open prices.
 > Live at **[saintlife.dev](https://saintlife.dev)**
 
 ---
@@ -17,15 +17,19 @@ The site doubles as a working demo reel. Each project has a case page with an an
 
 ```
 H1M/
-├── index.html                          # Home: hero, about, capabilities, projects, process, contact
+├── index.html                          # Home: hero, what I do, links to Services and About
 ├── 404.html                            # Not-found page (served automatically by the host)
 ├── privacy.html / terms.html           # Legal pages
+├── about/index.html                    # About + how I work (four steps), FAQ
+├── services/index.html                 # Services: price modals, request checkout, plans, why the price, FAQ
+├── services/<service>/index.html       # Detail pages: websites, ai-agents, automation
+├── contact/index.html                  # Contact: enquiry form, email/WhatsApp, phone CTA
 ├── serve.mjs                           # Local static server (Node.js, no dependencies)
 ├── robots.txt, sitemap.xml, llms.txt   # Crawler rules, sitemap, LLM-readable overview
 ├── favicon.svg / .ico, apple-touch-icon.png, icon-192/512.png, site.webmanifest
 │
 ├── css/
-│   ├── main.css                        # Tokens, layout, components, glass panels, both themes
+│   ├── main.css                        # Tokens, layout, components, glass panels, footer, modals, both themes
 │   ├── portfolio.css                   # Portfolio + project pages: hero card, illustration, neumorphic buttons
 │   └── showcase.css                    # Project case pages: scripted demo frames
 │
@@ -33,13 +37,16 @@ H1M/
 │   ├── main.js                         # Theme, nav, reveals, contact form, particles, text disperse
 │   ├── sky.js                          # WebGL backdrop for every page: clouds (light) / shooting stars (dark)
 │   ├── portfolio.js                    # Portfolio page: scroll progress, illustration reduced-motion
+│   ├── services.js                     # Services price modals, request checkout (Formspree + WhatsApp)
+│   ├── whatsapp.js                     # Floating WhatsApp button
 │   └── showcase.js                     # Scripted demos on the project case pages
 │
 ├── portfolio/
-│   ├── index.html                      # Portfolio: marquee, hero card, project buttons, who I am, contact
+│   ├── index.html                      # Portfolio: marquee, hero card, project buttons, who I am
 │   └── <project>/index.html            # Case page per project: write-up, running demo, back + prev/next
 │                                       #   drape, ember-oak, email-support,
-│                                       #   competitor-analysis, daily-briefing, email-autoresponder
+│                                       #   competitor-analysis, daily-briefing, email-autoresponder,
+│                                       #   whatsapp-mpesa
 │
 ├── shop/                               # Live build: DRAPE clothing store
 ├── websites/restaurant/                # Live build: Ember & Oak restaurant site
@@ -52,7 +59,9 @@ H1M/
 │   ├── email_watcher.py                # Gmail inbox watcher (Python)
 │   └── email_responder.py              # LLM reply generator (Python)
 │
-└── images/                             # WebP thumbnails and product photos; og/ holds share images
+├── docs/image-credits.md               # Photo (Pexels) and illustration (unDraw) credits
+│
+└── images/                             # WebP photos; art/ illustrations, menu/ dish photos, og/ share images
 ```
 
 ---
@@ -60,18 +69,26 @@ H1M/
 ## Pages
 
 ### Home (`index.html`)
-- **Hero** over the site backdrop
-- **About** (personal section)
-- **Capabilities**: six cards covering front-end builds, refactors, LLM agents, pipelines, interface systems and LLM integration
-- **Projects**: six cards linking to the project case pages
-- **Process**: four steps, from defining the output to shipping and instrumenting
-- **Contact**: Formspree enquiry form, email and WhatsApp links, click-to-burst particles
+- **Hero** over the site backdrop, with "View Projects" and "Get in Touch"
+- **What I do**: six plain-language cards
+- **More**: cards linking to Services and About
+
+### Services (`services/`)
+- Four categories (websites, AI agents, automations, website add-ons); each opens a price modal
+- **Choose** on any option opens a request form (Formspree) with a WhatsApp alternative
+- Management plans, a worked example, why prices differ, and a pricing FAQ
+
+### About (`about/`)
+- Who I am, the four steps every project follows, and an FAQ
+
+### Contact (`contact/`)
+- **Enquiry form** (Formspree), email and WhatsApp links, click-to-burst particles
 - **Phone CTA**: text-disperse hover on the phone number
 
 ### Portfolio (`portfolio/`)
 - Marquee strip, then a hero card with an animated line illustration of the work
-- Six neumorphic project buttons, each opening its case page
-- **Who I am** (personal section), then contact
+- Project buttons, each opening its case page
+- **Who I am** (personal section)
 
 ### Project case pages (`portfolio/<project>/`)
 Write-up, step list and a scripted demo that plays while on screen, plus a link to the live build, a back button and previous/next navigation.
@@ -86,7 +103,8 @@ Write-up, step list and a scripted demo that plays while on screen, plus a link 
 - **WebGL2**: two fragment shaders in `sky.js`, fixed behind every page
 - **Canvas 2D**: contact-section particle bursts
 - **IntersectionObserver**: scroll reveals and demo playback
-- **Formspree**: contact form delivery (set the form ID in `index.html` and `portfolio/index.html`)
+- **Formspree**: delivers the contact form (`contact/index.html`) and service requests (`services/index.html`)
+- **Vercel Web Analytics**: cookie-free page-view counts; skipped on localhost
 
 ---
 
@@ -132,7 +150,7 @@ On first run a browser window opens for Gmail OAuth. After that, `token.json` ha
 
 **Glass panels**: one shared rule in `main.css` makes every section a translucent, blurred panel; each theme sets only the tints. Cards inside are denser tiles, so text stays readable over the backdrop.
 
-**Particle canvas**: click the contact section (outside the form) to burst amber particles with velocity, gravity, drag and sine drift.
+**Particle canvas**: click the contact page (outside the form) to burst amber particles with velocity, gravity, drag and sine drift.
 
 **Text disperse**: the phone number's characters scatter to precomputed offsets on hover and snap back on leave.
 

@@ -264,7 +264,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 
-/* ── Contact form: Formspree, with an email fallback until the form ID is set ── */
+/* ── Contact form: posts to Formspree ── */
 (function () {
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -272,9 +272,6 @@ window.addEventListener('scroll', () => {
 
   const status = form.querySelector('.cf-status');
   const button = form.querySelector('button[type="submit"]');
-  const connected = !form.action.includes('YOUR_FORM_ID');
-  const mailChip = document.querySelector('.contact-chip[href^="mailto:"]');
-  const inbox = mailChip ? mailChip.getAttribute('href').replace('mailto:', '') : '';
   form.elements.page.value = location.pathname;
 
   const say = (text, kind = '') => { status.textContent = text; status.dataset.kind = kind; };
@@ -291,21 +288,6 @@ window.addEventListener('scroll', () => {
     }
 
     const data = new FormData(form);
-
-    if (!connected) {
-      // Form service not set up yet: hand the enquiry to the visitor's email app
-      const body = [
-        `Name: ${data.get('name')}`,
-        `Email: ${data.get('email')}`,
-        `Project type: ${data.get('type')}`,
-        `Timeline: ${data.get('timeline') || 'Flexible'}`,
-        '', 'The task:', data.get('task'),
-        '', 'Inputs and output:', data.get('inputs_output') || '—',
-      ].join('\n');
-      location.href = `mailto:${inbox}?subject=${encodeURIComponent('Project enquiry: ' + data.get('type'))}&body=${encodeURIComponent(body)}`;
-      say('Opening your email app with this enquiry.', 'ok');
-      return;
-    }
 
     button.disabled = true;
     say('Sending…');

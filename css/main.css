@@ -102,6 +102,7 @@ nav .inner {
   white-space: nowrap; transition: color 0.2s ease;
 }
 .nav-link:hover, .nav-link:focus-visible { color: var(--text); outline: none; }
+.nav-link[aria-current="page"] { color: var(--amber-l); }
 .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
 
 /* ── Nav Dropdown ── */
