@@ -1,6 +1,6 @@
-# H. — Jonathan Kariuki
+# H. — Web and AI Developer (Jonathan Kariuki)
 
-> Front ends that load fast. LLM agents that run unattended.
+> Websites that build presence. Agents that deliver. Automations that make work convenient.
 > https://saintlife.dev
 
 ## About
@@ -11,11 +11,22 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 
 ### Home
 - URL: https://saintlife.dev/
-- Sections: Hero, About, Capabilities, Projects, Process, Contact
+- Sections: Hero, About, Capabilities, Projects, Process, Pricing, FAQ, Contact
 
 ### Portfolio
 - URL: https://saintlife.dev/portfolio/
 - Sections: Hero with an illustrated summary of the work, Projects (one page per project), Who I am, Contact
+
+### Services
+- Websites (simple static sites from KSh 30,000; e-commerce from KSh 250,000): https://saintlife.dev/services/websites/
+- AI agents: https://saintlife.dev/services/ai-agents/
+- Automation: https://saintlife.dev/services/automation/
+
+### Pricing
+- Simple static websites from KSh 30,000
+- Full e-commerce from KSh 250,000
+- Agents and automations quoted per project
+- Details: https://saintlife.dev/#pricing
 
 ### Legal
 - Terms of Use: https://saintlife.dev/terms.html
@@ -60,6 +71,11 @@ Each project has a case page (write-up plus an animated demo) and a separate liv
 - Live build: https://saintlife.dev/workflows/email-autoresponder/
 - Type: Automation pipeline
 - Summary: No human in the loop: polls Gmail every 30 seconds, parses and filters (drops newsletters and spam), retrieves the matching policy docs, drafts with Claude, replies in-thread, marks the message read and logs the run.
+
+### WhatsApp + M-Pesa Store — payments and order alerts
+- Case page: https://saintlife.dev/portfolio/whatsapp-mpesa/
+- Type: Integration
+- Summary: An online store using Safaricom's Daraja API for M-Pesa STK-push payments; once Safaricom's callback confirms payment, the order, receipt and delivery details are sent to the owner on WhatsApp via the WhatsApp Business Platform.
 
 ## Capabilities & stack
 

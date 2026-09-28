@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jonathan Kariuki — Web Developer &amp; AI Agent Builder</title>
+  <title>H. — Web and AI Developer</title>
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -17,12 +17,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://saintlife.dev/" />
   <meta property="og:site_name" content="saintlife.dev" />
-  <meta property="og:title" content="Jonathan Kariuki — Web Developer &amp; AI Agent Builder" />
+  <meta property="og:title" content="H. — Web and AI Developer" />
   <meta property="og:description" content="Front ends that load fast. LLM agents that run unattended. Six running demos across web builds, agents and automation pipelines." />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jonathan Kariuki — Web Developer &amp; AI Agent Builder" />
+  <meta name="twitter:title" content="H. — Web and AI Developer" />
   <meta name="twitter:description" content="Front ends that load fast. LLM agents that run unattended. Six running demos across web builds, agents and automation pipelines." />
   <meta property="og:image" content="https://saintlife.dev/images/og/site.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -34,13 +34,31 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Jonathan Kariuki",
-    "url": "https://saintlife.dev",
-    "jobTitle": "Web Developer & AI Agent Builder",
-    "email": "saintlife54@gmail.com",
-    "sameAs": [
-      "https://wa.me/254789376070"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://saintlife.dev/#person",
+        "name": "Jonathan Kariuki",
+        "alternateName": "H.",
+        "url": "https://saintlife.dev",
+        "jobTitle": "Web and AI Developer",
+        "email": "saintlife54@gmail.com",
+        "telephone": "+254789376070",
+        "sameAs": ["https://wa.me/254789376070"]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://saintlife.dev/#business",
+        "name": "H. — Web and AI Developer",
+        "url": "https://saintlife.dev",
+        "founder": { "@id": "https://saintlife.dev/#person" },
+        "email": "saintlife54@gmail.com",
+        "telephone": "+254789376070",
+        "areaServed": { "@type": "Country", "name": "Kenya" },
+        "priceRange": "KSh 30,000 – KSh 250,000+",
+        "currenciesAccepted": "KES",
+        "serviceType": ["Website design and development", "E-commerce websites", "AI agents", "Workflow automation"]
+      }
     ]
   }
   </script>
@@ -80,6 +98,19 @@
       <div class="nav-center">
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
+        <div class="nav-item" id="nav-services">
+          <button class="nav-trigger" onclick="toggleDropdown('nav-services')">
+            Services
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="/services/websites/">Websites</a>
+            <a href="/services/ai-agents/">AI Agents</a>
+            <a href="/services/automation/">Automation</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="/#pricing">Pricing</a>
+          </div>
+        </div>
         <div class="nav-item" id="nav-projects">
           <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
             Projects
@@ -99,6 +130,7 @@
             <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
           </div>
         </div>
+        <a href="#pricing" class="nav-link">Pricing</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
 
@@ -115,6 +147,10 @@
       <a href="#about" class="mobile-menu-link">About</a>
       <a href="#skills" class="mobile-menu-link">Skills</a>
       <a href="/portfolio/" class="mobile-menu-link">Portfolio</a>
+      <div class="mobile-menu-label">Services</div>
+      <a href="/services/websites/" class="mobile-menu-link mobile-menu-sub">Websites</a>
+      <a href="/services/ai-agents/" class="mobile-menu-link mobile-menu-sub">AI Agents</a>
+      <a href="/services/automation/" class="mobile-menu-link mobile-menu-sub">Automation</a>
       <div class="mobile-menu-label">Websites</div>
       <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
       <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
@@ -124,6 +160,7 @@
       <div class="mobile-menu-label">Workflows</div>
       <a href="/workflows/daily-briefing/" class="mobile-menu-link mobile-menu-sub">Daily Briefing</a>
       <a href="/workflows/email-autoresponder/" class="mobile-menu-link mobile-menu-sub">Email Autoresponder</a>
+      <a href="#pricing" class="mobile-menu-link">Pricing</a>
       <a href="#contact" class="mobile-menu-link">Contact</a>
     </div>
   </nav>
@@ -131,10 +168,11 @@
   <!-- ── HERO ── -->
   <section id="hero">
     <div class="container">
-      <div class="hero-eyebrow">Front ends · LLM agents · Automation pipelines</div>
+      <div class="hero-eyebrow">Websites · Agents · Automations</div>
       <h1 class="hero-name">
-        Front ends that load fast.<br />LLM agents that run <em>unattended</em>.
+        Websites that build presence.<br />Agents that deliver.<br />Automations that make work <em>convenient</em>.
       </h1>
+      <p class="hero-price">Websites from <strong>KSh 30,000</strong> · Full e-commerce <strong>KSh 250,000+</strong></p>
       <div class="hero-cta-row">
         <a href="#projects" class="btn-primary">
           View Work
@@ -194,6 +232,7 @@
             <span class="tag">HTML/CSS</span>
             <span class="tag">JavaScript</span>
             <span class="tag">Tailwind</span>
+            <span class="tag">M-Pesa &amp; WhatsApp</span>
           </div>
         </div>
 
@@ -260,15 +299,31 @@
   <section id="projects">
     <div class="container">
       <div class="section-label reveal">Work</div>
-      <h2 class="section-title reveal reveal-delay-1">Six builds,<br />all running.</h2>
+      <h2 class="section-title reveal reveal-delay-1">Seven builds,<br />all running.</h2>
       <div class="projects-grid">
+        <a class="project-card project-card-feature reveal" href="/portfolio/whatsapp-mpesa/">
+          <img class="project-img" src="/images/whatsapp-mpesa.webp" alt="Demo: an M-Pesa payment on a phone and the paid order arriving in the owner's WhatsApp" />
+          <div class="project-body">
+            <div class="project-type">Integration · New</div>
+            <div class="project-title">WhatsApp + M-Pesa Store</div>
+            <div class="project-desc">Get paid by M-Pesa and see every order on WhatsApp the moment it's paid. Daraja STK push sends the payment prompt to the customer's phone, and the owner's alert goes out only after Safaricom confirms the payment.</div>
+            <div class="project-footer">
+              <div class="skill-tags" style="margin-top:0">
+                <span class="tag">M-Pesa Daraja</span>
+                <span class="tag">WhatsApp API</span>
+                <span class="tag">Webhooks</span>
+                <span class="tag">E-commerce</span>
+              </div>
+            </div>
+          </div>
+        </a>
 
         <a class="project-card reveal reveal-delay-1" href="/portfolio/drape/">
           <img class="project-img" src="/images/drape.webp" alt="DRAPE Clothing Store" />
           <div class="project-body">
             <div class="project-type">Website Build</div>
             <div class="project-title">DRAPE — Clothing Store</div>
-            <div class="project-desc">Static e-commerce front end: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart, all client-side.</div>
+            <div class="project-desc">An online store customers can browse and buy from on any phone. 31 products in 6 categories, with colour variants, size selection and a slide-out cart.</div>
             <div class="project-footer">
               <div class="skill-tags" style="margin-top:0">
                 <span class="tag">Tailwind</span>
@@ -285,7 +340,7 @@
           <div class="project-body">
             <div class="project-type">Custom Agent</div>
             <div class="project-title">Email Support Agent</div>
-            <div class="project-desc">Retrieval-grounded reply agent. It matches an inbound email to the relevant section of your docs and drafts a send-ready reply that cites its source.</div>
+            <div class="project-desc">Answers customer emails from your own help docs, so your team doesn't have to. Every reply cites the section of the docs it came from.</div>
             <div class="project-footer">
               <div class="skill-tags" style="margin-top:0">
                 <span class="tag">Claude API</span>
@@ -302,7 +357,7 @@
           <div class="project-body">
             <div class="project-type">Agent Workflow</div>
             <div class="project-title">Email Autoresponder Pipeline</div>
-            <div class="project-desc">Five-stage Gmail pipeline: poll, parse and filter, retrieve matching docs, draft with Claude, reply in-thread. No human in the loop.</div>
+            <div class="project-desc">Replies to support email around the clock, with no one at the keyboard. It watches Gmail, filters out spam, drafts from your docs with Claude and replies in-thread.</div>
             <div class="project-footer">
               <div class="skill-tags" style="margin-top:0">
                 <span class="tag">Orchestration</span>
@@ -319,7 +374,7 @@
           <div class="project-body">
             <div class="project-type">Website Build</div>
             <div class="project-title">Ember &amp; Oak — Restaurant Site</div>
-            <div class="project-desc">Mobile-first restaurant site: editorial layout, in-place tabbed menu, dietary tags, gallery and a reservation flow with a confirmation state.</div>
+            <div class="project-desc">A restaurant site that turns visitors into bookings. Mobile-first, with a tabbed menu, dietary tags, a gallery and table reservations.</div>
             <div class="project-footer">
               <div class="skill-tags" style="margin-top:0">
                 <span class="tag">Tailwind</span>
@@ -336,7 +391,7 @@
           <div class="project-body">
             <div class="project-type">Agent Workflow</div>
             <div class="project-title">Daily Briefing Pipeline</div>
-            <div class="project-desc">Scheduled pipeline: topic headlines and weather, compressed by Claude into two-sentence summaries, emailed as a digest and logged to Google Sheets.</div>
+            <div class="project-desc">Your news and weather, summarised and in your inbox every morning. Claude condenses each story to two sentences, and every run is logged to Google Sheets.</div>
             <div class="project-footer">
               <div class="skill-tags" style="margin-top:0">
                 <span class="tag">Orchestration</span>
@@ -353,7 +408,7 @@
           <div class="project-body">
             <div class="project-type">Custom Agent</div>
             <div class="project-title">Competitor Analysis Agent</div>
-            <div class="project-desc">Structured-output agent. Given a company and its rivals, it runs a seven-step analysis and returns a 0–100 score, findings and an impact-ranked roadmap.</div>
+            <div class="project-desc">Shows where a business beats its rivals and what to fix first. A seven-step analysis returns a score out of 100 and a roadmap ranked by impact.</div>
             <div class="project-footer">
               <div class="skill-tags" style="margin-top:0">
                 <span class="tag">Claude API</span>
@@ -399,14 +454,98 @@
     </div>
   </section>
 
+  <!-- ── PRICING ── -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-label reveal">Pricing</div>
+      <h2 class="section-title reveal reveal-delay-1">Clear starting points.</h2>
+      <p class="section-body reveal reveal-delay-2">These are the starting points. The final price depends on pages, features and integrations, and you get a clear quote before any work starts.</p>
+
+      <div class="price-grid">
+        <div class="price-card reveal reveal-delay-1">
+          <div class="price-kind">Websites</div>
+          <div class="price-amount"><span>From</span> KSh 30,000</div>
+          <p class="price-desc">A simple static website that gets your business found and contacted.</p>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mobile-first, fast-loading pages</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contact form and WhatsApp chat</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>On-page SEO basics</li>
+          </ul>
+          <div class="price-links"><a href="/services/websites/">Website details →</a></div>
+        </div>
+        <div class="price-card price-card-key reveal reveal-delay-2">
+          <div class="price-kind">E-commerce</div>
+          <div class="price-amount">KSh 250,000+</div>
+          <p class="price-desc">A full online store your customers can buy from on any phone.</p>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Product catalogue with variants</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cart and checkout</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>M-Pesa and card payments</li>
+          </ul>
+          <div class="price-links"><a href="/portfolio/whatsapp-mpesa/">See the M-Pesa demo →</a></div>
+        </div>
+        <div class="price-card reveal reveal-delay-3">
+          <div class="price-kind">Agents &amp; automations</div>
+          <div class="price-amount price-amount-sm">Quoted per project</div>
+          <p class="price-desc">Software that handles a repetitive task for you, end to end.</p>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Scoped to one clear task</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Works from your own documents and tools</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Runs on its own, with a log of every run</li>
+          </ul>
+          <div class="price-links"><a href="/services/ai-agents/">AI agents →</a><a href="/services/automation/">Automation →</a></div>
+        </div>
+      </div>
+
+      <div class="price-cta reveal">
+        <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20project." target="_blank" rel="noopener" class="btn-primary">Get a quote on WhatsApp</a>
+        <a href="#contact" class="btn-ghost">Or send the details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-label reveal">FAQ</div>
+      <h2 class="section-title reveal reveal-delay-1">Before you ask.</h2>
+      <div class="faq-list reveal reveal-delay-2">
+        <details class="faq">
+          <summary>How much does a website cost?</summary>
+          <p>Business websites start at KSh 30,000. A full e-commerce store starts at KSh 250,000. Agents and automations are quoted per project, once the task is scoped. You get a clear quote before any work starts.</p>
+        </details>
+        <details class="faq">
+          <summary>How long does a project take?</summary>
+          <p>It depends on the scope. The quote comes with a timeline, so you know the delivery date before you commit.</p>
+        </details>
+        <details class="faq">
+          <summary>Can you add M-Pesa and WhatsApp?</summary>
+          <p>Yes. A WhatsApp chat button can go on any site, and M-Pesa and card payments are part of every e-commerce build. The <a href="/portfolio/whatsapp-mpesa/">WhatsApp + M-Pesa demo</a> shows a paid order arriving on the owner's WhatsApp.</p>
+        </details>
+        <details class="faq">
+          <summary>What would an AI agent actually do for my business?</summary>
+          <p>It takes one repetitive task off your hands. For example, it can <a href="/portfolio/email-support/">answer customer emails from your own help docs</a>, <a href="/portfolio/daily-briefing/">send you a morning briefing</a>, or <a href="/portfolio/competitor-analysis/">report on your competitors</a>. Each demo on this site shows one running.</p>
+        </details>
+        <details class="faq">
+          <summary>Can you fix or speed up my current website?</summary>
+          <p>Yes. A refactor fixes broken layouts and accessibility problems and speeds up slow pages. It is quoted after a short review of the site you have now.</p>
+        </details>
+        <details class="faq">
+          <summary>How do we get started?</summary>
+          <p>Send the task, what goes in and what should come out, on WhatsApp or through the form below. You get a scope and a quote back.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CONTACT ── -->
   <section id="contact">
     <div class="container">
       <div class="section-label reveal">Get in touch</div>
       <h2 class="section-title">Have a workflow<br />worth <em style="font-style:italic; color:var(--amber-l)">automating?</em></h2>
       <p class="section-body"><strong>Front-end builds, refactors, LLM agents and automation pipelines. Send the task, the inputs and the output you need, and I'll reply with a scope.</strong></p>
-      <!-- Enquiry form: posts to Formspree. Replace YOUR_FORM_ID with the ID from formspree.io -->
-      <form class="cf" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <!-- Enquiry form: posts to Formspree (form xkjgperv) -->
+      <form class="cf" id="contact-form" action="https://formspree.io/f/xkjgperv" method="POST">
         <div class="cf-grid">
           <label class="cf-field">
             <span>Name</span>
@@ -463,6 +602,10 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           Email
         </a>
+        <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20project." target="_blank" rel="noopener" class="contact-chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -505,5 +648,6 @@
   <!-- Scripts -->
   <script src="/js/main.js" defer></script>
   <script src="/js/sky.js" defer></script>
+  <script src="/js/whatsapp.js" defer></script>
 </body>
 </html>

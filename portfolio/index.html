@@ -70,6 +70,19 @@
         <a href="/" class="nav-link">Home</a>
         <a href="/#about" class="nav-link">About</a>
         <a href="/#skills" class="nav-link">Skills</a>
+        <div class="nav-item" id="nav-services">
+          <button class="nav-trigger" onclick="toggleDropdown('nav-services')">
+            Services
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="/services/websites/">Websites</a>
+            <a href="/services/ai-agents/">AI Agents</a>
+            <a href="/services/automation/">Automation</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="/#pricing">Pricing</a>
+          </div>
+        </div>
         <div class="nav-item" id="nav-projects">
           <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
             Projects
@@ -108,6 +121,10 @@
       <a href="/#skills" class="mobile-menu-link">Skills</a>
       <a href="/portfolio/" class="mobile-menu-link" aria-current="page">Portfolio</a>
       <a href="#projects" class="mobile-menu-link">Work</a>
+      <div class="mobile-menu-label">Services</div>
+      <a href="/services/websites/" class="mobile-menu-link mobile-menu-sub">Websites</a>
+      <a href="/services/ai-agents/" class="mobile-menu-link mobile-menu-sub">AI Agents</a>
+      <a href="/services/automation/" class="mobile-menu-link mobile-menu-sub">Automation</a>
       <div class="mobile-menu-label">Websites</div>
       <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
       <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
@@ -135,18 +152,13 @@
       <div class="pf-hero-card">
         <div class="pf-hero-grid">
           <div class="pf-hero-copy">
-            <div class="hero-eyebrow">Portfolio · Based in Kenya</div>
-            <h1 class="hero-name">Jonathan<br /><em>Kariuki.</em></h1>
-            <p class="hero-sub">
-              I build <mark class="pf-mark">fast, accessible front ends</mark> and <mark class="pf-mark">LLM agents wired into real workflows</mark>.
-              Each project below opens a live demo.
-            </p>
+            <h1 class="hero-name">Clean websites,<br />LLM-based agents,<br /><em>smooth workflows.</em></h1>
             <div class="hero-cta-row">
-              <a href="#story" class="btn-primary">
-                Read the story
+              <a href="#projects" class="btn-primary">
+                See my work
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
               </a>
-              <a href="#projects" class="btn-ghost">See the work</a>
+              <a href="#story" class="btn-ghost">Who I am</a>
             </div>
           </div>
 
@@ -256,6 +268,12 @@
           <span class="pf-projects-hint">Each opens a running demo</span>
         </div>
         <div class="pf-proj-grid">
+          <a class="pf-proj pf-proj-wide" href="/portfolio/whatsapp-mpesa/" style="--ctx:#3DD37A; --ctx-l:#157A3C;">
+            <span class="pf-proj-new">New</span>
+            <span class="pf-proj-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="6" width="18" height="34" rx="3.5"/><path d="M13 35h6"/><path d="m11.5 21 3 3 6-6"/><path d="M27 17h11a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-3l-5 5v-5h-3"/><path d="M31 23h7M31 27.5h4.5"/></svg></span>
+            <span class="pf-proj-name">WhatsApp + M-Pesa</span>
+            <span class="pf-proj-kind">Payments + order alerts</span>
+          </a>
           <a class="pf-proj" href="/portfolio/drape/" style="--ctx:#E0925F; --ctx-l:#9C4F1E;">
             <span class="pf-proj-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 8l-9 4.5 3.5 8 4.5-2.2V40h16V18.3l4.5 2.2 3.5-8L31 8c-1 3.2-3.8 5.2-7 5.2S18 11.2 17 8z"/><path d="M20 26h8"/></svg></span>
             <span class="pf-proj-name">DRAPE</span>
@@ -301,18 +319,18 @@
           <h2 class="section-title reveal reveal-delay-1">A builder working<br />where <em class="pf-em">web meets AI</em>.</h2>
           <p class="section-body reveal reveal-delay-2">
             I'm Jonathan, a freelance developer based in Kenya, and I go by <strong class="pf-strong">H</strong> online.
-            I started out making websites. Once I saw what language models could do behind a good interface,
-            I started building the agents too.
+            I started out building websites as a hobby, and it grew into a passion for bringing ideas and visions to life.
           </p>
           <p class="section-body reveal reveal-delay-3" style="margin-top:16px;">
-            Now I work on both sides: frontends that feel intentional, and agents and pipelines that
-            read, reason, and act without someone copying and pasting between tabs.
+            Integrating AI and automated workflows into websites and everyday work brings comfort to a business:
+            repetitive daily tasks get handled efficiently, without anyone having to supervise them.
           </p>
 
           <div class="pf-traits reveal reveal-delay-3">
-            <div class="pf-trait"><span>Outcome first</span>I start with the result you need, then pick the tech stack.</div>
-            <div class="pf-trait"><span>Detail-driven</span>I care about spacing, motion, and edge cases.</div>
-            <div class="pf-trait"><span>Always shipping</span>I'd rather ship something that works and keep improving it than wait for perfect.</div>
+            <div class="pf-trait"><span>01 · Understand the vision</span>I start by understanding the client's vision and expectations.</div>
+            <div class="pf-trait"><span>02 · Plan the build</span>I map out the pages, features and workflows, and agree on the scope and timeline with you.</div>
+            <div class="pf-trait"><span>03 · Build and test</span>I build it and test it on real devices and real data, sharing progress as I go.</div>
+            <div class="pf-trait"><span>04 · Launch and support</span>I launch the finished product, hand it over, and stay available for updates and fixes.</div>
           </div>
         </div>
 
@@ -355,10 +373,10 @@
   <section id="contact">
     <div class="container">
       <div class="section-label reveal">Get in touch</div>
-      <h2 class="section-title">Scope a build.<br /><em style="font-style:italic; color:var(--amber-l)">Start with the task.</em></h2>
-      <p class="section-body"><strong>Available for front-end builds, refactors, LLM agents and automation pipelines. Describe the input, the output and where it should land.</strong></p>
-      <!-- Enquiry form: posts to Formspree. Replace YOUR_FORM_ID with the ID from formspree.io -->
-      <form class="cf" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <h2 class="section-title">Have an idea?<br /><em style="font-style:italic; color:var(--amber-l)">Let's bring it to life.</em></h2>
+      <p class="section-body"><strong>Tell me about your vision: a website, an AI agent or a workflow you'd like to automate. I'll reply with a plan and a quote.</strong></p>
+      <!-- Enquiry form: posts to Formspree (form xkjgperv) -->
+      <form class="cf" id="contact-form" action="https://formspree.io/f/xkjgperv" method="POST">
         <div class="cf-grid">
           <label class="cf-field">
             <span>Name</span>
@@ -458,5 +476,6 @@
   <script src="/js/main.js" defer></script>
   <script src="/js/sky.js" defer></script>
   <script src="/js/portfolio.js" defer></script>
+  <script src="/js/whatsapp.js" defer></script>
 </body>
 </html>

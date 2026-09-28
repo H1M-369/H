@@ -3,27 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DRAPE — Clothing Store — Jonathan Kariuki</title>
+  <title>Email & Workflow Automation in Kenya — H.</title>
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="description" content="Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart." />
-  <meta name="author" content="Jonathan Kariuki" />
-  <link rel="canonical" href="https://saintlife.dev/portfolio/drape/" />
-
-  <!-- Open Graph -->
+  <meta name="description" content="Workflow automation for Kenyan businesses: automatic email replies, scheduled reports and data logged to Google Sheets, running without anyone at the keyboard." />
+  <link rel="canonical" href="https://saintlife.dev/services/automation/" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://saintlife.dev/portfolio/drape/" />
-  <meta property="og:site_name" content="saintlife.dev" />
-  <meta property="og:title" content="DRAPE — Clothing Store — Jonathan Kariuki" />
-  <meta property="og:description" content="Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart." />
-  <meta property="og:image" content="https://saintlife.dev/images/og/drape.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="DRAPE — static e-commerce front end" />
+  <meta property="og:url" content="https://saintlife.dev/services/automation/" />
+  <meta property="og:title" content="Email & Workflow Automation in Kenya — H." />
+  <meta property="og:description" content="Workflow automation for Kenyan businesses: automatic email replies, scheduled reports and data logged to Google Sheets, running without anyone at the keyboard." />
+  <meta property="og:image" content="https://saintlife.dev/images/og/site.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://saintlife.dev/images/og/drape.jpg" />
+  <meta name="author" content="Jonathan Kariuki" />
 
   <!-- Anti-flash: apply saved theme before first paint -->
   <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
@@ -36,9 +29,16 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="/css/portfolio.css" />
-  <link rel="stylesheet" href="/css/showcase.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Service","name":"Email & Workflow Automation in Kenya","description":"Workflow automation for Kenyan businesses: automatic email replies, scheduled reports and data logged to Google Sheets, running without anyone at the keyboard.","url":"https://saintlife.dev/services/automation/","areaServed":{"@type":"Country","name":"Kenya"},"provider":{"@id":"https://saintlife.dev/#business"}},
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which tools can it connect to?","acceptedAnswer":{"@type":"Answer","text":"Gmail and Google Sheets are shown in the demos. Other tools are checked during scoping."}},{"@type":"Question","name":"What happens if something fails?","acceptedAnswer":{"@type":"Answer","text":"Failures are retried or flagged to you, and every run is logged, so nothing disappears silently."}},{"@type":"Question","name":"How much does an automation cost?","acceptedAnswer":{"@type":"Answer","text":"Automations are quoted per project, once the task is scoped. You get a clear quote before any work starts."}}]}
+  ]}
+  </script>
 </head>
-<body class="pf pj" style="--ctx:#E0925F; --ctx-l:#9C4F1E;">
+<body class="pf">
+
+
   <!-- Cursor glow -->
   <div id="cursor-glow"></div>
 
@@ -70,7 +70,7 @@
           <div class="nav-dropdown">
             <a href="/services/websites/">Websites</a>
             <a href="/services/ai-agents/">AI Agents</a>
-            <a href="/services/automation/">Automation</a>
+            <a href="/services/automation/" aria-current="page">Automation</a>
             <div class="nav-dropdown-divider"></div>
             <a href="/#pricing">Pricing</a>
           </div>
@@ -130,95 +130,91 @@
     </div>
   </nav>
 
-  <!-- ── PROJECT: DRAPE — Clothing Store ── -->
-  <main class="pj-main">
-    <section id="project" class="pj-section">
+  <!-- ── SERVICE: Email & Workflow Automation in Kenya ── -->
+  <main class="svc">
+    <section class="svc-hero">
       <div class="container">
-        <div class="pj-top">
-          <a class="pj-back" href="/portfolio/#projects">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back to portfolio
-          </a>
-          <span class="pj-count"><b>Website</b> · Project 01 / 07</span>
+        <div class="section-label">Service · Automation</div>
+        <h1 class="section-title svc-title">Automations that <em>run while you work</em>.</h1>
+        <p class="section-body">An automation connects the tools you already use and runs a routine task on its own, on a schedule or whenever something arrives, so nobody has to copy, paste or remember.</p>
+        <div class="hero-cta-row svc-cta">
+          <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20to%20automate%20a%20task%20in%20my%20business." target="_blank" rel="noopener" class="btn-primary">Talk on WhatsApp</a>
+          <a href="/#pricing" class="btn-ghost">See pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-label reveal">What you can automate</div>
+        <div class="svc-uses reveal reveal-delay-1">
+          <div class="svc-use">
+            <h3>Email replies</h3>
+            <p>New support emails are read, answered from your policies and replied to in the same thread, around the clock.</p>
+          </div>
+          <div class="svc-use">
+            <h3>Daily and weekly reports</h3>
+            <p>News, figures or updates gathered, summarised and sent to your inbox at the same time every day.</p>
+          </div>
+          <div class="svc-use">
+            <h3>Record keeping</h3>
+            <p>Every run is written to Google Sheets, so there is a log you can check and share.</p>
+          </div>
         </div>
 
-        <div class="sc-list">
-      <article class="sc" data-cat="web" data-demo="drape" id="sc-drape">
-        <div class="sc-info">
-          <div class="sc-cover">
-            <img src="/images/drape.webp" alt="Clothing store interior used as DRAPE's hero imagery" loading="lazy" />
-            <span class="sc-badge">Website Build</span>
-          </div>
-          <h3 class="sc-title">DRAPE — Clothing Store</h3>
-          <p class="sc-lead">An online store customers can browse and buy from on any phone.</p>
-          <p class="sc-desc">Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart.</p>
-          <ol class="sc-steps">
-            <li><b>Filter</b>Category filtering runs client-side, with no reload.</li>
-            <li><b>Variant swap</b>Selecting a colour swaps the product image and label.</li>
-            <li><b>Size state</b>Sizes act as a radio group with an explicit selected state.</li>
-            <li><b>Cart</b>Add-to-cart increments the badge and opens the cart drawer.</li>
-          </ol>
-          <div class="sc-links">
-            <a href="/shop/" class="btn-primary btn-sm">Visit the store <span aria-hidden="true">→</span></a>
-          </div>
+        <div class="section-label reveal" style="margin-top:56px;">See it working</div>
+        <div class="svc-demos reveal reveal-delay-1">
+          <a class="svc-demo" href="/portfolio/email-autoresponder/">
+            <span class="svc-demo-kind">Running demo</span>
+            <b>Email Autoresponder</b>
+            <span>Replies to support email with no one at the keyboard.</span>
+            <span class="svc-demo-go" aria-hidden="true">→</span>
+          </a>
+          <a class="svc-demo" href="/portfolio/whatsapp-mpesa/">
+            <span class="svc-demo-kind">Running demo</span>
+            <b>WhatsApp + M-Pesa</b>
+            <span>Paid orders sent to the owner on WhatsApp, the moment M-Pesa confirms.</span>
+            <span class="svc-demo-go" aria-hidden="true">→</span>
+          </a>
+          <a class="svc-demo" href="/portfolio/daily-briefing/">
+            <span class="svc-demo-kind">Running demo</span>
+            <b>Daily Briefing</b>
+            <span>News and weather, summarised in your inbox every morning.</span>
+            <span class="svc-demo-go" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-label reveal">How it works</div>
+        <ol class="svc-how reveal reveal-delay-1">
+          <li><b>Map the routine</b><span>We write down the steps you repeat today, what triggers them and where the result goes.</span></li>
+          <li><b>Connect the tools</b><span>Gmail, Google Sheets and the other services involved are linked securely.</span></li>
+          <li><b>Handle the exceptions</b><span>Spam, missing data and failures are caught, retried or flagged to you.</span></li>
+          <li><b>Run and log</b><span>It runs on its own, and every run is recorded so you can check it.</span></li>
+        </ol>
+
+        <div class="section-label reveal" style="margin-top:56px;">Questions</div>
+        <div class="faq-list reveal reveal-delay-1">
+          <details class="faq">
+            <summary>Which tools can it connect to?</summary>
+            <p>Gmail and Google Sheets are shown in the demos. Other tools are checked during scoping.</p>
+          </details>
+          <details class="faq">
+            <summary>What happens if something fails?</summary>
+            <p>Failures are retried or flagged to you, and every run is logged, so nothing disappears silently.</p>
+          </details>
+          <details class="faq">
+            <summary>How much does an automation cost?</summary>
+            <p>Automations are quoted per project, once the task is scoped. You get a clear quote before any work starts.</p>
+          </details>
         </div>
 
-        <div class="sc-demo">
-          <div class="sc-frame">
-            <div class="sc-frame-bar">
-              <span class="sc-dots"><i></i><i></i><i></i></span>
-              <span class="sc-url">saintlife.dev/shop</span>
-              <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
-            </div>
-            <div class="sc-stage mk-store">
-              <div class="mk-store-bar">
-                <span class="mk-store-logo">DR<i>A</i>PE</span>
-                <div class="mk-cats" data-cats>
-                  <button type="button" class="is-on" data-cat="shirt">All</button>
-                  <button type="button" data-cat="shirt">Shirts</button>
-                  <button type="button" data-cat="tie">Ties</button>
-                  <button type="button" data-cat="jacket">Jackets</button>
-                </div>
-                <button type="button" class="mk-cart-btn" data-cart-btn>Cart <b data-count>0</b></button>
-              </div>
-              <div class="mk-store-body">
-                <div class="mk-garment" data-garment></div>
-                <div class="mk-pinfo">
-                  <div class="mk-kicker" data-kicker>Shirts</div>
-                  <div class="mk-pname" data-pname>Oxford Button-Down</div>
-                  <div class="mk-price" data-price>$48</div>
-                  <div class="mk-lbl">Colour · <span data-cname>Chalk</span></div>
-                  <div class="mk-swatches" data-swatches></div>
-                  <div class="mk-lbl">Size</div>
-                  <div class="mk-sizes" data-sizes>
-                    <button type="button">S</button><button type="button">M</button><button type="button">L</button><button type="button">XL</button>
-                  </div>
-                  <button type="button" class="mk-btn mk-add" data-add>Add to cart</button>
-                </div>
-              </div>
-              <aside class="mk-drawer" data-drawer>
-                <div class="mk-pane-h">Your cart <button type="button" class="mk-x" data-close aria-label="Close cart">✕</button></div>
-                <div data-lines></div>
-                <div class="mk-subtotal">Subtotal <b data-subtotal>$0</b></div>
-                <button type="button" class="mk-btn">Checkout</button>
-              </aside>
-              <div class="sc-cursor" aria-hidden="true"></div>
-            </div>
-          </div>
-          <p class="sc-note">Interactive: pick a colour or size, or add to cart.</p>
-        </div>
-      </article>
-        </div>
-
-        <div class="pj-pager">
-          <a class="pj-pager-link" href="/portfolio/whatsapp-mpesa/">
-            <span>← Previous</span>
-            <b>WhatsApp + M-Pesa Store</b>
-          </a>
-          <a class="pj-pager-link pj-pager-next" href="/portfolio/ember-oak/">
-            <span>Next →</span>
-            <b>Ember &amp; Oak — Restaurant Site</b>
-          </a>
+        <div class="price-cta reveal">
+          <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20to%20automate%20a%20task%20in%20my%20business." target="_blank" rel="noopener" class="btn-primary">Get a quote on WhatsApp</a>
+          <a href="/#contact" class="btn-ghost">Or send the details</a>
         </div>
       </div>
     </section>
@@ -250,7 +246,6 @@
   <!-- Scripts -->
   <script src="/js/main.js" defer></script>
   <script src="/js/sky.js" defer></script>
-  <script src="/js/showcase.js" defer></script>
   <script src="/js/whatsapp.js" defer></script>
 </body>
 </html>

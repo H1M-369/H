@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DRAPE — Clothing Store — Jonathan Kariuki</title>
+  <title>WhatsApp + M-Pesa Store — Jonathan Kariuki</title>
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="description" content="Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart." />
+  <meta name="description" content="An online store wired to Safaricom's Daraja API for M-Pesa STK-push payments and to the WhatsApp Business Platform for owner alerts. An order is only confirmed once Safaricom's callback verifies the payment." />
   <meta name="author" content="Jonathan Kariuki" />
-  <link rel="canonical" href="https://saintlife.dev/portfolio/drape/" />
+  <link rel="canonical" href="https://saintlife.dev/portfolio/whatsapp-mpesa/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://saintlife.dev/portfolio/drape/" />
+  <meta property="og:url" content="https://saintlife.dev/portfolio/whatsapp-mpesa/" />
   <meta property="og:site_name" content="saintlife.dev" />
-  <meta property="og:title" content="DRAPE — Clothing Store — Jonathan Kariuki" />
-  <meta property="og:description" content="Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart." />
-  <meta property="og:image" content="https://saintlife.dev/images/og/drape.jpg" />
+  <meta property="og:title" content="WhatsApp + M-Pesa Store — Jonathan Kariuki" />
+  <meta property="og:description" content="An online store wired to Safaricom's Daraja API for M-Pesa STK-push payments and to the WhatsApp Business Platform for owner alerts. An order is only confirmed once Safaricom's callback verifies the payment." />
+  <meta property="og:image" content="https://saintlife.dev/images/og/whatsapp-mpesa.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="DRAPE — static e-commerce front end" />
+  <meta property="og:image:alt" content="WhatsApp + M-Pesa Store — payments and order alerts" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://saintlife.dev/images/og/drape.jpg" />
+  <meta name="twitter:image" content="https://saintlife.dev/images/og/whatsapp-mpesa.jpg" />
 
   <!-- Anti-flash: apply saved theme before first paint -->
   <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="/css/portfolio.css" />
   <link rel="stylesheet" href="/css/showcase.css" />
 </head>
-<body class="pf pj" style="--ctx:#E0925F; --ctx-l:#9C4F1E;">
+<body class="pf pj" style="--ctx:#3DD37A; --ctx-l:#157A3C;">
   <!-- Cursor glow -->
   <div id="cursor-glow"></div>
 
@@ -139,27 +139,46 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             Back to portfolio
           </a>
-          <span class="pj-count"><b>Website</b> · Project 01 / 07</span>
+          <span class="pj-count"><b>Integration</b> · Project 07 / 07</span>
         </div>
 
         <div class="sc-list">
-      <article class="sc" data-cat="web" data-demo="drape" id="sc-drape">
+      <article class="sc" data-cat="web" data-demo="pay" id="sc-pay">
         <div class="sc-info">
-          <div class="sc-cover">
-            <img src="/images/drape.webp" alt="Clothing store interior used as DRAPE's hero imagery" loading="lazy" />
-            <span class="sc-badge">Website Build</span>
+          <div class="sc-cover sc-cover-illo">
+            <svg viewBox="0 0 400 170" role="img" aria-label="Illustration: an order is paid by M-Pesa on a phone and arrives as a WhatsApp message">
+              <path class="sc-flow-line" d="M92 88 C 140 40, 160 40, 200 85 S 260 130, 312 82" />
+              <g transform="translate(40 58)">
+                <path d="M6 16h52l-6 40H12z" class="illo-fill" />
+                <path d="M20 16v-4a12 12 0 0 1 24 0v4" class="illo-stroke" />
+              </g>
+              <g transform="translate(176 40)">
+                <rect width="48" height="84" rx="9" class="illo-fill" />
+                <circle cx="24" cy="42" r="13" class="illo-ring" />
+                <path d="M18 42l4 4 8-8" class="illo-stroke" />
+              </g>
+              <g transform="translate(300 52)">
+                <path d="M0 8a8 8 0 0 1 8-8h52a8 8 0 0 1 8 8v28a8 8 0 0 1-8 8H20l-12 10V44H8a8 8 0 0 1-8-8z" class="illo-fill" />
+                <path d="M12 16h40M12 27h26" class="illo-stroke" />
+              </g>
+              <text x="72" y="140" class="illo-lbl" text-anchor="middle">Order</text>
+              <text x="200" y="140" class="illo-lbl" text-anchor="middle">M-Pesa</text>
+              <text x="334" y="140" class="illo-lbl" text-anchor="middle">WhatsApp</text>
+            </svg>
+            <span class="sc-badge">Integration</span>
           </div>
-          <h3 class="sc-title">DRAPE — Clothing Store</h3>
-          <p class="sc-lead">An online store customers can browse and buy from on any phone.</p>
-          <p class="sc-desc">Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart.</p>
+          <h3 class="sc-title">WhatsApp + M-Pesa Store</h3>
+          <p class="sc-lead">Get paid by M-Pesa and see every order on WhatsApp the moment it's paid.</p>
+          <p class="sc-desc">An online store wired to Safaricom's Daraja API for M-Pesa STK-push payments and to the WhatsApp Business Platform for owner alerts. An order is only confirmed once Safaricom's callback verifies the payment.</p>
           <ol class="sc-steps">
-            <li><b>Filter</b>Category filtering runs client-side, with no reload.</li>
-            <li><b>Variant swap</b>Selecting a colour swaps the product image and label.</li>
-            <li><b>Size state</b>Sizes act as a radio group with an explicit selected state.</li>
-            <li><b>Cart</b>Add-to-cart increments the badge and opens the cart drawer.</li>
+            <li><b>Checkout</b>The customer picks items and enters their M-Pesa number.</li>
+            <li><b>STK push</b>Daraja sends a payment prompt straight to the customer's phone.</li>
+            <li><b>Confirm</b>The customer enters their M-Pesa PIN, with no paybill number to type.</li>
+            <li><b>Callback</b>Safaricom confirms the payment and the store records the receipt.</li>
+            <li><b>WhatsApp alert</b>The owner gets the order, receipt and delivery details on WhatsApp.</li>
           </ol>
           <div class="sc-links">
-            <a href="/shop/" class="btn-primary btn-sm">Visit the store <span aria-hidden="true">→</span></a>
+            <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20M-Pesa%20payments%20and%20WhatsApp%20order%20alerts%20for%20my%20store." target="_blank" rel="noopener" class="btn-primary btn-sm">Get this for your store <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -167,57 +186,68 @@
           <div class="sc-frame">
             <div class="sc-frame-bar">
               <span class="sc-dots"><i></i><i></i><i></i></span>
-              <span class="sc-url">saintlife.dev/shop</span>
+              <span class="sc-url">shop.example.co.ke/checkout</span>
               <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
             </div>
-            <div class="sc-stage mk-store">
-              <div class="mk-store-bar">
-                <span class="mk-store-logo">DR<i>A</i>PE</span>
-                <div class="mk-cats" data-cats>
-                  <button type="button" class="is-on" data-cat="shirt">All</button>
-                  <button type="button" data-cat="shirt">Shirts</button>
-                  <button type="button" data-cat="tie">Ties</button>
-                  <button type="button" data-cat="jacket">Jackets</button>
-                </div>
-                <button type="button" class="mk-cart-btn" data-cart-btn>Cart <b data-count>0</b></button>
+            <div class="sc-stage mk-pay">
+              <div class="mk-rail" data-rail>
+                <span>🛒 <em>Checkout</em></span><span>📲 <em>STK push</em></span><span>🔒 <em>PIN</em></span><span>✅ <em>Callback</em></span><span>💬 <em>WhatsApp</em></span>
               </div>
-              <div class="mk-store-body">
-                <div class="mk-garment" data-garment></div>
-                <div class="mk-pinfo">
-                  <div class="mk-kicker" data-kicker>Shirts</div>
-                  <div class="mk-pname" data-pname>Oxford Button-Down</div>
-                  <div class="mk-price" data-price>$48</div>
-                  <div class="mk-lbl">Colour · <span data-cname>Chalk</span></div>
-                  <div class="mk-swatches" data-swatches></div>
-                  <div class="mk-lbl">Size</div>
-                  <div class="mk-sizes" data-sizes>
-                    <button type="button">S</button><button type="button">M</button><button type="button">L</button><button type="button">XL</button>
+              <div class="mk-pay-body">
+                <div class="mk-pay-store">
+                  <div class="mk-pane-h">Checkout <em>Order #1042</em></div>
+                  <div class="mk-pay-items">
+                    <div><span>Linen shirt · M</span><b>KSh 3,200</b></div>
+                    <div><span>Silk tie</span><b>KSh 1,550</b></div>
+                    <div class="mk-pay-total"><span>Total</span><b>KSh 4,750</b></div>
                   </div>
-                  <button type="button" class="mk-btn mk-add" data-add>Add to cart</button>
+                  <label class="mk-lbl">M-Pesa number</label>
+                  <div class="mk-input" data-f="phone"><span></span></div>
+                  <button class="mk-btn mk-pay-btn" type="button" data-paybtn>Pay with M-Pesa</button>
+                  <div class="mk-pay-status" data-status>Waiting for payment</div>
+                </div>
+                <div class="mk-pay-phone">
+                  <div class="mk-pane-h">Customer's phone</div>
+                  <div class="mk-phone"><div class="mk-phone-screen">
+                    <div class="mk-phone-idle" data-idle>🔒 Locked</div>
+                    <div class="mk-stk mk-hide" data-stk>
+                      <div class="mk-stk-h">M-PESA</div>
+                      <p>Pay KSh 4,750 to <b>DRAPE STORE</b>, account 1042?</p>
+                      <div class="mk-stk-lbl">Enter M-PESA PIN</div>
+                      <div class="mk-pin" data-pin><i></i><i></i><i></i><i></i></div>
+                      <button type="button" class="mk-stk-ok" data-ok>OK</button>
+                    </div>
+                    <div class="mk-sms mk-hide" data-sms>
+                      <b>M-PESA</b>
+                      <p>SJK4H7XQ2P Confirmed. Ksh4,750.00 sent to DRAPE STORE for account 1042 at 10:42 AM.</p>
+                    </div>
+                  </div></div>
+                </div>
+                <div class="mk-pay-wa">
+                  <div class="mk-wa-h"><span class="mk-wa-av">D</span><div><b>DRAPE Orders</b><small>Business alerts</small></div></div>
+                  <div class="mk-wa-body" data-wa>
+                    <div class="mk-wa-day">Today</div>
+                    <div class="mk-wa-msg mk-wa-old"><p>Order #1041 · PAID · KSh 2,300</p><time>9:15 <b>✓✓</b></time></div>
+                  </div>
                 </div>
               </div>
-              <aside class="mk-drawer" data-drawer>
-                <div class="mk-pane-h">Your cart <button type="button" class="mk-x" data-close aria-label="Close cart">✕</button></div>
-                <div data-lines></div>
-                <div class="mk-subtotal">Subtotal <b data-subtotal>$0</b></div>
-                <button type="button" class="mk-btn">Checkout</button>
-              </aside>
+              <div class="mk-log" data-log></div>
               <div class="sc-cursor" aria-hidden="true"></div>
             </div>
           </div>
-          <p class="sc-note">Interactive: pick a colour or size, or add to cart.</p>
+          <p class="sc-note">Illustration with sample data: a fictional order, phone number and M-Pesa receipt.</p>
         </div>
       </article>
         </div>
 
         <div class="pj-pager">
-          <a class="pj-pager-link" href="/portfolio/whatsapp-mpesa/">
+          <a class="pj-pager-link" href="/portfolio/email-autoresponder/">
             <span>← Previous</span>
-            <b>WhatsApp + M-Pesa Store</b>
+            <b>Email Autoresponder Pipeline</b>
           </a>
-          <a class="pj-pager-link pj-pager-next" href="/portfolio/ember-oak/">
+          <a class="pj-pager-link pj-pager-next" href="/portfolio/drape/">
             <span>Next →</span>
-            <b>Ember &amp; Oak — Restaurant Site</b>
+            <b>DRAPE — Clothing Store</b>
           </a>
         </div>
       </div>

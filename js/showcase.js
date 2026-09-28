@@ -628,8 +628,88 @@
   };
 
 
+  /* ════════ WhatsApp + M-Pesa store ════════ */
+  const PAY_ALERT = '🛒 New order #1042 · PAID\nLinen shirt (M) × 1 · KSh 3,200\nSilk tie × 1 · KSh 1,550\nTotal: KSh 4,750\nM-Pesa: SJK4H7XQ2P\n📍 Deliver to: Westlands, Nairobi\n📞 0712 345 678';
+
+  const pay = {
+    reset(st) {
+      st.querySelectorAll('[data-rail] span').forEach(s => s.classList.remove('is-now', 'is-done'));
+      st.querySelector('[data-f="phone"] span').textContent = '';
+      const status = st.querySelector('[data-status]');
+      status.className = 'mk-pay-status';
+      status.textContent = 'Waiting for payment';
+      st.querySelector('[data-paybtn]').disabled = false;
+      st.querySelector('[data-idle]').classList.remove('mk-hide');
+      ['[data-stk]', '[data-sms]'].forEach(s => st.querySelector(s).classList.add('mk-hide'));
+      st.querySelectorAll('[data-pin] i').forEach(i => i.classList.remove('is-on'));
+      st.querySelectorAll('.mk-wa-msg.is-new, .mk-wa-typing').forEach(n => n.remove());
+      st.querySelector('[data-log]').innerHTML = '';
+    },
+    async run(c) {
+      const rail = c.$$('[data-rail] span');
+      const status = c.$('[data-status]');
+      const logEl = c.$('[data-log]');
+      let sec = 40;
+      const log = t => {
+        sec += 1;
+        logEl.appendChild(el('div', null, `<time>10:42:${String(sec).padStart(2, '0')}</time>${t}`));
+        while (logEl.children.length > 4) logEl.firstElementChild.remove();
+      };
+      const setStatus = (text, kind) => { status.className = 'mk-pay-status' + (kind ? ' is-' + kind : ''); status.innerHTML = text; };
+
+      c.cap(0); railAt(rail, 0);
+      log('Cart: 2 items · KSh 4,750');
+      await c.field(c.$('[data-f="phone"]'), '0712 345 678');
+      await c.click(c.$('[data-paybtn]'));
+      c.$('[data-paybtn]').disabled = true;
+      setStatus('<span class="mk-thinking"><i></i><i></i><i></i></span>Sending payment request', 'wait');
+      log('POST /orders → #1042 created');
+      await c.wait(900);
+
+      c.cap(1); railAt(rail, 1);
+      log('Daraja STK push → 254712•••678 · KSh 4,750');
+      c.$('[data-idle]').classList.add('mk-hide');
+      const stk = c.$('[data-stk]');
+      stk.classList.remove('mk-hide'); stk.classList.add('mk-pop');
+      setStatus('<span class="mk-thinking"><i></i><i></i><i></i></span>Check your phone to pay', 'wait');
+      await c.wait(1300);
+
+      c.cap(2); railAt(rail, 2);
+      const pins = c.$$('[data-pin] i');
+      await c.point(c.$('[data-pin]'));
+      for (const p of pins) { p.classList.add('is-on'); await c.wait(260); }
+      await c.click(c.$('[data-ok]'));
+      stk.classList.add('mk-hide');
+      setStatus('<span class="mk-thinking"><i></i><i></i><i></i></span>Confirming with M-Pesa', 'wait');
+      await c.wait(1100);
+
+      c.cap(3); railAt(rail, 3);
+      log('Callback: ResultCode 0 · receipt SJK4H7XQ2P');
+      const sms = c.$('[data-sms]');
+      sms.classList.remove('mk-hide'); sms.classList.add('mk-pop');
+      setStatus('✓ Paid · M-Pesa SJK4H7XQ2P', 'ok');
+      log('Order #1042 marked paid');
+      await c.wait(1300);
+
+      c.cap(4); railAt(rail, 4);
+      const wa = c.$('[data-wa]');
+      c.hideCursor();
+      const typing = el('div', 'mk-wa-typing mk-pop', '<i></i><i></i><i></i>');
+      wa.appendChild(typing);
+      await c.wait(900);
+      typing.remove();
+      const msg = el('div', 'mk-wa-msg is-new mk-pop', '<p class="mk-typed"></p><time>10:42 <b>✓✓</b></time>');
+      wa.appendChild(msg);
+      await c.type(msg.querySelector('p'), PAY_ALERT, 90);
+      log('WhatsApp alert → owner · delivered');
+      railAt(rail, 5);
+      await c.wait(600);
+    },
+  };
+
+
   /* ── Wire up ── */
-  const DEMOS = { auto, support, comp, brief, drape, ember };
+  const DEMOS = { auto, support, comp, brief, drape, ember, pay };
   document.querySelectorAll('.sc[data-demo]').forEach(sc => {
     const demo = DEMOS[sc.dataset.demo];
     if (demo) setup(sc, demo);

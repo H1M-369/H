@@ -3,27 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DRAPE — Clothing Store — Jonathan Kariuki</title>
+  <title>Website Design in Kenya — H.</title>
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="description" content="Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart." />
-  <meta name="author" content="Jonathan Kariuki" />
-  <link rel="canonical" href="https://saintlife.dev/portfolio/drape/" />
-
-  <!-- Open Graph -->
+  <meta name="description" content="Simple static websites from KSh 30,000 and full e-commerce stores from KSh 250,000, built mobile-first and fast, with WhatsApp chat and M-Pesa payments for Kenyan businesses." />
+  <link rel="canonical" href="https://saintlife.dev/services/websites/" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://saintlife.dev/portfolio/drape/" />
-  <meta property="og:site_name" content="saintlife.dev" />
-  <meta property="og:title" content="DRAPE — Clothing Store — Jonathan Kariuki" />
-  <meta property="og:description" content="Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart." />
-  <meta property="og:image" content="https://saintlife.dev/images/og/drape.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="DRAPE — static e-commerce front end" />
+  <meta property="og:url" content="https://saintlife.dev/services/websites/" />
+  <meta property="og:title" content="Website Design in Kenya — H." />
+  <meta property="og:description" content="Simple static websites from KSh 30,000 and full e-commerce stores from KSh 250,000, built mobile-first and fast, with WhatsApp chat and M-Pesa payments for Kenyan businesses." />
+  <meta property="og:image" content="https://saintlife.dev/images/og/site.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://saintlife.dev/images/og/drape.jpg" />
+  <meta name="author" content="Jonathan Kariuki" />
 
   <!-- Anti-flash: apply saved theme before first paint -->
   <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
@@ -36,9 +29,16 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="/css/portfolio.css" />
-  <link rel="stylesheet" href="/css/showcase.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Service","name":"Website Design in Kenya","description":"Simple static websites from KSh 30,000 and full e-commerce stores from KSh 250,000, built mobile-first and fast, with WhatsApp chat and M-Pesa payments for Kenyan businesses.","url":"https://saintlife.dev/services/websites/","areaServed":{"@type":"Country","name":"Kenya"},"provider":{"@id":"https://saintlife.dev/#business"}},
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a static website?","acceptedAnswer":{"@type":"Answer","text":"A site made of fixed pages, such as home, services, about and contact. With no database to maintain, it loads fast and costs less to run, which makes it the right fit for most small businesses."}},{"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"Simple static websites start at KSh 30,000. Full e-commerce stores start at KSh 250,000. You get a clear quote before any work starts."}},{"@type":"Question","name":"Will it work on phones?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every site is built mobile-first, since most visitors in Kenya browse on their phones."}},{"@type":"Question","name":"Can customers pay by M-Pesa?","acceptedAnswer":{"@type":"Answer","text":"Yes. M-Pesa and card payments are part of every e-commerce build."}},{"@type":"Question","name":"Can you redesign or speed up my current site?","acceptedAnswer":{"@type":"Answer","text":"Yes. A redesign or refactor is quoted after a short review of the site you have now."}}]}
+  ]}
+  </script>
 </head>
-<body class="pf pj" style="--ctx:#E0925F; --ctx-l:#9C4F1E;">
+<body class="pf">
+
+
   <!-- Cursor glow -->
   <div id="cursor-glow"></div>
 
@@ -68,7 +68,7 @@
             <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="nav-dropdown">
-            <a href="/services/websites/">Websites</a>
+            <a href="/services/websites/" aria-current="page">Websites</a>
             <a href="/services/ai-agents/">AI Agents</a>
             <a href="/services/automation/">Automation</a>
             <div class="nav-dropdown-divider"></div>
@@ -130,95 +130,102 @@
     </div>
   </nav>
 
-  <!-- ── PROJECT: DRAPE — Clothing Store ── -->
-  <main class="pj-main">
-    <section id="project" class="pj-section">
+  <!-- ── SERVICE: Website Design in Kenya ── -->
+  <main class="svc">
+    <section class="svc-hero">
       <div class="container">
-        <div class="pj-top">
-          <a class="pj-back" href="/portfolio/#projects">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back to portfolio
-          </a>
-          <span class="pj-count"><b>Website</b> · Project 01 / 07</span>
+        <div class="section-label">Service · Websites</div>
+        <h1 class="section-title svc-title">Websites that <em>build your presence</em>.</h1>
+        <p class="section-body">A clean, fast website puts your business in front of customers and makes it easy for them to reach you. Simple static websites start at KSh 30,000, and full e-commerce stores start at KSh 250,000.</p>
+        <div class="hero-cta-row svc-cta">
+          <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20website." target="_blank" rel="noopener" class="btn-primary">Talk on WhatsApp</a>
+          <a href="/#pricing" class="btn-ghost">See pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-label reveal">What you can get</div>
+        <div class="svc-uses reveal reveal-delay-1">
+          <div class="svc-use">
+            <span class="svc-price">From KSh 30,000</span>
+            <h3>Simple static website</h3>
+            <p>A fast, mobile-first site that presents your business, with your services, contact details, a contact form and a WhatsApp chat button.</p>
+          </div>
+          <div class="svc-use">
+            <span class="svc-price">Quoted by scope</span>
+            <h3>Business website</h3>
+            <p>More pages and sections, such as a gallery, menu or price list, bookings, and a Google Maps location.</p>
+          </div>
+          <div class="svc-use">
+            <span class="svc-price">From KSh 250,000</span>
+            <h3>E-commerce store</h3>
+            <p>A full online store with a product catalogue, cart and checkout, M-Pesa and card payments, and order alerts on WhatsApp.</p>
+          </div>
         </div>
 
-        <div class="sc-list">
-      <article class="sc" data-cat="web" data-demo="drape" id="sc-drape">
-        <div class="sc-info">
-          <div class="sc-cover">
-            <img src="/images/drape.webp" alt="Clothing store interior used as DRAPE's hero imagery" loading="lazy" />
-            <span class="sc-badge">Website Build</span>
-          </div>
-          <h3 class="sc-title">DRAPE — Clothing Store</h3>
-          <p class="sc-lead">An online store customers can browse and buy from on any phone.</p>
-          <p class="sc-desc">Static e-commerce front end with no JS framework: 31 SKUs across 6 categories, per-colour product imagery, size selection and a slide-out cart.</p>
-          <ol class="sc-steps">
-            <li><b>Filter</b>Category filtering runs client-side, with no reload.</li>
-            <li><b>Variant swap</b>Selecting a colour swaps the product image and label.</li>
-            <li><b>Size state</b>Sizes act as a radio group with an explicit selected state.</li>
-            <li><b>Cart</b>Add-to-cart increments the badge and opens the cart drawer.</li>
-          </ol>
-          <div class="sc-links">
-            <a href="/shop/" class="btn-primary btn-sm">Visit the store <span aria-hidden="true">→</span></a>
-          </div>
+        <div class="section-label reveal" style="margin-top:56px;">See it working</div>
+        <div class="svc-demos reveal reveal-delay-1">
+          <a class="svc-demo" href="/portfolio/drape/">
+            <span class="svc-demo-kind">Running demo</span>
+            <b>DRAPE</b>
+            <span>An online clothing store with variants, sizes and a cart.</span>
+            <span class="svc-demo-go" aria-hidden="true">→</span>
+          </a>
+          <a class="svc-demo" href="/portfolio/ember-oak/">
+            <span class="svc-demo-kind">Running demo</span>
+            <b>Ember & Oak</b>
+            <span>A restaurant site with a tabbed menu and table bookings.</span>
+            <span class="svc-demo-go" aria-hidden="true">→</span>
+          </a>
+          <a class="svc-demo" href="/portfolio/whatsapp-mpesa/">
+            <span class="svc-demo-kind">Running demo</span>
+            <b>WhatsApp + M-Pesa</b>
+            <span>M-Pesa checkout with order alerts sent to WhatsApp.</span>
+            <span class="svc-demo-go" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-label reveal">How it works</div>
+        <ol class="svc-how reveal reveal-delay-1">
+          <li><b>Understand the vision</b><span>I start by understanding your business, your customers and what the site should achieve.</span></li>
+          <li><b>Plan the site</b><span>We agree on the pages, content and features, plus the scope, quote and timeline.</span></li>
+          <li><b>Build and test</b><span>I build the site and test it on phones, tablets and desktops before it goes live.</span></li>
+          <li><b>Launch and support</b><span>The site goes live on your domain, and I stay available for updates and fixes.</span></li>
+        </ol>
+
+        <div class="section-label reveal" style="margin-top:56px;">Questions</div>
+        <div class="faq-list reveal reveal-delay-1">
+          <details class="faq">
+            <summary>What is a static website?</summary>
+            <p>A site made of fixed pages, such as home, services, about and contact. With no database to maintain, it loads fast and costs less to run, which makes it the right fit for most small businesses.</p>
+          </details>
+          <details class="faq">
+            <summary>How much does a website cost?</summary>
+            <p>Simple static websites start at KSh 30,000. Full e-commerce stores start at KSh 250,000. You get a clear quote before any work starts.</p>
+          </details>
+          <details class="faq">
+            <summary>Will it work on phones?</summary>
+            <p>Yes. Every site is built mobile-first, since most visitors in Kenya browse on their phones.</p>
+          </details>
+          <details class="faq">
+            <summary>Can customers pay by M-Pesa?</summary>
+            <p>Yes. M-Pesa and card payments are part of every e-commerce build.</p>
+          </details>
+          <details class="faq">
+            <summary>Can you redesign or speed up my current site?</summary>
+            <p>Yes. A redesign or refactor is quoted after a short review of the site you have now.</p>
+          </details>
         </div>
 
-        <div class="sc-demo">
-          <div class="sc-frame">
-            <div class="sc-frame-bar">
-              <span class="sc-dots"><i></i><i></i><i></i></span>
-              <span class="sc-url">saintlife.dev/shop</span>
-              <button class="sc-replay" type="button" aria-label="Replay demo">↻ Replay</button>
-            </div>
-            <div class="sc-stage mk-store">
-              <div class="mk-store-bar">
-                <span class="mk-store-logo">DR<i>A</i>PE</span>
-                <div class="mk-cats" data-cats>
-                  <button type="button" class="is-on" data-cat="shirt">All</button>
-                  <button type="button" data-cat="shirt">Shirts</button>
-                  <button type="button" data-cat="tie">Ties</button>
-                  <button type="button" data-cat="jacket">Jackets</button>
-                </div>
-                <button type="button" class="mk-cart-btn" data-cart-btn>Cart <b data-count>0</b></button>
-              </div>
-              <div class="mk-store-body">
-                <div class="mk-garment" data-garment></div>
-                <div class="mk-pinfo">
-                  <div class="mk-kicker" data-kicker>Shirts</div>
-                  <div class="mk-pname" data-pname>Oxford Button-Down</div>
-                  <div class="mk-price" data-price>$48</div>
-                  <div class="mk-lbl">Colour · <span data-cname>Chalk</span></div>
-                  <div class="mk-swatches" data-swatches></div>
-                  <div class="mk-lbl">Size</div>
-                  <div class="mk-sizes" data-sizes>
-                    <button type="button">S</button><button type="button">M</button><button type="button">L</button><button type="button">XL</button>
-                  </div>
-                  <button type="button" class="mk-btn mk-add" data-add>Add to cart</button>
-                </div>
-              </div>
-              <aside class="mk-drawer" data-drawer>
-                <div class="mk-pane-h">Your cart <button type="button" class="mk-x" data-close aria-label="Close cart">✕</button></div>
-                <div data-lines></div>
-                <div class="mk-subtotal">Subtotal <b data-subtotal>$0</b></div>
-                <button type="button" class="mk-btn">Checkout</button>
-              </aside>
-              <div class="sc-cursor" aria-hidden="true"></div>
-            </div>
-          </div>
-          <p class="sc-note">Interactive: pick a colour or size, or add to cart.</p>
-        </div>
-      </article>
-        </div>
-
-        <div class="pj-pager">
-          <a class="pj-pager-link" href="/portfolio/whatsapp-mpesa/">
-            <span>← Previous</span>
-            <b>WhatsApp + M-Pesa Store</b>
-          </a>
-          <a class="pj-pager-link pj-pager-next" href="/portfolio/ember-oak/">
-            <span>Next →</span>
-            <b>Ember &amp; Oak — Restaurant Site</b>
-          </a>
+        <div class="price-cta reveal">
+          <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20website." target="_blank" rel="noopener" class="btn-primary">Get a quote on WhatsApp</a>
+          <a href="/#contact" class="btn-ghost">Or send the details</a>
         </div>
       </div>
     </section>
@@ -250,7 +257,6 @@
   <!-- Scripts -->
   <script src="/js/main.js" defer></script>
   <script src="/js/sky.js" defer></script>
-  <script src="/js/showcase.js" defer></script>
   <script src="/js/whatsapp.js" defer></script>
 </body>
 </html>
