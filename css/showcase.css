@@ -615,6 +615,21 @@
 .mk-dtags span.pick { background: rgba(212,160,23,0.18); color: var(--amber-l); }
 .mk-dish.is-hl { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(184,134,11,0.12); }
 .mk-dish.is-hl .pick { animation: mk-bump 0.6s ease 2; }
+.mk-dish-photo {
+  position: absolute; right: 14px; top: 40px; z-index: 3;
+  width: 160px; height: 120px; border-radius: 10px;
+  background: var(--surface2) center / cover no-repeat;
+  border: 1px solid rgba(200,134,10,0.4);
+  box-shadow: 0 14px 30px -10px rgba(0,0,0,0.7);
+  opacity: 0; transform: translateX(10px) scale(0.94); pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1), top 0.25s ease;
+}
+.mk-dish-photo.is-on { opacity: 1; transform: none; }
+.mk-ember .mk-dishes { margin-right: 172px; }   /* the photo has its own column, so it never covers a price */
+@media (max-width: 600px) {
+  .mk-ember .mk-dishes { margin-right: 0; }
+  .mk-dish-photo { width: 110px; height: 82px; top: auto !important; bottom: 12px; }
+}
 .mk-ember-h { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 4px; }
 .mk-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
 .mk-booked {

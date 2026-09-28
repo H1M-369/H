@@ -552,6 +552,12 @@
     ],
   };
 
+  const DISH_PHOTO = {
+    'Smoked Bone Marrow': 'bone-marrow', 'Burrata & Heirloom Tomato': 'burrata', 'Fire-Roasted Oysters': 'oysters',
+    'Wood-Fired Ribeye': 'ribeye', 'Ember Salmon': 'salmon', 'Roasted Cauliflower': 'cauliflower',
+    'Burnt Basque Cheesecake': 'cheesecake', 'Chocolate Ember Tart': 'tart',
+  };
+
   const ember = {
     interactive: true,
     init(st) {
@@ -567,9 +573,27 @@
             `<b>${n}</b><em>$${price}</em><p>${desc}</p>` +
             (tags.length ? `<div class="mk-dtags">${tags.map(t => `<span class="${t === "Chef's pick" ? 'pick' : ''}">${t}</span>`).join('')}</div>` : ''));
           d.style.animationDelay = (i * 70) + 'ms';
+          if (DISH_PHOTO[n]) d.dataset.photo = `/images/menu/${DISH_PHOTO[n]}.webp`;
           box.appendChild(d);
         });
+        self.hidePhoto();
       };
+
+      // Dish photo preview: appears beside the hovered dish (scripted or real pointer)
+      const pane = q('[data-pane="menu"]');
+      const photo = el('div', 'mk-dish-photo');
+      pane.appendChild(photo);
+      this.showPhoto = d => {
+        if (!d || !d.dataset.photo) return;
+        photo.style.backgroundImage = `url("${d.dataset.photo}")`;
+        const pr = pane.getBoundingClientRect(), dr = d.getBoundingClientRect();
+        photo.style.top = Math.max(4, Math.min(dr.top - pr.top + dr.height / 2 - 60, pr.height - 124)) + 'px';
+        photo.classList.add('is-on');
+      };
+      this.hidePhoto = () => photo.classList.remove('is-on');
+      q('[data-dishes]').addEventListener('pointerover', e => { const d = e.target.closest('.mk-dish'); if (d) self.showPhoto(d); });
+      q('[data-dishes]').addEventListener('pointerleave', () => self.hidePhoto());
+      Object.values(DISH_PHOTO).forEach(p => { new Image().src = `/images/menu/${p}.webp`; });
       this.view = name => {
         st.querySelectorAll('.mk-ember-nav [data-view]').forEach(b => b.classList.toggle('is-on', b.dataset.view === name));
         st.querySelectorAll('[data-pane]').forEach(p => p.classList.toggle('is-on', p.dataset.pane === name));
@@ -601,12 +625,16 @@
       const tabs = c.$$('[data-tabs] button');
       c.cap(0);
       await c.wait(500);
+      await c.point(c.$('.mk-dish:nth-child(3)'));   // hover a starter: its photo appears
+      this.showPhoto(c.$('.mk-dish:nth-child(3)'));
+      await c.wait(1400);
       await c.click(tabs[1]);            // Mains
       await c.wait(900);
 
       c.cap(1);
       const pick = c.$('.mk-dish');
       await c.point(pick);
+      this.showPhoto(pick);
       pick.classList.add('is-hl');
       await c.wait(1500);
       await c.click(tabs[2]);            // Desserts
