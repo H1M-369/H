@@ -54,3 +54,22 @@ All photos are from Pexels under the Pexels License: free for commercial use, no
 | images/cover-daily-briefing.webp | https://www.pexels.com/photo/woman-in-blue-and-white-floral-dress-holding-a-smartphone-5177519/ |
 | images/cover-email-autoresponder.webp | https://www.pexels.com/photo/black-and-gray-digital-device-193003/ |
 | images/cover-whatsapp-mpesa.webp | https://www.pexels.com/photo/woman-holding-cellphone-and-a-credit-card-6237888/ |
+
+# Illustrations (unDraw)
+
+From unDraw (https://undraw.co) under the unDraw license: free for commercial use, no attribution required. Accent recoloured to #C9A227.
+
+| File | unDraw illustration |
+|---|---|
+| images/art/svc-hero.svg | Web Development |
+| images/art/svc-websites.svg | Static website |
+| images/art/svc-agents.svg | Chat bot |
+| images/art/svc-automation.svg | Project Flow |
+| images/art/svc-integrations.svg | Mobile pay |
+| images/art/svc-pricing.svg | Pricing Page |
+| images/art/svc-why.svg | Calculator |
+| images/art/about-hero.svg | Programming |
+| images/art/step-vision.svg | Shared goals |
+| images/art/step-plan.svg | Timeline |
+| images/art/step-build.svg | Mobile testing |
+| images/art/step-launch.svg | Maker launch |

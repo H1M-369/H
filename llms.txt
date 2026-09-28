@@ -11,7 +11,15 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 
 ### Home
 - URL: https://saintlife.dev/
-- Sections: Hero, About, Capabilities, Projects, Process, Pricing, FAQ, Contact
+- Sections: Hero, Capabilities, links to Services and About, FAQ, Contact (projects live on the portfolio)
+
+### Services & prices
+- URL: https://saintlife.dev/services/
+- What I build (websites, AI agents, automations, integrations), full price tables, management plans, a worked example and why prices differ
+
+### About & how I work
+- URL: https://saintlife.dev/about/
+- About H., and the four steps: understand the vision, plan the build, build and test, launch and support
 
 ### Portfolio
 - URL: https://saintlife.dev/portfolio/
@@ -22,11 +30,12 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 - AI agents: https://saintlife.dev/services/ai-agents/
 - Automation: https://saintlife.dev/services/automation/
 
-### Pricing
-- Simple static websites from KSh 30,000
-- Full e-commerce from KSh 250,000
-- Agents and automations quoted per project
-- Details: https://saintlife.dev/#pricing
+### Pricing (setup from; monthly = API/platform cost at cost + management plan KSh 2,000 Basic or KSh 3,500 Full)
+- Websites: simple static KSh 30,000; business KSh 60,000; e-commerce KSh 250,000 (hosting at cost, care plan optional)
+- AI agents: custom email agent KSh 6,000; website chat assistant KSh 10,000; custom AI agent KSh 25,000
+- Automations: single workflow KSh 8,000; multi-step pipeline KSh 15,000
+- Integrations for an existing website: AI assistant KSh 12,000; M-Pesa checkout (Daraja) KSh 20,000; WhatsApp order alerts KSh 12,000
+- Details and "why the price": https://saintlife.dev/services/#pricing
 
 ### Legal
 - Terms of Use: https://saintlife.dev/terms.html

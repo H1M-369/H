@@ -55,7 +55,7 @@
         "email": "saintlife54@gmail.com",
         "telephone": "+254789376070",
         "areaServed": { "@type": "Country", "name": "Kenya" },
-        "priceRange": "KSh 30,000 – KSh 250,000+",
+        "priceRange": "KSh 6,000 – KSh 250,000+",
         "currenciesAccepted": "KES",
         "serviceType": ["Website design and development", "E-commerce websites", "AI agents", "Workflow automation"]
       }
@@ -96,21 +96,9 @@
 
       <!-- Desktop links -->
       <div class="nav-center">
-        <a href="#about" class="nav-link">About</a>
+        <a href="/about/" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
-        <div class="nav-item" id="nav-services">
-          <button class="nav-trigger" onclick="toggleDropdown('nav-services')">
-            Services
-            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="nav-dropdown">
-            <a href="/services/websites/">Websites</a>
-            <a href="/services/ai-agents/">AI Agents</a>
-            <a href="/services/automation/">Automation</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="/#pricing">Pricing</a>
-          </div>
-        </div>
+        <a href="/services/" class="nav-link">Services</a>
         <div class="nav-item" id="nav-projects">
           <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
             Projects
@@ -130,7 +118,6 @@
             <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
           </div>
         </div>
-        <a href="#pricing" class="nav-link">Pricing</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
 
@@ -144,13 +131,10 @@
 
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
-      <a href="#about" class="mobile-menu-link">About</a>
+      <a href="/about/" class="mobile-menu-link">About</a>
       <a href="#skills" class="mobile-menu-link">Skills</a>
       <a href="/portfolio/" class="mobile-menu-link">Portfolio</a>
-      <div class="mobile-menu-label">Services</div>
-      <a href="/services/websites/" class="mobile-menu-link mobile-menu-sub">Websites</a>
-      <a href="/services/ai-agents/" class="mobile-menu-link mobile-menu-sub">AI Agents</a>
-      <a href="/services/automation/" class="mobile-menu-link mobile-menu-sub">Automation</a>
+      <a href="/services/" class="mobile-menu-link">Services</a>
       <div class="mobile-menu-label">Websites</div>
       <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
       <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
@@ -160,7 +144,6 @@
       <div class="mobile-menu-label">Workflows</div>
       <a href="/workflows/daily-briefing/" class="mobile-menu-link mobile-menu-sub">Daily Briefing</a>
       <a href="/workflows/email-autoresponder/" class="mobile-menu-link mobile-menu-sub">Email Autoresponder</a>
-      <a href="#pricing" class="mobile-menu-link">Pricing</a>
       <a href="#contact" class="mobile-menu-link">Contact</a>
     </div>
   </nav>
@@ -172,47 +155,13 @@
       <h1 class="hero-name">
         Websites that build presence.<br />Agents that deliver.<br />Automations that make work <em>convenient</em>.
       </h1>
-      <p class="hero-price">Websites from <strong>KSh 30,000</strong> · Full e-commerce <strong>KSh 250,000+</strong></p>
+      <p class="hero-price">Websites from <strong>KSh 30,000</strong> · AI agents from <strong>KSh 6,000</strong> · <a href="/services/#pricing">See all prices</a></p>
       <div class="hero-cta-row">
-        <a href="#projects" class="btn-primary">
+        <a href="/portfolio/#projects" class="btn-primary">
           View Work
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/portfolio/" class="btn-ghost">My Portfolio</a>
         <a href="#contact" class="btn-ghost">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ABOUT ── -->
-  <section id="about">
-    <div class="container">
-      <div class="divider" style="margin-bottom: 80px;"></div>
-      <div class="grid">
-        <div>
-          <div class="section-label reveal">About</div>
-          <h2 class="section-title reveal reveal-delay-1">Clean sites.<br />Agents that deliver.</h2>
-          <p class="section-body reveal reveal-delay-2">
-            I create and upgrade websites — from scratch or improving what's already there — and build custom AI agents and workflows that automate real tasks. If it can be delegated to a well-designed agent, I'll build it.
-          </p>
-          <p class="section-body reveal reveal-delay-3" style="margin-top: 16px;">
-            My work lives at the intersection of web and AI: polished frontends on one side, intelligent agents running behind the scenes on the other.
-          </p>
-        </div>
-        <div class="about-stat-row">
-          <div class="stat-card reveal reveal-delay-1">
-            <div class="stat-number">Web</div>
-            <div class="stat-label">Site builds from scratch and upgrades to existing projects</div>
-          </div>
-          <div class="stat-card reveal reveal-delay-2">
-            <div class="stat-number">Agents</div>
-            <div class="stat-label">Custom AI agents built for specific tasks and workflows</div>
-          </div>
-          <div class="stat-card reveal reveal-delay-3">
-            <div class="stat-number">Flow</div>
-            <div class="stat-label">End-to-end agent workflows — from trigger to output</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -295,211 +244,28 @@
     </div>
   </section>
 
-  <!-- ── PROJECTS ── -->
-  <section id="projects">
+  <!-- ── MORE ── -->
+  <section id="more">
     <div class="container">
-      <div class="section-label reveal">Work</div>
-      <h2 class="section-title reveal reveal-delay-1">Seven builds,<br />all running.</h2>
-      <div class="projects-grid">
-        <a class="project-card project-card-feature reveal" href="/portfolio/whatsapp-mpesa/">
-          <img class="project-img" src="/images/cover-whatsapp-mpesa.webp" alt="A customer paying for an order on their phone" />
-          <div class="project-body">
-            <div class="project-type">Integration · New</div>
-            <div class="project-title">WhatsApp + M-Pesa Store</div>
-            <div class="project-desc">Get paid by M-Pesa and see every order on WhatsApp the moment it's paid. Daraja STK push sends the payment prompt to the customer's phone, and the owner's alert goes out only after Safaricom confirms the payment.</div>
-            <div class="project-footer">
-              <div class="skill-tags" style="margin-top:0">
-                <span class="tag">M-Pesa Daraja</span>
-                <span class="tag">WhatsApp API</span>
-                <span class="tag">Webhooks</span>
-                <span class="tag">E-commerce</span>
-              </div>
-            </div>
+      <div class="more-grid">
+        <a class="more-card reveal" href="/services/">
+          <figure class="art art-sm"><img src="/images/art/svc-pricing.svg" alt="" loading="lazy" /></figure>
+          <div>
+            <div class="section-label">Services &amp; prices</div>
+            <h3>Open prices for every build.</h3>
+            <p>Setup and monthly costs for websites, agents, automations and integrations, and why they differ.</p>
+            <span class="offer-go">See services →</span>
           </div>
         </a>
-
-        <a class="project-card reveal reveal-delay-1" href="/portfolio/drape/">
-          <img class="project-img" src="/images/drape.webp" alt="DRAPE Clothing Store" />
-          <div class="project-body">
-            <div class="project-type">Website Build</div>
-            <div class="project-title">DRAPE — Clothing Store</div>
-            <div class="project-desc">An online store customers can browse and buy from on any phone. 31 products in 6 categories, with colour variants, size selection and a slide-out cart.</div>
-            <div class="project-footer">
-              <div class="skill-tags" style="margin-top:0">
-                <span class="tag">Tailwind</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">E-commerce</span>
-                <span class="tag">Responsive</span>
-              </div>
-            </div>
+        <a class="more-card reveal reveal-delay-1" href="/about/">
+          <figure class="art art-sm"><img src="/images/art/about-hero.svg" alt="" loading="lazy" /></figure>
+          <div>
+            <div class="section-label">About &amp; how I work</div>
+            <h3>From your vision to a live product.</h3>
+            <p>Who's behind the work, and the four steps every project follows.</p>
+            <span class="offer-go">Read more →</span>
           </div>
         </a>
-
-        <a class="project-card reveal reveal-delay-2" href="/portfolio/email-support/">
-          <img class="project-img" src="/images/cover-email-support.webp" alt="A support agent answering customer emails" />
-          <div class="project-body">
-            <div class="project-type">Custom Agent</div>
-            <div class="project-title">Email Support Agent</div>
-            <div class="project-desc">Answers customer emails from your own help docs, so your team doesn't have to. Every reply cites the section of the docs it came from.</div>
-            <div class="project-footer">
-              <div class="skill-tags" style="margin-top:0">
-                <span class="tag">Claude API</span>
-                <span class="tag">File Upload</span>
-                <span class="tag">Tool Use</span>
-                <span class="tag">Prompt Design</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-card reveal reveal-delay-3" href="/portfolio/email-autoresponder/">
-          <img class="project-img" src="/images/cover-email-autoresponder.webp" alt="A phone showing unread emails in the Mail app" />
-          <div class="project-body">
-            <div class="project-type">Agent Workflow</div>
-            <div class="project-title">Email Autoresponder Pipeline</div>
-            <div class="project-desc">Replies to support email around the clock, with no one at the keyboard. It watches Gmail, filters out spam, drafts from your docs with Claude and replies in-thread.</div>
-            <div class="project-footer">
-              <div class="skill-tags" style="margin-top:0">
-                <span class="tag">Orchestration</span>
-                <span class="tag">Gmail API</span>
-                <span class="tag">Claude API</span>
-                <span class="tag">Python</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-card reveal reveal-delay-1" href="/portfolio/ember-oak/">
-          <img class="project-img" src="/images/ember.webp" alt="Ember &amp; Oak Restaurant Site" />
-          <div class="project-body">
-            <div class="project-type">Website Build</div>
-            <div class="project-title">Ember &amp; Oak — Restaurant Site</div>
-            <div class="project-desc">A restaurant site that turns visitors into bookings. Mobile-first, with a tabbed menu, dietary tags, a gallery and table reservations.</div>
-            <div class="project-footer">
-              <div class="skill-tags" style="margin-top:0">
-                <span class="tag">Tailwind</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Responsive</span>
-                <span class="tag">Forms</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-card reveal reveal-delay-3" href="/portfolio/daily-briefing/">
-          <img class="project-img" src="/images/cover-daily-briefing.webp" alt="Checking the morning news on a phone over coffee" />
-          <div class="project-body">
-            <div class="project-type">Agent Workflow</div>
-            <div class="project-title">Daily Briefing Pipeline</div>
-            <div class="project-desc">Your news and weather, summarised and in your inbox every morning. Claude condenses each story to two sentences, and every run is logged to Google Sheets.</div>
-            <div class="project-footer">
-              <div class="skill-tags" style="margin-top:0">
-                <span class="tag">Orchestration</span>
-                <span class="tag">News API</span>
-                <span class="tag">Claude API</span>
-                <span class="tag">Google Sheets</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-card reveal reveal-delay-1" href="/portfolio/competitor-analysis/">
-          <img class="project-img" src="/images/cover-competitor-analysis.webp" alt="An analytics dashboard with charts on a laptop" />
-          <div class="project-body">
-            <div class="project-type">Custom Agent</div>
-            <div class="project-title">Competitor Analysis Agent</div>
-            <div class="project-desc">Shows where a business beats its rivals and what to fix first. A seven-step analysis returns a score out of 100 and a roadmap ranked by impact.</div>
-            <div class="project-footer">
-              <div class="skill-tags" style="margin-top:0">
-                <span class="tag">Claude API</span>
-                <span class="tag">Prompt Design</span>
-                <span class="tag">Structured Output</span>
-                <span class="tag">Research</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── PROCESS ── -->
-  <section id="process">
-    <div class="container">
-      <div class="section-label reveal">How I work</div>
-      <h2 class="section-title reveal reveal-delay-1">From spec<br />to production.</h2>
-      <div class="process-steps">
-        <div class="process-step reveal">
-          <div class="step-num">01</div>
-          <div class="step-title">Define the output</div>
-          <div class="step-desc">Pin down what done looks like, whether that's the page, the reply or the report, before choosing a stack.</div>
-        </div>
-        <div class="process-step reveal reveal-delay-1">
-          <div class="step-num">02</div>
-          <div class="step-title">Build the thin path</div>
-          <div class="step-desc">Wire the smallest working version end to end first, then add features only where the output needs them.</div>
-        </div>
-        <div class="process-step reveal reveal-delay-2">
-          <div class="step-num">03</div>
-          <div class="step-title">Test on real inputs</div>
-          <div class="step-desc">Sites across breakpoints and browsers. Agents against real emails and malformed data, not happy-path samples.</div>
-        </div>
-        <div class="process-step reveal reveal-delay-3">
-          <div class="step-num">04</div>
-          <div class="step-title">Ship, then instrument</div>
-          <div class="step-desc">Deploy early, log every run, and iterate on what the logs show rather than on guesses.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── PRICING ── -->
-  <section id="pricing">
-    <div class="container">
-      <div class="section-label reveal">Pricing</div>
-      <h2 class="section-title reveal reveal-delay-1">Clear starting points.</h2>
-      <p class="section-body reveal reveal-delay-2">These are the starting points. The final price depends on pages, features and integrations, and you get a clear quote before any work starts.</p>
-
-      <div class="price-grid">
-        <div class="price-card reveal reveal-delay-1">
-          <div class="price-kind">Websites</div>
-          <div class="price-amount"><span>From</span> KSh 30,000</div>
-          <p class="price-desc">A simple static website that gets your business found and contacted.</p>
-          <ul class="price-list">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mobile-first, fast-loading pages</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contact form and WhatsApp chat</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>On-page SEO basics</li>
-          </ul>
-          <div class="price-links"><a href="/services/websites/">Website details →</a></div>
-        </div>
-        <div class="price-card price-card-key reveal reveal-delay-2">
-          <div class="price-kind">E-commerce</div>
-          <div class="price-amount">KSh 250,000+</div>
-          <p class="price-desc">A full online store your customers can buy from on any phone.</p>
-          <ul class="price-list">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Product catalogue with variants</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cart and checkout</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>M-Pesa and card payments</li>
-          </ul>
-          <div class="price-links"><a href="/portfolio/whatsapp-mpesa/">See the M-Pesa demo →</a></div>
-        </div>
-        <div class="price-card reveal reveal-delay-3">
-          <div class="price-kind">Agents &amp; automations</div>
-          <div class="price-amount price-amount-sm">Quoted per project</div>
-          <p class="price-desc">Software that handles a repetitive task for you, end to end.</p>
-          <ul class="price-list">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Scoped to one clear task</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Works from your own documents and tools</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Runs on its own, with a log of every run</li>
-          </ul>
-          <div class="price-links"><a href="/services/ai-agents/">AI agents →</a><a href="/services/automation/">Automation →</a></div>
-        </div>
-      </div>
-
-      <div class="price-cta reveal">
-        <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20project." target="_blank" rel="noopener" class="btn-primary">Get a quote on WhatsApp</a>
-        <a href="#contact" class="btn-ghost">Or send the details</a>
       </div>
     </div>
   </section>
@@ -512,7 +278,7 @@
       <div class="faq-list reveal reveal-delay-2">
         <details class="faq">
           <summary>How much does a website cost?</summary>
-          <p>Business websites start at KSh 30,000. A full e-commerce store starts at KSh 250,000. Agents and automations are quoted per project, once the task is scoped. You get a clear quote before any work starts.</p>
+          <p>Simple websites start at KSh 30,000 and e-commerce stores at KSh 250,000. AI agents start at KSh 6,000 setup and automations at KSh 8,000, then a monthly fee of the actual API cost plus a management plan (KSh 2,000 or 3,500). The full list is on the <a href="/services/#pricing">services page</a>.</p>
         </details>
         <details class="faq">
           <summary>How long does a project take?</summary>

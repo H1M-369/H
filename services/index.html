@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services & Prices — H.</title>
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="description" content="Websites from KSh 30,000, AI agents from KSh 6,000, automations from KSh 8,000 and integrations from KSh 12,000, with open setup and monthly prices and why they differ." />
+  <link rel="canonical" href="https://saintlife.dev/services/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://saintlife.dev/services/" />
+  <meta property="og:title" content="Services & Prices — H." />
+  <meta property="og:description" content="Websites from KSh 30,000, AI agents from KSh 6,000, automations from KSh 8,000 and integrations from KSh 12,000, with open setup and monthly prices and why they differ." />
+  <meta property="og:image" content="https://saintlife.dev/images/og/site.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="author" content="Jonathan Kariuki" />
+
+  <!-- Anti-flash: apply saved theme before first paint -->
+  <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/portfolio.css" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"OfferCatalog","name":"Services by H. — websites, AI agents, automations and integrations","url":"https://saintlife.dev/services/","itemListElement":[{"@type":"Offer","name":"Simple static website","price":"30000","priceCurrency":"KES"},{"@type":"Offer","name":"Business website","price":"60000","priceCurrency":"KES"},{"@type":"Offer","name":"E-commerce store","price":"250000","priceCurrency":"KES"},{"@type":"Offer","name":"Custom email agent","price":"6000","priceCurrency":"KES"},{"@type":"Offer","name":"Website chat assistant","price":"10000","priceCurrency":"KES"},{"@type":"Offer","name":"Custom AI agent","price":"25000","priceCurrency":"KES"},{"@type":"Offer","name":"Single workflow","price":"8000","priceCurrency":"KES"},{"@type":"Offer","name":"Multi-step pipeline","price":"15000","priceCurrency":"KES"},{"@type":"Offer","name":"AI assistant on an existing website","price":"12000","priceCurrency":"KES"},{"@type":"Offer","name":"M-Pesa checkout (Daraja)","price":"20000","priceCurrency":"KES"},{"@type":"Offer","name":"WhatsApp order alerts","price":"12000","priceCurrency":"KES"}]}
+  </script>
+</head>
+<body class="pf">
+
+
+  <!-- Cursor glow -->
+  <div id="cursor-glow"></div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="inner">
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path class="ham-top" d="M4 12L20 12"/>
+          <path class="ham-mid" d="M4 12H20"/>
+          <path class="ham-bot" d="M4 12H20"/>
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="/" class="nav-logo">H.<span class="nav-name">Jonathan Kariuki</span></a>
+
+      <!-- Desktop links -->
+      <div class="nav-center">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/#skills" class="nav-link">Skills</a>
+        <a href="/services/" class="nav-link" aria-current="page">Services</a>
+        <div class="nav-item" id="nav-projects">
+          <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
+            Projects
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-label">Websites</div>
+            <a href="/shop/">DRAPE — Shop</a>
+            <a href="/websites/restaurant/">Ember &amp; Oak</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Agents</div>
+            <a href="/agents/email-support/">Email Support</a>
+            <a href="/agents/competitor-analysis/">Competitor Analysis</a>
+            <div class="nav-dropdown-divider"></div>
+            <div class="nav-dropdown-label">Workflows</div>
+            <a href="/workflows/daily-briefing/">Daily Briefing</a>
+            <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
+          </div>
+        </div>
+        <a href="/portfolio/#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Right side -->
+      <div class="nav-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"></button>
+        <a href="/portfolio/" class="btn-primary btn-sm">Portfolio</a>
+        <a href="/portfolio/#contact" class="btn-primary btn-sm">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/" class="mobile-menu-link">Home</a>
+      <a href="/about/" class="mobile-menu-link">About</a>
+      <a href="/#skills" class="mobile-menu-link">Skills</a>
+      <a href="/portfolio/" class="mobile-menu-link">Portfolio</a>
+      <a href="/services/" class="mobile-menu-link">Services</a>
+      <div class="mobile-menu-label">Websites</div>
+      <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
+      <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
+      <div class="mobile-menu-label">Agents</div>
+      <a href="/agents/email-support/" class="mobile-menu-link mobile-menu-sub">Email Support</a>
+      <a href="/agents/competitor-analysis/" class="mobile-menu-link mobile-menu-sub">Competitor Analysis</a>
+      <div class="mobile-menu-label">Workflows</div>
+      <a href="/workflows/daily-briefing/" class="mobile-menu-link mobile-menu-sub">Daily Briefing</a>
+      <a href="/workflows/email-autoresponder/" class="mobile-menu-link mobile-menu-sub">Email Autoresponder</a>
+      <a href="/portfolio/#contact" class="mobile-menu-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── SERVICE: Website Design in Kenya ── -->
+  <!-- ── SERVICES ── -->
+  <main class="svc">
+    <section class="svc-hero">
+      <div class="container">
+        <div class="pg-split">
+          <div>
+            <div class="section-label">Services</div>
+            <h1 class="section-title svc-title">Websites, agents and automations, <em>priced openly</em>.</h1>
+            <p class="section-body">Pick what you need and see what it costs before we talk. Every build has a one-off setup fee, and anything that runs on AI has a clear monthly fee.</p>
+            <div class="hero-cta-row svc-cta">
+              <a href="#pricing" class="btn-primary">See prices</a>
+              <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20project." target="_blank" rel="noopener" class="btn-ghost">Talk on WhatsApp</a>
+            </div>
+          </div>
+          <figure class="art art-hero"><img src="/images/art/svc-hero.svg" alt="Illustration: a developer building a website" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-label reveal">What I build</div>
+        <h2 class="section-title reveal reveal-delay-1">Pick a service<br />to see its prices.</h2>
+        <div class="offer-grid">
+          <button type="button" class="offer reveal" data-pm="pm-websites">
+            <figure class="art"><img src="/images/art/svc-websites.svg" alt="" loading="lazy" /></figure>
+            <span class="svc-price">From KSh 30,000</span>
+            <h3>Websites</h3>
+            <p>Clean, fast sites that build your presence, from a simple static site to a full e-commerce store.</p>
+            <span class="offer-go">See prices and choose →</span>
+          </button>
+          <button type="button" class="offer reveal" data-pm="pm-agents">
+            <figure class="art"><img src="/images/art/svc-agents.svg" alt="" loading="lazy" /></figure>
+            <span class="svc-price">From KSh 6,000</span>
+            <h3>AI agents</h3>
+            <p>Agents that deliver: they answer emails, questions and research tasks from your own information.</p>
+            <span class="offer-go">See prices and choose →</span>
+          </button>
+          <button type="button" class="offer reveal" data-pm="pm-automations">
+            <figure class="art"><img src="/images/art/svc-automation.svg" alt="" loading="lazy" /></figure>
+            <span class="svc-price">From KSh 8,000</span>
+            <h3>Automations</h3>
+            <p>Routine work that runs on its own, on a schedule or whenever something arrives.</p>
+            <span class="offer-go">See prices and choose →</span>
+          </button>
+          <button type="button" class="offer reveal" data-pm="pm-integrations">
+            <figure class="art"><img src="/images/art/svc-integrations.svg" alt="" loading="lazy" /></figure>
+            <span class="svc-price">From KSh 12,000</span>
+            <h3>Integrations</h3>
+            <p>M-Pesa checkout, WhatsApp order alerts or an AI assistant added to the website you already have.</p>
+            <span class="offer-go">See prices and choose →</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  <!-- ── MANAGEMENT PLANS ── -->
+  <section id="plans">
+    <div class="container">
+      <div class="pg-split pg-split-art-right">
+        <div>
+      <div class="section-label reveal">Monthly</div>
+      <h2 class="section-title reveal reveal-delay-1">Management plans.</h2>
+      <p class="section-body reveal reveal-delay-2">Every build has a one-off setup fee. Agents, automations and integrations also have a monthly fee: the actual cost of the AI or platform they use, passed on at cost, plus one of these plans to keep them running.</p>
+        </div>
+        <figure class="art art-sm reveal"><img src="/images/art/svc-pricing.svg" alt="" loading="lazy" /></figure>
+      </div>
+
+      <div class="plans reveal">
+        <div class="plans-head">
+          <h3>Management plans</h3>
+          <p>For agents, automations and integrations. Optional for websites.</p>
+        </div>
+        <div class="plan">
+          <div class="plan-name">Basic</div>
+          <div class="plan-price"><span>KSh</span> 2,000<em>/month</em></div>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hosting and uptime monitoring</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Fixes if anything breaks</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Updates when an API or model changes</li>
+          </ul>
+        </div>
+        <div class="plan plan-key">
+          <div class="plan-name">Full</div>
+          <div class="plan-price"><span>KSh</span> 3,500<em>/month</em></div>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Everything in Basic</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Small changes and tuning each month</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Monthly usage report</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Priority support on WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="price-cta reveal">
+        <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20project." target="_blank" rel="noopener" class="btn-primary">Get a quote on WhatsApp</a>
+        <a href="#why-price" class="btn-ghost">Why the price?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY THE PRICE ── -->
+  <section id="why-price">
+    <div class="container">
+      <div class="pg-split pg-split-art-right">
+        <div>
+          <div class="section-label reveal">Why the price</div>
+          <h2 class="section-title reveal reveal-delay-1">Why prices differ<br />from build to build.</h2>
+          <p class="section-body reveal reveal-delay-2">Here's what a typical agent costs in practice, and the four things that move a price up or down.</p>
+        </div>
+        <figure class="art art-sm reveal"><img src="/images/art/svc-why.svg" alt="" loading="lazy" /></figure>
+      </div>
+      <div class="why-example reveal">
+        <div class="why-example-h">Example: a custom email agent</div>
+        <div class="why-sum">
+          <div><span>Setup, paid once</span><b>KSh 6,000</b></div>
+          <div><span>API usage in month one</span><b>≈ KSh 700</b></div>
+          <div><span>Management plan</span><b>KSh 2,000 or 3,500</b></div>
+          <div class="why-total"><span>Monthly from then on</span><b>≈ KSh 2,700 or 4,200</b></div>
+        </div>
+        <p>Your monthly fee is set from the first month's real usage, and reviewed if your volume changes a lot. For comparison, similar builds from agencies in Kenya start from about KSh 10,000 setup plus KSh 2,000 a month, and custom agency work often runs into six figures.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why reveal reveal-delay-1">
+          <span class="why-n">01</span>
+          <h3>How much it has to think</h3>
+          <p>A website is built once and then simply shown. An agent reads, decides and writes every single time it runs, so it takes more work to build and test.</p>
+        </div>
+        <div class="why reveal reveal-delay-2">
+          <span class="why-n">02</span>
+          <h3>What it connects to</h3>
+          <p>Every outside service, such as M-Pesa, WhatsApp or Gmail, needs its own setup, security and testing. More connections mean more setup.</p>
+        </div>
+        <div class="why reveal reveal-delay-3">
+          <span class="why-n">03</span>
+          <h3>What it costs to run</h3>
+          <p>AI models charge a small amount each time they're used. That cost is passed on exactly, with no markup, so busy agents cost more and quiet ones less.</p>
+        </div>
+        <div class="why reveal reveal-delay-1">
+          <span class="why-n">04</span>
+          <h3>Keeping it working</h3>
+          <p>Models, APIs and platforms change. The management plan pays for the checks and fixes that keep your build running without you thinking about it.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ── PRICE MODALS: one per category; "Choose" opens the request step ── -->
+  <dialog class="pm" id="pm-websites" aria-labelledby="pm-websites-t">
+    <div class="pm-box">
+      <button type="button" class="pm-x" data-close aria-label="Close">×</button>
+      <div class="section-label">Prices</div>
+      <h3 class="pm-title" id="pm-websites-t">Websites</h3>
+      <p class="pm-note">One-off build. Hosting and domain are billed at cost; a management plan is optional.</p>
+      <ul class="pm-opts">
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>Simple static website</b><span>Up to 5 pages, contact form, WhatsApp chat button</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 30,000</b><em>Hosting from 1,000/mo</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="Simple static website" data-category="Websites" data-setup="30,000" data-monthly="Hosting from KSh 1,000/month" data-plan="optional">Choose</button>
+        </li>
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>Business website</b><span>More pages, gallery or menu, bookings, Google Maps</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 60,000</b><em>Hosting from 1,000/mo</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="Business website" data-category="Websites" data-setup="60,000" data-monthly="Hosting from KSh 1,000/month" data-plan="optional">Choose</button>
+        </li>
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>E-commerce store</b><span>Catalogue, cart, M-Pesa and card checkout, order alerts</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 250,000</b><em>Hosting from 2,500/mo</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="E-commerce store" data-category="Websites" data-setup="250,000" data-monthly="Hosting from KSh 2,500/month" data-plan="optional">Choose</button>
+        </li>
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>Custom-tailored website</b><span>Built around your budget and what you want the site to do</span></div>
+          <div class="pm-opt-cost"><b class="pm-price pm-price-txt">Your budget</b><em>Hosting at cost</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="Custom-tailored website" data-category="Websites" data-setup="Your budget" data-monthly="Hosting at cost" data-plan="optional" data-custom="1">Choose</button>
+        </li>
+      </ul>
+      <a class="pt-more" href="/services/websites/">More about websites →</a>
+    </div>
+  </dialog>
+
+  <dialog class="pm" id="pm-agents" aria-labelledby="pm-agents-t">
+    <div class="pm-box">
+      <button type="button" class="pm-x" data-close aria-label="Close">×</button>
+      <div class="section-label">Prices</div>
+      <h3 class="pm-title" id="pm-agents-t">AI agents</h3>
+      <p class="pm-note">Setup once, then the API usage at cost plus a management plan (KSh 2,000 or 3,500 a month).</p>
+      <ul class="pm-opts">
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>Custom email agent</b><span>Answers customer emails from your own documents</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 6,000</b><em>API + plan</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="Custom email agent" data-category="AI agents" data-setup="6,000" data-monthly="API at cost + plan" data-plan="required">Choose</button>
+        </li>
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>Website chat assistant</b><span>Answers visitors' questions on your site, from your content</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 10,000</b><em>API + plan</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="Website chat assistant" data-category="AI agents" data-setup="10,000" data-monthly="API at cost + plan" data-plan="required">Choose</button>
+        </li>
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>Custom AI agent</b><span>Research, reports or a task built around your tools</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 25,000</b><em>API + plan</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="Custom AI agent" data-category="AI agents" data-setup="25,000" data-monthly="API at cost + plan" data-plan="required">Choose</button>
+        </li>
+      </ul>
+      <a class="pt-more" href="/services/ai-agents/">More about AI agents →</a>
+    </div>
+  </dialog>
+
+  <dialog class="pm" id="pm-automations" aria-labelledby="pm-automations-t">
+    <div class="pm-box">
+      <button type="button" class="pm-x" data-close aria-label="Close">×</button>
+      <div class="section-label">Prices</div>
+      <h3 class="pm-title" id="pm-automations-t">Automations</h3>
+      <p class="pm-note">Setup once, then platform and API usage at cost plus a management plan (KSh 2,000 or 3,500 a month).</p>
+      <ul class="pm-opts">
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>Single workflow</b><span>One routine on a schedule, e.g. a daily report to email or Sheets</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 8,000</b><em>Usage + plan</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="Single workflow" data-category="Automations" data-setup="8,000" data-monthly="Usage at cost + plan" data-plan="required">Choose</button>
+        </li>
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>Multi-step pipeline</b><span>Several steps with checks, e.g. read, decide, reply and log</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 15,000</b><em>Usage + plan</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="Multi-step pipeline" data-category="Automations" data-setup="15,000" data-monthly="Usage at cost + plan" data-plan="required">Choose</button>
+        </li>
+      </ul>
+      <a class="pt-more" href="/services/automation/">More about automation →</a>
+    </div>
+  </dialog>
+
+  <dialog class="pm" id="pm-integrations" aria-labelledby="pm-integrations-t">
+    <div class="pm-box">
+      <button type="button" class="pm-x" data-close aria-label="Close">×</button>
+      <div class="section-label">Prices</div>
+      <h3 class="pm-title" id="pm-integrations-t">Integrations</h3>
+      <p class="pm-note">Added to the website you already have. Third-party fees (Safaricom, Meta) are billed at cost.</p>
+      <ul class="pm-opts">
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>AI assistant on your site</b><span>An agent or chat assistant added to your current website</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 12,000</b><em>API + plan</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="AI assistant on your site" data-category="Integrations" data-setup="12,000" data-monthly="API at cost + plan" data-plan="required">Choose</button>
+        </li>
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>M-Pesa checkout (Daraja)</b><span>STK-push payments on your site, confirmed automatically</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 20,000</b><em>Optional plan</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="M-Pesa checkout (Daraja)" data-category="Integrations" data-setup="20,000" data-monthly="Optional plan" data-plan="optional">Choose</button>
+        </li>
+        <li class="pm-opt">
+          <div class="pm-opt-main"><b>WhatsApp order alerts</b><span>Every paid order sent to your WhatsApp</span></div>
+          <div class="pm-opt-cost"><b class="pm-price"><span>KSh</span> 12,000</b><em>Meta fees + plan</em></div>
+          <button type="button" class="btn-primary btn-sm pm-choose" data-service="WhatsApp order alerts" data-category="Integrations" data-setup="12,000" data-monthly="Meta fees at cost + plan" data-plan="required">Choose</button>
+        </li>
+      </ul>
+      <a class="pt-more" href="/portfolio/whatsapp-mpesa/">See the WhatsApp + M-Pesa demo →</a>
+    </div>
+  </dialog>
+
+  <dialog class="pm" id="pm-checkout" aria-labelledby="pm-co-t">
+    <div class="pm-box">
+      <button type="button" class="pm-x" data-close aria-label="Close">×</button>
+      <form class="cf pm-form" id="pm-form" action="https://formspree.io/f/xkjgperv" method="POST">
+        <button type="button" class="pm-back" data-back>← Back to prices</button>
+        <div class="section-label">Request</div>
+        <h3 class="pm-title" id="pm-co-t" data-co-name>Service</h3>
+        <div class="pm-sum">
+          <div><span>Setup (from)</span><b data-co-setup></b></div>
+          <div><span>Monthly</span><b data-co-monthly></b></div>
+        </div>
+        <fieldset class="pm-plans" data-co-plans>
+          <legend>Management plan</legend>
+          <label><input type="radio" name="plan" value="Basic (KSh 2,000/month)" checked /> <b>Basic</b> KSh 2,000/mo</label>
+          <label><input type="radio" name="plan" value="Full (KSh 3,500/month)" /> <b>Full</b> KSh 3,500/mo</label>
+          <label data-co-noplan><input type="radio" name="plan" value="No plan" /> <b>No plan</b> for now</label>
+        </fieldset>
+        <label class="cf-field" data-co-budget><span>Your budget (KSh)</span><input name="budget" inputmode="numeric" maxlength="20" placeholder="e.g. 45,000" /></label>
+        <div class="cf-grid">
+          <label class="cf-field"><span>Name</span><input name="name" autocomplete="name" required maxlength="100" /></label>
+          <label class="cf-field"><span>WhatsApp number</span><input name="phone" type="tel" autocomplete="tel" required maxlength="30" placeholder="07xx xxx xxx" /></label>
+          <label class="cf-field cf-wide"><span>Email <em>optional</em></span><input name="email" type="email" autocomplete="email" maxlength="200" /></label>
+          <label class="cf-field cf-wide"><span>What do you need? <em>optional</em></span><textarea name="details" rows="3" maxlength="2000" placeholder="A line or two about your business and what it should do."></textarea></label>
+        </div>
+        <input type="text" name="_gotcha" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="service" /><input type="hidden" name="category" />
+        <input type="hidden" name="setup" /><input type="hidden" name="monthly" />
+        <input type="hidden" name="_subject" value="New service request — saintlife.dev" />
+        <div class="pm-actions">
+          <button type="submit" class="btn-primary">Send request</button>
+          <a class="btn-ghost" data-co-wa target="_blank" rel="noopener" href="#">Send on WhatsApp instead</a>
+        </div>
+        <p class="cf-status" role="status" aria-live="polite"></p>
+        <p class="pm-fine">No payment now. Sending this notifies me, and I'll confirm the scope and final price with you before any work starts.</p>
+      </form>
+      <div class="pm-done" hidden>
+        <div class="pm-done-ico">✓</div>
+        <h3 class="pm-title">Request sent.</h3>
+        <p class="pm-note">Thanks. I've been notified and will get back to you on WhatsApp or email to confirm the details.</p>
+        <button type="button" class="btn-primary" data-close>Done</button>
+      </div>
+    </div>
+  </dialog>
+
+
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-copy">Built with intent. &copy; 2026 &nbsp;·&nbsp; <a href="/terms.html" class="footer-link">Terms of Use</a> &nbsp;·&nbsp; <a href="/privacy.html" class="footer-link">Privacy Policy</a></span>
+
+        <div class="footer-pill">
+          <a href="mailto:saintlife54@gmail.com" class="footer-icon" aria-label="Email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+          <div class="footer-sep"></div>
+          <a href="https://wa.me/254789376070" target="_blank" rel="noopener" class="footer-icon" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+          <div class="footer-sep"></div>
+          <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="footer-icon footer-top" aria-label="Back to top">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sky.js" defer></script>
+  <script src="/js/whatsapp.js" defer></script>
+  <script src="/js/services.js" defer></script>
+</body>
+</html>

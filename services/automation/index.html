@@ -32,7 +32,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
     {"@type":"Service","name":"Email & Workflow Automation in Kenya","description":"Workflow automation for Kenyan businesses: automatic email replies, scheduled reports and data logged to Google Sheets, running without anyone at the keyboard.","url":"https://saintlife.dev/services/automation/","areaServed":{"@type":"Country","name":"Kenya"},"provider":{"@id":"https://saintlife.dev/#business"}},
-    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which tools can it connect to?","acceptedAnswer":{"@type":"Answer","text":"Gmail and Google Sheets are shown in the demos. Other tools are checked during scoping."}},{"@type":"Question","name":"What happens if something fails?","acceptedAnswer":{"@type":"Answer","text":"Failures are retried or flagged to you, and every run is logged, so nothing disappears silently."}},{"@type":"Question","name":"How much does an automation cost?","acceptedAnswer":{"@type":"Answer","text":"Automations are quoted per project, once the task is scoped. You get a clear quote before any work starts."}}]}
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which tools can it connect to?","acceptedAnswer":{"@type":"Answer","text":"Gmail and Google Sheets are shown in the demos. Other tools are checked during scoping."}},{"@type":"Question","name":"What happens if something fails?","acceptedAnswer":{"@type":"Answer","text":"Failures are retried or flagged to you, and every run is logged, so nothing disappears silently."}},{"@type":"Question","name":"How much does an automation cost?","acceptedAnswer":{"@type":"Answer","text":"Setup starts at KSh 8,000 for a single workflow and KSh 15,000 for a multi-step pipeline. After that, the monthly fee is the actual platform and API cost, passed on at cost, plus a management plan of KSh 2,000 or KSh 3,500."}}]}
   ]}
   </script>
 </head>
@@ -60,21 +60,9 @@
       <!-- Desktop links -->
       <div class="nav-center">
         <a href="/" class="nav-link">Home</a>
-        <a href="/#about" class="nav-link">About</a>
+        <a href="/about/" class="nav-link">About</a>
         <a href="/#skills" class="nav-link">Skills</a>
-        <div class="nav-item" id="nav-services">
-          <button class="nav-trigger" onclick="toggleDropdown('nav-services')">
-            Services
-            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="nav-dropdown">
-            <a href="/services/websites/">Websites</a>
-            <a href="/services/ai-agents/">AI Agents</a>
-            <a href="/services/automation/" aria-current="page">Automation</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="/#pricing">Pricing</a>
-          </div>
-        </div>
+        <a href="/services/" class="nav-link" aria-current="page">Services</a>
         <div class="nav-item" id="nav-projects">
           <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
             Projects
@@ -94,7 +82,6 @@
             <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
           </div>
         </div>
-        <a href="/portfolio/#projects" class="nav-link">Work</a>
         <a href="/portfolio/#contact" class="nav-link">Contact</a>
       </div>
 
@@ -109,14 +96,10 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
       <a href="/" class="mobile-menu-link">Home</a>
-      <a href="/#about" class="mobile-menu-link">About</a>
+      <a href="/about/" class="mobile-menu-link">About</a>
       <a href="/#skills" class="mobile-menu-link">Skills</a>
       <a href="/portfolio/" class="mobile-menu-link">Portfolio</a>
-      <a href="/portfolio/#projects" class="mobile-menu-link">Work</a>
-      <div class="mobile-menu-label">Services</div>
-      <a href="/services/websites/" class="mobile-menu-link mobile-menu-sub">Websites</a>
-      <a href="/services/ai-agents/" class="mobile-menu-link mobile-menu-sub">AI Agents</a>
-      <a href="/services/automation/" class="mobile-menu-link mobile-menu-sub">Automation</a>
+      <a href="/services/" class="mobile-menu-link">Services</a>
       <div class="mobile-menu-label">Websites</div>
       <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
       <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
@@ -139,7 +122,7 @@
         <p class="section-body">An automation connects the tools you already use and runs a routine task on its own, on a schedule or whenever something arrives, so nobody has to copy, paste or remember.</p>
         <div class="hero-cta-row svc-cta">
           <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20to%20automate%20a%20task%20in%20my%20business." target="_blank" rel="noopener" class="btn-primary">Talk on WhatsApp</a>
-          <a href="/#pricing" class="btn-ghost">See pricing</a>
+          <a href="/services/#pricing" class="btn-ghost">See all prices</a>
         </div>
       </div>
     </section>
@@ -149,14 +132,17 @@
         <div class="section-label reveal">What you can automate</div>
         <div class="svc-uses reveal reveal-delay-1">
           <div class="svc-use">
+            <span class="svc-price">Setup from KSh 15,000</span>
             <h3>Email replies</h3>
             <p>New support emails are read, answered from your policies and replied to in the same thread, around the clock.</p>
           </div>
           <div class="svc-use">
+            <span class="svc-price">Setup from KSh 8,000</span>
             <h3>Daily and weekly reports</h3>
             <p>News, figures or updates gathered, summarised and sent to your inbox at the same time every day.</p>
           </div>
           <div class="svc-use">
+            <span class="svc-price">Setup from KSh 8,000</span>
             <h3>Record keeping</h3>
             <p>Every run is written to Google Sheets, so there is a log you can check and share.</p>
           </div>
@@ -208,7 +194,7 @@
           </details>
           <details class="faq">
             <summary>How much does an automation cost?</summary>
-            <p>Automations are quoted per project, once the task is scoped. You get a clear quote before any work starts.</p>
+            <p>Setup starts at KSh 8,000 for a single workflow and KSh 15,000 for a multi-step pipeline. After that, the monthly fee is the actual platform and API cost, passed on at cost, plus a management plan of KSh 2,000 or KSh 3,500.</p>
           </details>
         </div>
 

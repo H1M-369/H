@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page not found — Jonathan Kariuki</title>
+  <title>About & How I Work — H.</title>
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="robots" content="noindex" />
+  <meta name="description" content="About H., a web and AI developer in Kenya, and how a project runs: understand the vision, plan the build, build and test, then launch and support." />
+  <link rel="canonical" href="https://saintlife.dev/about/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://saintlife.dev/about/" />
+  <meta property="og:title" content="About & How I Work — H." />
+  <meta property="og:description" content="About H., a web and AI developer in Kenya, and how a project runs: understand the vision, plan the build, build and test, then launch and support." />
+  <meta property="og:image" content="https://saintlife.dev/images/og/site.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="author" content="Jonathan Kariuki" />
 
   <!-- Anti-flash: apply saved theme before first paint -->
@@ -22,24 +29,12 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="/css/portfolio.css" />
-  <style>
-    .nf { min-height: calc(100vh - 160px); display: flex; align-items: center; padding: 96px 0 24px; }
-    .nf .container { width: 100%; }
-    .nf-code {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(5rem, 16vw, 9rem); line-height: 1;
-      color: var(--amber-l); letter-spacing: -0.04em;
-    }
-    .nf-path {
-      display: inline-block; margin-top: 18px; padding: 6px 12px;
-      font: 500 0.85rem ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      color: var(--muted); border: 1px solid var(--border); border-radius: 8px;
-      background: var(--bg); word-break: break-all;
-    }
-    .nf .hero-cta-row { margin-top: 32px; }
-  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"AboutPage","name":"About H. — Web and AI Developer","url":"https://saintlife.dev/about/","about":{"@id":"https://saintlife.dev/#person"}}
+  </script>
 </head>
 <body class="pf">
+
 
   <!-- Cursor glow -->
   <div id="cursor-glow"></div>
@@ -62,7 +57,7 @@
       <!-- Desktop links -->
       <div class="nav-center">
         <a href="/" class="nav-link">Home</a>
-        <a href="/about/" class="nav-link">About</a>
+        <a href="/about/" class="nav-link" aria-current="page">About</a>
         <a href="/#skills" class="nav-link">Skills</a>
         <a href="/services/" class="nav-link">Services</a>
         <div class="nav-item" id="nav-projects">
@@ -115,23 +110,76 @@
     </div>
   </nav>
 
-  <!-- ── NOT FOUND ── -->
-  <main>
-    <section class="nf">
+  <!-- ── SERVICE: Website Design in Kenya ── -->
+  <!-- ── ABOUT ── -->
+  <main class="svc">
+    <section class="svc-hero">
       <div class="container">
-        <div class="section-label">Error 404</div>
-        <div class="nf-code">404</div>
-        <h1 class="section-title">This route doesn't resolve.</h1>
-        <p class="section-body">No page is served at this address. It may have moved when the portfolio was restructured.</p>
-        <code class="nf-path" id="nf-path"></code>
-        <div class="hero-cta-row">
-          <a href="/" class="btn-primary">Home</a>
-          <a href="/portfolio/" class="btn-ghost">Portfolio</a>
-          <a href="/portfolio/#projects" class="btn-ghost">Projects</a>
+        <div class="pg-split">
+          <div>
+            <div class="section-label">About</div>
+            <h1 class="section-title svc-title">Clean sites.<br /><em>Agents that deliver.</em></h1>
+            <p class="section-body">I create and upgrade websites — from scratch or improving what's already there — and build custom AI agents and workflows that automate real tasks. If it can be delegated to a well-designed agent, I'll build it.</p>
+            <p class="section-body" style="margin-top:16px;">My work lives at the intersection of web and AI: polished frontends on one side, intelligent agents running behind the scenes on the other.</p>
+          </div>
+          <figure class="art art-hero"><img src="/images/art/about-hero.svg" alt="Illustration: a developer at work" /></figure>
+        </div>
+        <div class="about-stat-row">
+          <div class="stat-card reveal reveal-delay-1">
+            <div class="stat-number">Web</div>
+            <div class="stat-label">Site builds from scratch and upgrades to existing projects</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-2">
+            <div class="stat-number">Agents</div>
+            <div class="stat-label">Custom AI agents built for specific tasks and workflows</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-3">
+            <div class="stat-number">Flow</div>
+            <div class="stat-label">End-to-end agent workflows — from trigger to output</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <div class="section-label reveal">How I work</div>
+        <h2 class="section-title reveal reveal-delay-1">From your vision<br />to a live product.</h2>
+        <div class="step-grid">
+          <div class="step-card reveal reveal-delay-1">
+            <figure class="art"><img src="/images/art/step-vision.svg" alt="" loading="lazy" /></figure>
+            <span class="step-card-n">01</span>
+            <h3>Understand the vision</h3>
+            <p>I start by understanding the client's vision and expectations: who it's for, what it should do and what success looks like.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-2">
+            <figure class="art"><img src="/images/art/step-plan.svg" alt="" loading="lazy" /></figure>
+            <span class="step-card-n">02</span>
+            <h3>Plan the build</h3>
+            <p>I map out the pages, features and workflows, and agree on the scope, the price and the timeline with you.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-3">
+            <figure class="art"><img src="/images/art/step-build.svg" alt="" loading="lazy" /></figure>
+            <span class="step-card-n">03</span>
+            <h3>Build and test</h3>
+            <p>I build it and test it on real phones, real data and real emails, sharing progress as I go.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-1">
+            <figure class="art"><img src="/images/art/step-launch.svg" alt="" loading="lazy" /></figure>
+            <span class="step-card-n">04</span>
+            <h3>Launch and support</h3>
+            <p>I launch the finished product, hand it over, and stay available for updates and fixes.</p>
+          </div>
+        </div>
+        <div class="price-cta reveal">
+          <a href="/services/" class="btn-primary">See services and prices</a>
+          <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener" class="btn-ghost">Talk on WhatsApp</a>
         </div>
       </div>
     </section>
   </main>
+
+
 
   <!-- ── FOOTER ── -->
   <footer>
@@ -157,7 +205,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script>document.getElementById('nf-path').textContent = location.pathname;</script>
   <script src="/js/main.js" defer></script>
   <script src="/js/sky.js" defer></script>
   <script src="/js/whatsapp.js" defer></script>

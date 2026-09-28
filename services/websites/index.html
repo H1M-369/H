@@ -32,7 +32,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
     {"@type":"Service","name":"Website Design in Kenya","description":"Simple static websites from KSh 30,000 and full e-commerce stores from KSh 250,000, built mobile-first and fast, with WhatsApp chat and M-Pesa payments for Kenyan businesses.","url":"https://saintlife.dev/services/websites/","areaServed":{"@type":"Country","name":"Kenya"},"provider":{"@id":"https://saintlife.dev/#business"}},
-    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a static website?","acceptedAnswer":{"@type":"Answer","text":"A site made of fixed pages, such as home, services, about and contact. With no database to maintain, it loads fast and costs less to run, which makes it the right fit for most small businesses."}},{"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"Simple static websites start at KSh 30,000. Full e-commerce stores start at KSh 250,000. You get a clear quote before any work starts."}},{"@type":"Question","name":"Will it work on phones?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every site is built mobile-first, since most visitors in Kenya browse on their phones."}},{"@type":"Question","name":"Can customers pay by M-Pesa?","acceptedAnswer":{"@type":"Answer","text":"Yes. M-Pesa and card payments are part of every e-commerce build."}},{"@type":"Question","name":"Can you redesign or speed up my current site?","acceptedAnswer":{"@type":"Answer","text":"Yes. A redesign or refactor is quoted after a short review of the site you have now."}}]}
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a static website?","acceptedAnswer":{"@type":"Answer","text":"A site made of fixed pages, such as home, services, about and contact. With no database to maintain, it loads fast and costs less to run, which makes it the right fit for most small businesses."}},{"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"Simple static websites start at KSh 30,000, business websites at KSh 60,000 and e-commerce stores at KSh 250,000. Hosting and domain are billed at cost, and a care plan (KSh 2,000 or 3,500 a month) is optional."}},{"@type":"Question","name":"Will it work on phones?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every site is built mobile-first, since most visitors in Kenya browse on their phones."}},{"@type":"Question","name":"Can customers pay by M-Pesa?","acceptedAnswer":{"@type":"Answer","text":"Yes. M-Pesa and card payments are part of every e-commerce build."}},{"@type":"Question","name":"Can you redesign or speed up my current site?","acceptedAnswer":{"@type":"Answer","text":"Yes. A redesign or refactor is quoted after a short review of the site you have now."}}]}
   ]}
   </script>
 </head>
@@ -60,21 +60,9 @@
       <!-- Desktop links -->
       <div class="nav-center">
         <a href="/" class="nav-link">Home</a>
-        <a href="/#about" class="nav-link">About</a>
+        <a href="/about/" class="nav-link">About</a>
         <a href="/#skills" class="nav-link">Skills</a>
-        <div class="nav-item" id="nav-services">
-          <button class="nav-trigger" onclick="toggleDropdown('nav-services')">
-            Services
-            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="nav-dropdown">
-            <a href="/services/websites/" aria-current="page">Websites</a>
-            <a href="/services/ai-agents/">AI Agents</a>
-            <a href="/services/automation/">Automation</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="/#pricing">Pricing</a>
-          </div>
-        </div>
+        <a href="/services/" class="nav-link" aria-current="page">Services</a>
         <div class="nav-item" id="nav-projects">
           <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
             Projects
@@ -94,7 +82,6 @@
             <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
           </div>
         </div>
-        <a href="/portfolio/#projects" class="nav-link">Work</a>
         <a href="/portfolio/#contact" class="nav-link">Contact</a>
       </div>
 
@@ -109,14 +96,10 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
       <a href="/" class="mobile-menu-link">Home</a>
-      <a href="/#about" class="mobile-menu-link">About</a>
+      <a href="/about/" class="mobile-menu-link">About</a>
       <a href="/#skills" class="mobile-menu-link">Skills</a>
       <a href="/portfolio/" class="mobile-menu-link">Portfolio</a>
-      <a href="/portfolio/#projects" class="mobile-menu-link">Work</a>
-      <div class="mobile-menu-label">Services</div>
-      <a href="/services/websites/" class="mobile-menu-link mobile-menu-sub">Websites</a>
-      <a href="/services/ai-agents/" class="mobile-menu-link mobile-menu-sub">AI Agents</a>
-      <a href="/services/automation/" class="mobile-menu-link mobile-menu-sub">Automation</a>
+      <a href="/services/" class="mobile-menu-link">Services</a>
       <div class="mobile-menu-label">Websites</div>
       <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
       <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
@@ -139,7 +122,7 @@
         <p class="section-body">A clean, fast website puts your business in front of customers and makes it easy for them to reach you. Simple static websites start at KSh 30,000, and full e-commerce stores start at KSh 250,000.</p>
         <div class="hero-cta-row svc-cta">
           <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20quote%20for%20a%20website." target="_blank" rel="noopener" class="btn-primary">Talk on WhatsApp</a>
-          <a href="/#pricing" class="btn-ghost">See pricing</a>
+          <a href="/services/#pricing" class="btn-ghost">See all prices</a>
         </div>
       </div>
     </section>
@@ -147,14 +130,14 @@
     <section>
       <div class="container">
         <div class="section-label reveal">What you can get</div>
-        <div class="svc-uses reveal reveal-delay-1">
+        <div class="svc-uses svc-uses-4 reveal reveal-delay-1">
           <div class="svc-use">
             <span class="svc-price">From KSh 30,000</span>
             <h3>Simple static website</h3>
             <p>A fast, mobile-first site that presents your business, with your services, contact details, a contact form and a WhatsApp chat button.</p>
           </div>
           <div class="svc-use">
-            <span class="svc-price">Quoted by scope</span>
+            <span class="svc-price">From KSh 60,000</span>
             <h3>Business website</h3>
             <p>More pages and sections, such as a gallery, menu or price list, bookings, and a Google Maps location.</p>
           </div>
@@ -162,6 +145,12 @@
             <span class="svc-price">From KSh 250,000</span>
             <h3>E-commerce store</h3>
             <p>A full online store with a product catalogue, cart and checkout, M-Pesa and card payments, and order alerts on WhatsApp.</p>
+          </div>
+          <div class="svc-use svc-use-custom">
+            <span class="svc-price">Your budget</span>
+            <h3>Custom-tailored website</h3>
+            <p>Tell me your budget and what you want the site to do, and I'll shape a build around both: the pages, features and design that fit your price.</p>
+            <a class="svc-use-cta" href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20a%20custom%20website.%20My%20budget%20is%20about%20KSh%20" target="_blank" rel="noopener">Share your budget on WhatsApp →</a>
           </div>
         </div>
 
@@ -207,7 +196,7 @@
           </details>
           <details class="faq">
             <summary>How much does a website cost?</summary>
-            <p>Simple static websites start at KSh 30,000. Full e-commerce stores start at KSh 250,000. You get a clear quote before any work starts.</p>
+            <p>Simple static websites start at KSh 30,000, business websites at KSh 60,000 and e-commerce stores at KSh 250,000. Hosting and domain are billed at cost, and a care plan (KSh 2,000 or 3,500 a month) is optional.</p>
           </details>
           <details class="faq">
             <summary>Will it work on phones?</summary>

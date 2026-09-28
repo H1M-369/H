@@ -32,7 +32,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
     {"@type":"Service","name":"AI Agents for Businesses in Kenya","description":"AI agents that answer customer emails, write reports and handle repetitive tasks for Kenyan businesses, built on your own documents and tools. See them running.","url":"https://saintlife.dev/services/ai-agents/","areaServed":{"@type":"Country","name":"Kenya"},"provider":{"@id":"https://saintlife.dev/#business"}},
-    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will it make things up?","acceptedAnswer":{"@type":"Answer","text":"It is built to answer only from the documents you give it, and to show where each answer came from."}},{"@type":"Question","name":"Does it replace my staff?","acceptedAnswer":{"@type":"Answer","text":"It takes the repetitive part of a task, so your team can spend time on the parts that need a person."}},{"@type":"Question","name":"How much does an agent cost?","acceptedAnswer":{"@type":"Answer","text":"Agents are quoted per project, once the task is scoped. You get a clear quote before any work starts."}}]}
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will it make things up?","acceptedAnswer":{"@type":"Answer","text":"It is built to answer only from the documents you give it, and to show where each answer came from."}},{"@type":"Question","name":"Does it replace my staff?","acceptedAnswer":{"@type":"Answer","text":"It takes the repetitive part of a task, so your team can spend time on the parts that need a person."}},{"@type":"Question","name":"How much does an agent cost?","acceptedAnswer":{"@type":"Answer","text":"Setup starts at KSh 6,000 for a custom email agent, KSh 10,000 for a website chat assistant and KSh 25,000 for a custom agent. After that, the monthly fee is the actual API cost, passed on at cost, plus a management plan of KSh 2,000 or KSh 3,500."}}]}
   ]}
   </script>
 </head>
@@ -60,21 +60,9 @@
       <!-- Desktop links -->
       <div class="nav-center">
         <a href="/" class="nav-link">Home</a>
-        <a href="/#about" class="nav-link">About</a>
+        <a href="/about/" class="nav-link">About</a>
         <a href="/#skills" class="nav-link">Skills</a>
-        <div class="nav-item" id="nav-services">
-          <button class="nav-trigger" onclick="toggleDropdown('nav-services')">
-            Services
-            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="nav-dropdown">
-            <a href="/services/websites/">Websites</a>
-            <a href="/services/ai-agents/" aria-current="page">AI Agents</a>
-            <a href="/services/automation/">Automation</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href="/#pricing">Pricing</a>
-          </div>
-        </div>
+        <a href="/services/" class="nav-link" aria-current="page">Services</a>
         <div class="nav-item" id="nav-projects">
           <button class="nav-trigger" onclick="toggleDropdown('nav-projects')">
             Projects
@@ -94,7 +82,6 @@
             <a href="/workflows/email-autoresponder/">Email Autoresponder</a>
           </div>
         </div>
-        <a href="/portfolio/#projects" class="nav-link">Work</a>
         <a href="/portfolio/#contact" class="nav-link">Contact</a>
       </div>
 
@@ -109,14 +96,10 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
       <a href="/" class="mobile-menu-link">Home</a>
-      <a href="/#about" class="mobile-menu-link">About</a>
+      <a href="/about/" class="mobile-menu-link">About</a>
       <a href="/#skills" class="mobile-menu-link">Skills</a>
       <a href="/portfolio/" class="mobile-menu-link">Portfolio</a>
-      <a href="/portfolio/#projects" class="mobile-menu-link">Work</a>
-      <div class="mobile-menu-label">Services</div>
-      <a href="/services/websites/" class="mobile-menu-link mobile-menu-sub">Websites</a>
-      <a href="/services/ai-agents/" class="mobile-menu-link mobile-menu-sub">AI Agents</a>
-      <a href="/services/automation/" class="mobile-menu-link mobile-menu-sub">Automation</a>
+      <a href="/services/" class="mobile-menu-link">Services</a>
       <div class="mobile-menu-label">Websites</div>
       <a href="/shop/" class="mobile-menu-link mobile-menu-sub">DRAPE — Shop</a>
       <a href="/websites/restaurant/" class="mobile-menu-link mobile-menu-sub">Ember &amp; Oak</a>
@@ -139,7 +122,7 @@
         <p class="section-body">An AI agent handles one repetitive task end to end: reading your documents, deciding what to do, and producing the reply or report. It works from your information, not guesses.</p>
         <div class="hero-cta-row svc-cta">
           <a href="https://wa.me/254789376070?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20an%20AI%20agent%20for%20my%20business." target="_blank" rel="noopener" class="btn-primary">Talk on WhatsApp</a>
-          <a href="/#pricing" class="btn-ghost">See pricing</a>
+          <a href="/services/#pricing" class="btn-ghost">See all prices</a>
         </div>
       </div>
     </section>
@@ -149,14 +132,17 @@
         <div class="section-label reveal">What an agent can take on</div>
         <div class="svc-uses reveal reveal-delay-1">
           <div class="svc-use">
+            <span class="svc-price">Setup from KSh 6,000</span>
             <h3>Customer support replies</h3>
             <p>Reads each customer email, finds the answer in your help docs, and drafts a reply that cites its source.</p>
           </div>
           <div class="svc-use">
+            <span class="svc-price">Setup from KSh 25,000</span>
             <h3>Research and reports</h3>
             <p>Looks at a business and its competitors and returns a scored report with a list of what to fix first.</p>
           </div>
           <div class="svc-use">
+            <span class="svc-price">Setup from KSh 10,000</span>
             <h3>Answering from your documents</h3>
             <p>Policies, price lists or product guides become something staff and customers can ask questions of.</p>
           </div>
@@ -202,7 +188,7 @@
           </details>
           <details class="faq">
             <summary>How much does an agent cost?</summary>
-            <p>Agents are quoted per project, once the task is scoped. You get a clear quote before any work starts.</p>
+            <p>Setup starts at KSh 6,000 for a custom email agent, KSh 10,000 for a website chat assistant and KSh 25,000 for a custom agent. After that, the monthly fee is the actual API cost, passed on at cost, plus a management plan of KSh 2,000 or KSh 3,500.</p>
           </details>
         </div>
 
