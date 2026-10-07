@@ -704,6 +704,11 @@ section { padding: 100px 0; }
 .offer h3 { font-family: 'Inter', sans-serif; letter-spacing: 0; font-size: 1.05rem; font-weight: 600; }
 .offer p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; flex: 1; }
 .offer-go { font-size: 0.85rem; font-weight: 600; color: var(--amber-l); margin-top: 6px; }
+/* Website care: a monthly service, so it spans the row under the four builds */
+.offer-wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(220px, 0.9fr) 2fr; gap: 24px; align-items: center; }
+.offer-wide .art { height: 190px; margin-bottom: 0; }
+.offer-wide > div { display: flex; flex-direction: column; gap: 6px; }
+.offer-wide p { max-width: 60ch; }
 
 .step-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 36px; }
 .step-card { padding: 16px 16px 22px; border-radius: 16px; background: var(--bg); border: 1px solid var(--border); }
@@ -736,6 +741,8 @@ section { padding: 100px 0; }
 @media (max-width: 560px) {
   .offer-grid, .step-grid { grid-template-columns: 1fr; }
   .more-card { grid-template-columns: 1fr; }
+  .offer-wide { grid-template-columns: 1fr; gap: 6px; }
+  .offer-wide .art { height: 170px; margin-bottom: 10px; }
   .more-card .art { max-width: 260px; }
 }
 

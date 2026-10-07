@@ -35,10 +35,11 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 - Automation: https://saintlife.dev/services/automation/
 
 ### Pricing (setup from; monthly = API/platform cost at cost + management plan KSh 2,000 Basic or KSh 3,500 Full)
-- Websites: simple static KSh 30,000; business KSh 60,000; e-commerce KSh 250,000 (hosting at cost, care plan optional)
+- Websites: simple static KSh 30,000; business KSh 60,000; e-commerce KSh 250,000 (hosting at cost, Website care optional)
 - AI agents: custom email agent KSh 6,000; website chat assistant KSh 10,000; custom AI agent KSh 25,000
 - Automations: single workflow KSh 8,000; multi-step pipeline KSh 15,000
 - Integrations for an existing website: AI assistant KSh 12,000; M-Pesa payments on your site KSh 20,000; WhatsApp order alerts KSh 12,000
+- Website care (any website, no setup fee): search setup one-off KSh 6,000; Care Basic KSh 2,500/month; Care + Search KSh 4,000/month; Care Growth KSh 10,000/month. Covers backups, security, fixes, and keeping sitemap.xml, robots.txt and llms.txt current
 - Details and "why the price": https://saintlife.dev/services/#pricing
 
 ### Legal

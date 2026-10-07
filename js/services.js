@@ -54,6 +54,22 @@
   };
   const refreshWa = () => { $('[data-co-wa]').href = waLink(); };
 
+  const PLAN_SETS = {
+    ai: { legend: 'Management plan', options: [['Basic', '2,000'], ['Full', '3,500']] },
+    care: { legend: 'Website care', options: [['Care Basic', '2,500'], ['Care + Search', '4,000'], ['Care Growth', '10,000']] },
+  };
+  const fillPlans = set => {
+    const plans = $('[data-co-plans]');
+    plans.querySelector('legend').textContent = set.legend;
+    plans.querySelectorAll('label:not([data-co-noplan])').forEach(l => l.remove());
+    const noPlan = $('[data-co-noplan]');
+    set.options.forEach(([name, price], i) => {
+      const label = document.createElement('label');
+      label.innerHTML = `<input type="radio" name="plan" value="${name} (KSh ${price}/month)"${i ? '' : ' checked'} /> <b>${name}</b> KSh ${price}/mo`;
+      plans.insertBefore(label, noPlan);
+    });
+  };
+
   // "Choose" -> request form for that option
   document.querySelectorAll('.pm-choose').forEach(btn => btn.addEventListener('click', () => {
     fromDialog = btn.closest('dialog');
@@ -65,14 +81,17 @@
     $('.pm-done').hidden = true;
     form.elements.service.value = o.service;
     form.elements.category.value = o.category;
-    form.elements.setup.value = o.custom ? 'Your budget' : `KSh ${o.setup}`;
+    const setup = o.custom ? 'Your budget' : o.setup === 'None' ? 'None' : `KSh ${o.setup}`;
+    form.elements.setup.value = setup;
     form.elements.monthly.value = o.monthly;
     $('[data-co-name]').textContent = o.service;
-    $('[data-co-setup]').textContent = o.custom ? 'Your budget' : `KSh ${o.setup}`;
+    $('[data-co-setup]').textContent = setup;
     $('[data-co-monthly]').textContent = o.monthly;
-    // plans: required for agents/automations, optional (with "No plan") for websites and M-Pesa
+    // plans: required for agents/automations, optional (with "No plan") for websites and M-Pesa,
+    // none for Website care packages; websites get the care packages instead of the AI plans
     const plans = $('[data-co-plans]');
-    plans.hidden = false;
+    plans.hidden = plans.disabled = o.plan === 'none';
+    fillPlans(PLAN_SETS[o.plans] || PLAN_SETS.ai);
     $('[data-co-noplan]').hidden = o.plan === 'required';
     if (o.plan !== 'required') form.querySelector('input[value="No plan"]').checked = true;
     $('[data-co-budget]').hidden = !o.custom;
