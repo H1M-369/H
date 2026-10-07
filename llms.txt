@@ -1,21 +1,24 @@
-# H. — Web and AI Developer (Jonathan Kariuki)
+# H. — Web and AI Developer in Kenya
 
 > Websites that build presence. Agents that deliver. Automations that make work convenient.
 > https://saintlife.dev
 
 ## About
 
-Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM agents with scoped tools and retrieval over the client's own data, and event-driven automation pipelines. Every project listed below has a running demo on this site; none are mockups.
+H. is run by Jonathan Kariuki, a developer in Kenya who builds static, accessible websites, LLM agents with scoped tools and retrieval over the client's own data, and event-driven automation pipelines, and keeps websites healthy and findable afterwards. Every project listed below is working code shown on this site; none are mockups.
+
+Prices are published openly. A first consultation on WhatsApp is free, and sending a request through the site costs nothing: scope and final price are agreed before any work or payment.
 
 ## Pages
 
 ### Home
 - URL: https://saintlife.dev/
-- Sections: Hero, Capabilities, links to Services and About (projects live on the portfolio; contact has its own page)
+- Sections: Hero, What I do, links to Services and About (projects live on the portfolio; contact has its own page)
 
 ### Services & prices
 - URL: https://saintlife.dev/services/
-- What I build (websites, AI agents, automations, website add-ons), prices in a pop-up per category, management plans, a worked example and why prices differ
+- What I build (websites, AI agents, automations, website add-ons) and Website care, with prices in a pop-up per category, management plans, a worked example, why prices differ and a pricing FAQ
+- Each option has a Choose button that sends a free, no-obligation request (or opens WhatsApp)
 
 ### About & how I work
 - URL: https://saintlife.dev/about/
@@ -33,14 +36,18 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 - Websites (simple static sites from KSh 30,000; e-commerce from KSh 250,000): https://saintlife.dev/services/websites/
 - AI agents: https://saintlife.dev/services/ai-agents/
 - Automation: https://saintlife.dev/services/automation/
+- Website care (maintenance, search and AI-search upkeep): https://saintlife.dev/services/#care
 
-### Pricing (setup from; monthly = API/platform cost at cost + management plan KSh 2,000 Basic or KSh 3,500 Full)
-- Websites: simple static KSh 30,000; business KSh 60,000; e-commerce KSh 250,000 (hosting at cost, Website care optional)
+### Pricing (KSh; setup prices are "from")
+- Monthly for AI agents, automations and website add-ons: AI/platform usage passed on at cost + a management plan (Basic KSh 2,000 or Full KSh 3,500)
+- Monthly for websites: hosting and domain at cost, plus an optional Website care package
+- Websites: simple static KSh 30,000; business KSh 60,000; e-commerce KSh 250,000; custom-tailored to the client's budget (hosting at cost, Website care optional)
 - AI agents: custom email agent KSh 6,000; website chat assistant KSh 10,000; custom AI agent KSh 25,000
 - Automations: single workflow KSh 8,000; multi-step pipeline KSh 15,000
-- Integrations for an existing website: AI assistant KSh 12,000; M-Pesa payments on your site KSh 20,000; WhatsApp order alerts KSh 12,000
+- Website add-ons for an existing website: AI assistant KSh 12,000; M-Pesa payments on your site KSh 20,000; WhatsApp order alerts KSh 12,000
 - Website care (any website, no setup fee): search setup one-off KSh 6,000; Care Basic KSh 2,500/month; Care + Search KSh 4,000/month; Care Growth KSh 10,000/month. Covers backups, security, fixes, and keeping sitemap.xml, robots.txt and llms.txt current
 - Details and "why the price": https://saintlife.dev/services/#pricing
+- Free consultation: https://wa.me/254789376070
 
 ### Legal
 - Terms of Use: https://saintlife.dev/terms.html
@@ -48,7 +55,7 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 
 ## Projects
 
-Each project has a case page (write-up plus an animated demo) and a separate live build.
+Each project has a case page (write-up plus an animated demo); most also have a separate live build.
 
 ### DRAPE — static e-commerce front end
 - Case page: https://saintlife.dev/portfolio/drape/
@@ -97,6 +104,8 @@ Each project has a case page (write-up plus an animated demo) and a separate liv
 - Refactors: accessibility fixes, render-blocking asset removal, Core Web Vitals
 - LLM agents: Claude API (Anthropic), OpenAI, tool calling, structured outputs, retrieval over client documents
 - Pipelines: Gmail API, Google Sheets API, Python, scheduled and event-driven runs with retries and run logs
+- Payments and messaging: Safaricom Daraja (M-Pesa STK push), WhatsApp Business Platform
+- Website care and search: sitemaps, robots.txt, llms.txt, canonical tags, structured data (FAQ), Google Search Console and Bing
 
 ## Contact
 
