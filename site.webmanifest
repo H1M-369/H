@@ -1,9 +1,17 @@
 {
-  "name": "Jonathan Kariuki",
+  "name": "H. — Web and AI Developer",
   "short_name": "H.",
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ],
   "theme_color": "#09090C",
   "background_color": "#09090C",
