@@ -15,7 +15,7 @@ Site of Jonathan Kariuki (Kenya), who builds static, accessible front ends, LLM 
 
 ### Services & prices
 - URL: https://saintlife.dev/services/
-- What I build (websites, AI agents, automations, integrations), full price tables, management plans, a worked example and why prices differ
+- What I build (websites, AI agents, automations, website add-ons), prices in a pop-up per category, management plans, a worked example and why prices differ
 
 ### About & how I work
 - URL: https://saintlife.dev/about/
