@@ -908,7 +908,7 @@ dialog.pm[open] { animation: pm-in 0.28s cubic-bezier(0.34,1.4,0.64,1); }
 
 /* ── Footer ── */
 footer {
-  padding: clamp(36px, 5vw, 56px) 0 22px;
+  padding: clamp(36px, 5vw, 56px) 0 56px;   /* bottom room so the floating WhatsApp label clears the legal row */
   position: relative;
   z-index: 1;
 }
@@ -979,9 +979,11 @@ footer {
   padding-top: 20px; border-top: 1px solid var(--border);
   font-size: 0.8125rem; color: var(--muted);
 }
-.ft-legal { display: flex; align-items: center; gap: 20px; }
+.ft-legal { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 20px; }
 .ft-legal a { color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
 .ft-legal a:hover { color: var(--amber-l); }
+.ft-cookie { background: none; border: 0; padding: 0; font: inherit; color: var(--muted); cursor: pointer; transition: color 0.2s ease; }
+.ft-cookie:hover { color: var(--amber-l); }
 .ft-top {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 6px 12px; border: 1px solid var(--border); border-radius: 100px;
@@ -989,7 +991,7 @@ footer {
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 .ft-top:hover { color: var(--amber-l); border-color: var(--amber-l); }
-.ft-col a:focus-visible, .ft-legal a:focus-visible, .ft-top:focus-visible, .ft-logo:focus-visible {
+.ft-col a:focus-visible, .ft-legal a:focus-visible, .ft-cookie:focus-visible, .ft-top:focus-visible, .ft-logo:focus-visible {
   outline: 2px solid var(--amber-l); outline-offset: 3px; border-radius: 4px;
 }
 
