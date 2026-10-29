@@ -104,7 +104,7 @@ Write-up, step list and a scripted demo that plays while on screen, plus a link 
 - **Canvas 2D**: contact-section particle bursts
 - **IntersectionObserver**: scroll reveals and demo playback
 - **Formspree**: delivers the contact form (`contact/index.html`) and service requests (`services/index.html`)
-- **Vercel Web Analytics**: cookie-free page-view counts; skipped on localhost
+- **Analytics**: Google Analytics 4 (gtag.js, `G-8JXBLPWPSG`, sets cookies) on every page, plus cookie-free Vercel Web Analytics (skipped on localhost); both are described in `privacy.html`
 
 ---
 
