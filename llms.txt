@@ -1,11 +1,11 @@
-# H. — Web and AI Developer in Kenya
+# H. — Web Designer & AI Developer in Nairobi, Kenya
 
 > Websites that build presence. Agents that deliver. Automations that make work convenient.
 > https://saintlife.dev
 
 ## About
 
-H. is run by Jonathan Kariuki, a developer in Kenya who builds static, accessible websites, LLM agents with scoped tools and retrieval over the client's own data, and event-driven automation pipelines, and keeps websites healthy and findable afterwards. Every project listed below is working code shown on this site; none are mockups.
+H. is run by Jonathan Kariuki, a developer serving businesses in Nairobi and across Kenya who builds static, accessible websites, LLM agents with scoped tools and retrieval over the client's own data, and event-driven automation pipelines, and keeps websites healthy and findable afterwards. Every project listed below is working code shown on this site; none are mockups.
 
 Prices are published openly. A first consultation on WhatsApp is free, and sending a request through the site costs nothing: scope and final price are agreed before any work or payment.
 
