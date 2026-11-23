@@ -165,4 +165,4 @@ On first run a browser window opens for Gmail OAuth. After that, `token.json` ha
 ## Contact
 
 **Jonathan Kariuki**
-[saintlife54@gmail.com](mailto:saintlife54@gmail.com)
+[devsaint.h@gmail.com](mailto:devsaint.h@gmail.com)

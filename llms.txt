@@ -109,6 +109,6 @@ Each project has a case page (write-up plus an animated demo); most also have a 
 
 ## Contact
 
-- Email: saintlife54@gmail.com
+- Email: devsaint.h@gmail.com
 - WhatsApp: https://wa.me/254789376070
 - Site: https://saintlife.dev
