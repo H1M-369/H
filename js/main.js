@@ -107,7 +107,7 @@ document.addEventListener('mousemove', e => {
 
 /* ── Text disperse (phone CTA) ── */
 (function () {
-  const phoneText  = '+254789376070';
+  const phoneText  = '+254769812154';
   const transforms = [
     { x: -0.8,  y: -0.6,  r: -29 },
     { x: -0.2,  y: -0.4,  r: -6  },

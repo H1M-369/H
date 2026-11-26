@@ -2,7 +2,7 @@
    pre-filled with where the visitor came from ── */
 (function () {
   if (document.getElementById('wa-float')) return;
-  const NUMBER = '254789376070';
+  const NUMBER = '254769812154';
   const page = location.pathname === '/' ? 'home page' : document.title.split(/\s[—–|-]\s/)[0].trim();
   const text = `Hello, I found you on saintlife.dev (${page}) and I'd like a free consultation.`;
 

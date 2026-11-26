@@ -3,7 +3,7 @@
    opens a short request form that notifies me through Formspree, with a
    pre-filled WhatsApp message as the alternative. No payment is taken. */
 (function () {
-  const WA_NUMBER = '254789376070';
+  const WA_NUMBER = '254769812154';
   const checkout = document.getElementById('pm-checkout');
   const form = document.getElementById('pm-form');
   if (!checkout || !form) return;

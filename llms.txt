@@ -47,7 +47,7 @@ Prices are published openly. A first consultation on WhatsApp is free, and sendi
 - Website add-ons for an existing website: AI assistant KSh 12,000; M-Pesa payments on your site KSh 20,000; WhatsApp order alerts KSh 12,000
 - Website care (any website, no setup fee): search setup one-off KSh 6,000; Care Basic KSh 2,500/month; Care + Search KSh 4,000/month; Care Growth KSh 10,000/month. Covers backups, security, fixes, and keeping sitemap.xml, robots.txt and llms.txt current
 - Details and "why the price": https://saintlife.dev/services/#pricing
-- Free consultation: https://wa.me/254789376070
+- Free consultation: https://wa.me/254769812154
 
 ### Legal
 - Terms of Use: https://saintlife.dev/terms.html
@@ -110,5 +110,5 @@ Each project has a case page (write-up plus an animated demo); most also have a 
 ## Contact
 
 - Email: devsaint.h@gmail.com
-- WhatsApp: https://wa.me/254789376070
+- WhatsApp: https://wa.me/254769812154
 - Site: https://saintlife.dev
