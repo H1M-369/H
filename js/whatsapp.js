@@ -1,10 +1,47 @@
 /* ── Floating WhatsApp button: on every page, always labelled "Get a free consultation",
-   pre-filled with where the visitor came from ── */
+   pre-filled with a short template the visitor completes, tailored to the page they're on ── */
 (function () {
   if (document.getElementById('wa-float')) return;
   const NUMBER = '254769812154';
-  const page = location.pathname === '/' ? 'home page' : document.title.split(/\s[—–|-]\s/)[0].trim();
-  const text = `Hello, I found you on saintlife.dev (${page}) and I'd like a free consultation.`;
+
+  // what the visitor is probably after, by page; blank means they fill it in
+  const path = location.pathname;
+  const NEEDS = {
+    '/services/websites/': 'a new website',
+    '/services/ai-agents/': 'an AI agent',
+    '/services/automation/': 'an automation',
+    '/portfolio/drape/': 'an online shop like DRAPE',
+    '/shop/': 'an online shop like DRAPE',
+    '/portfolio/ember-oak/': 'a restaurant website like Ember & Oak',
+    '/websites/restaurant/': 'a restaurant website like Ember & Oak',
+    '/portfolio/whatsapp-mpesa/': 'M-Pesa payments and WhatsApp order alerts',
+    '/portfolio/email-support/': 'an AI agent that answers customer emails',
+    '/agents/email-support/': 'an AI agent that answers customer emails',
+    '/portfolio/competitor-analysis/': 'a competitor analysis agent',
+    '/agents/competitor-analysis/': 'a competitor analysis agent',
+    '/portfolio/daily-briefing/': 'a daily briefing automation',
+    '/workflows/daily-briefing/': 'a daily briefing automation',
+    '/portfolio/email-autoresponder/': 'an email autoresponder',
+    '/workflows/email-autoresponder/': 'an email autoresponder',
+  };
+  const need = NEEDS[path] || '';
+  const PAGES = {
+    '/': 'home page', '/services/': 'Services page', '/services/websites/': 'Websites page',
+    '/services/ai-agents/': 'AI agents page', '/services/automation/': 'Automation page',
+    '/about/': 'About page', '/contact/': 'Contact page', '/portfolio/': 'Portfolio',
+  };
+  const page = PAGES[path] || `${document.title.split(/\s[—–|-]\s/)[0].trim()} page`;
+
+  const text = [
+    "Hi H. 👋 I'd like a free consultation.",
+    `(Found you via the ${page} on saintlife.dev.)`,
+    '',
+    `What I need: ${need}`,
+    'My business: ',
+    'What I want it to do: ',
+    'When I want to start: ',
+    'My budget (optional): ',
+  ].join('\n');
 
   const css = `
     #wa-float {
